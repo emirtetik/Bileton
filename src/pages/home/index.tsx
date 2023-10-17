@@ -1,7 +1,7 @@
 
 const Home = () => {
   return (
-    <div className="bg-red-900 flex items-center justify-center text-5xl py-4">Hoşgeldinizszz</div>
+    <div className="text-3xl bg-red-500  flex justify-center items-center py-4">Hoşgeldinizszz</div>
   )
 }
 
