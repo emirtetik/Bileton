@@ -1,4 +1,5 @@
 import EventRow from "./eventRow"
+import { useState } from "react"
 import useSWR from "swr"
 import { EventService } from "../services/EventService"
 interface event{
@@ -13,6 +14,7 @@ interface event{
 const fetcher = () => EventService.getAll()
 
 const EventList = () => {
+	const [page, setPage] = useState(1)
     const { data: events,isLoading, error } = useSWR("events", fetcher)
     
 
@@ -68,7 +70,7 @@ const EventList = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{events.map((event:event ) => (
+							{events.slice(page-1,page+5).map((event:event ) => (
                                 <EventRow {...event} />  
                             ))}
 							
@@ -77,15 +79,26 @@ const EventList = () => {
 					<div
 						className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
 						<span className="text-xs xs:text-sm text-gray-900">
-                            Showing 1 to 4 of 50 Entries
+                            Showing {page} to {page+5 > events.length ? events.length : page+5} of {events.length}
                         </span>
 						<div className="inline-flex mt-2 xs:mt-0">
 							<button
+							onClick={()=>{
+								if(page - 5  > 0){
+									setPage(page-5)
+								}
+							}
+							}
                                 className="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-l">
                                 Prev
                             </button>
 							&nbsp; &nbsp;
 							<button
+							onClick={()=>{
+								if(page+5 < events.length){
+									setPage(page+5)
+								}
+							}}
                                 className="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-r">
                                 Next
                             </button>
