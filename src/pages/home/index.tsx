@@ -6,6 +6,7 @@ const Home = () => {
     <div className="flex flex-row h-screen  ">
       <SideBar />
       <div className="flex flex-col w-full h-52 ">
+      <div>Carousel</div>
       <EventList />
       
       </div>
