@@ -1,6 +1,14 @@
 import EventRow from "./eventRow"
 import useSWR from "swr"
 import { EventService } from "../services/EventService"
+interface event{
+    image:string,
+    name:string,
+    description:string,
+    date:string,
+    location:string,
+    status:string
+}
 
 const fetcher = () => EventService.getAll()
 
@@ -60,7 +68,7 @@ const EventList = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{events.map((event:object ) => (
+							{events.map((event:event ) => (
                                 <EventRow {...event} />  
                             ))}
 							
