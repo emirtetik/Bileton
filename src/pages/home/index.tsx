@@ -1,8 +1,12 @@
 import EventList from "../../components/eventList"
+import SideBar from "../../components/sideBar"
 
 const Home = () => {
   return (
-    <EventList />
+    <div className="flex flex-row h-screen overflow-hidden ">
+      <SideBar />
+      <EventList />
+    </div>
   )
 }
 
