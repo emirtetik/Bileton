@@ -1,16 +1,29 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/home";
 import NotFound from "../pages/notFound";
+import MainLayout from "../layouts/main";
+import Home from "../pages/home";
+import Lists from "../pages/lists";
 
 const routes = createBrowserRouter([
     {
         path:'/',
-        element: <Home/>
-    },
-    {
-        path:'*',
-        element: <NotFound/>
+        element: <MainLayout/>,
+        children:[
+            {
+              index:true,
+              element:<Home/>
+            },
+            {
+            path:'/lists',
+            element:<Lists/>
+            },
+            {
+                path:'*',
+                element: <NotFound/>
+            }
+        ]
     }
+ 
 ])
 
 export default routes

@@ -1,16 +1,12 @@
-import EventsSection from "../../components/eventList/eventsSections"
-import SideBar from "../../components/sideBar"
+import EventList from "../../components/eventList/eventList"
+
 
 const Home = () => {
   return (
-    <div className="flex flex-row h-screen  ">
-      <SideBar />
-      <div className="flex flex-col w-full h-52 ">
-      <div>Carousel</div>
-      <EventsSection/>
-      
-      </div>
+    <div>
+    <EventList/>
     </div>
+
   )
 }
 
