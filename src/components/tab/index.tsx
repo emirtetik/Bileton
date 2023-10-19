@@ -8,7 +8,7 @@ import Sticky from "../sticky";
 
 const Tab: TabType = ({ children, activeTab }) => {
   const [active, setActive] = React.useState(activeTab);
-
+   console.log(children)
   React.useEffect(() => {
     setActive(activeTab);
   }, [activeTab]);
