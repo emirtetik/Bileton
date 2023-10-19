@@ -1,6 +1,5 @@
 import Sticky from "../../sticky"
 import Tab from ".."
-import EventList from "../../eventList"
 import Carousel from "../../carousel"
 import EventsSection from "../../eventList/eventsSections"
 const TabHome = () => {
@@ -21,7 +20,6 @@ const TabHome = () => {
           {/* Anasayfada bir component  gösterilicekse burda olmalı  */}
           <Carousel />
       <EventsSection />
-         <EventList/>
          </Tab.Content>
          <Tab.Content id='past'>
           {/* Past sekmesinde bir component  gösterilicekse burda olmalı  */}
