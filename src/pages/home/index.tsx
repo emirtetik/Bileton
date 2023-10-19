@@ -1,5 +1,4 @@
 import TabHome from "../../components/tab/tabHome"
-
 const Home = () => {
   return (
     <div>

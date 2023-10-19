@@ -1,4 +1,4 @@
-import EventRow from "./eventRow"
+import EventRow from "./eventList/eventRow"
 import { useState } from "react"
 import useSWR from "swr"
 import { EventService } from "../services/EventService"
