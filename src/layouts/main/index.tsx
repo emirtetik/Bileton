@@ -3,7 +3,7 @@ import SideBar from "../sidebar"
 
 const MainLayout = () => {
   return (
-    <div className="w-full flex gap-3">
+    <div className="flex w-full ">
         <SideBar/>
         <div className="flex-1">
         <Outlet/>
