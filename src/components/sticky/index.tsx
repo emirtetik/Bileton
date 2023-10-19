@@ -2,7 +2,7 @@ import React from "react"
 
 
 interface StickyProps{
-    title:string,
+    
     children?: React.ReactNode
 }
 

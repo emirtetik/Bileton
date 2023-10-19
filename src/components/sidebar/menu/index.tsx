@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { mainMenu } from "../../../utils/const";
+import { mainMenu } from "../../../constant";
 import classNames from "classnames";
 import Logo from "../logo";
 
 const Menu = () => {
   return (
-    <nav className=" px-2 py-2">
+    <nav className="px-2 py-2 ">
       <aside >
       <Logo/>
         {mainMenu.map((menu, index) => (
@@ -17,7 +17,7 @@ const Menu = () => {
                   { "font-bold": isActive }
                 )}
               >
-                <div className=" flex items-center">
+                <div className="flex items-center ">
                     {!isActive && menu.icon.passive}
                    {isActive && menu.icon.active}
                   <div className="pr-4 text-xl">{menu.title}</div>
