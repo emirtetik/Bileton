@@ -1,4 +1,4 @@
-import EventList from "../../components/eventList"
+import EventsSection from "../../components/eventList/eventsSections"
 import SideBar from "../../components/sideBar"
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
       <SideBar />
       <div className="flex flex-col w-full h-52 ">
       <div>Carousel</div>
-      <EventList />
+      <EventsSection/>
       
       </div>
     </div>
