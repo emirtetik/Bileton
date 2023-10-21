@@ -2,30 +2,36 @@ import { NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import classNames from "classnames";
 import Logo from "../logo";
+import Music from "./music";
+import Scene from "./scene";
 
 const Menu = () => {
   return (
-    <nav className="px-2 py-2 ">
+    <nav className="px-4 py-6  ">
       <aside >
       <Logo/>
         {mainMenu.map((menu, index) => (
-          <NavLink key={index} to={menu.path} className="py-1 text-white">
+          <NavLink key={index} to={menu.path} className="py-1 text-white/30">
             {({ isActive }) => (
               <div
                 className={classNames(
-                  "inline-flex   bg-white/10  rounded  items-center group-hover:bg-white/10 w-full group-active:scale-95 self-stretch space-x-2 transition-all duration-200 dark:group-hover:text-white dark:hover:text-white",
-                  { "font-bold": isActive }
+                  "inline-flex   rounded-full p-2 mb-3 items-center  w-full group-active:scale-95 self-stretch   transition-all duration-200 hover:bg-white/10",
+                  { " bg-white/10  font-bold text-white": isActive }
                 )}
               >
                 <div className="flex items-center ">
                     {!isActive && menu.icon.passive}
                    {isActive && menu.icon.active}
-                  <div className="pr-4 text-xl">{menu.title}</div>
+                  <div className="pl-2 ">{menu.title}</div>
                 </div>
               </div>
             )}
           </NavLink>
         ))}
+        <div className="border bg-white mt-3 mb-3"/>
+        
+        <Music/>
+        <Scene/>
       </aside>
     </nav>
   );
