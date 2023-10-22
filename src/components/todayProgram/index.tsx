@@ -12,7 +12,6 @@ const TodayProgram = () => {
         <div className=" rounded-2xl  flex items-center gap-5">
           <div className="text-[13px]">
             <svg
-              className=""
               width="30px"
               height="30px"
               viewBox="0 0 24 24"
