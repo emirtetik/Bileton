@@ -2,7 +2,7 @@ import Sticky from "../../sticky"
 import Tab from ".."
 // import TodayProgram from "../../todayProgram"
 // import EventsSection from "../../eventList/eventsSections"
-// import UpComing from "../../upcoming"
+import UpComing from "../../upcoming"
 
 const TabHome = () => {
   return (
@@ -20,7 +20,7 @@ const TabHome = () => {
          </Sticky>
          <Tab.Content id='home'>
           {/* Anasayfada bir component  gösterilicekse burda olmalı  */}
-          {/* <UpComing/> */}
+          <UpComing/>
            {/* <TodayProgram/>
            <EventsSection/> */}
          </Tab.Content>
