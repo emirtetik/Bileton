@@ -1,4 +1,8 @@
 import {createContext, useContext} from 'react'
+import { TabContextTypes } from './TabTypes';
 
-export const TabContext = createContext("")
-export const useTab = () => {return useContext(TabContext)}
+export const TabContext = createContext<TabContextTypes | null>(null);
+export const useTab = (): TabContextTypes | null => {
+    return useContext(TabContext);
+  }
+  
