@@ -1,14 +1,13 @@
-
-import CriteriaBar from './criteriabar'
-import EventList from './eventList'
+import CriteriaBar from "./criteriabar";
+import EventList from "./eventList";
 
 const EventsSection = () => {
   return (
-        <>
-        <CriteriaBar />
+    <div className=" p-6">
+      <CriteriaBar />
       <EventList />
-      </>
-  )
-}
+    </div>
+  );
+};
 
-export default EventsSection
+export default EventsSection;

@@ -1,3 +1,5 @@
+import DropDown from "./dropDown";
+
 const CriteriaBar = () => {
   return (
     <div className=" flex gap-4 ">
@@ -6,13 +8,32 @@ const CriteriaBar = () => {
         <span className="text-xs">All Events</span>
       </div>
       <div className="flex items-center justify-between flex-1">
-        <div className="lg:ml-40 ml-10 space-x-8">
-          <button className="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
-            Criteria{" "}
-          </button>
-          <button className="bg-indigo-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
-            Criteria
-          </button>
+        <div className="flex ">
+          <div className="lg:ml-10  ">
+            <DropDown
+              title="Categories"
+              list={[
+                { name: "Müzik" },
+                { name: "Spor" },
+                { name: "Eğlence" },
+                { name: "Sanat" },
+                { name: "Eğitim" },
+                { name: "Sağlık" },
+                { name: "Teknoloji" },
+                { name: "Diğer" },
+              ]}
+            />
+          </div>
+          <div className="lg:ml-10 ">
+            <DropDown
+              title="Locations"
+              list={[
+                { name: "İstanbul" },
+                { name: "Ankara" },
+                { name: "İzmir" },
+              ]}
+            />
+          </div>
         </div>
         <div className="flex bg-gray-50 items-center p-2 rounded-md">
           <svg
