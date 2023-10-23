@@ -1,13 +1,11 @@
-import Carousel from "../../components/carousel";
-import EventsSection from "../../components/eventList/eventsSections";
-
+import TabHome from "../../components/tab/tabHome"
 const Home = () => {
   return (
-    <div className="flex flex-col px-8 gap-8">
-      <Carousel />
-      <EventsSection />
+    <div>
+      {/* anasayfanın içerikleri tabhome' da gösteriliyor  */}
+    <TabHome/>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
