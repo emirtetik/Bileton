@@ -1,13 +1,15 @@
+import { useState } from 'react';
 import Sticky from "../sticky"
 import Tab from ".."
 import FilterBar from "../../_coreComponent/filterBar"
 import EventsSection from "../../_events/eventList/eventsSections"
 
-
 const TabHome = () => {
+  const [activeTab, setActiveTab] = useState('home');
+
   return (
     <div>
-      <Tab activeTab="home">
+      <Tab activeTab={activeTab} setActive={setActiveTab}>
         <Sticky>
           <Tab.Items>
             <Tab.Item id="home">Home</Tab.Item>
