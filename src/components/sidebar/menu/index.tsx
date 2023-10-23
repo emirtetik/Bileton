@@ -4,10 +4,11 @@ import classNames from "classnames";
 import Logo from "../logo";
 import Music from "./music";
 import Scene from "./scene";
+import Search from "../../_coreComponent/search";
 
 const Menu = () => {
   return (
-    <nav className="px-4 py-6  ">
+    <nav className="px-4 py-6 ">
       <aside >
       <Logo/>
         {mainMenu.map((menu, index) => (
@@ -28,10 +29,11 @@ const Menu = () => {
             )}
           </NavLink>
         ))}
-        <div className="border bg-white mt-3 mb-3"/>
-        
+        <div className="mt-3 mb-3 bg-white border"/>
+        <h6 className="py-1 text-white/30">Kategoriler</h6>
         <Music/>
         <Scene/>
+        <Search/>
       </aside>
     </nav>
   );

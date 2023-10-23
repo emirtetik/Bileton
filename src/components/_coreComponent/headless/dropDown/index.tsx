@@ -7,27 +7,29 @@ interface DropDownProps {
     name: string;
   }[];
   title: string;
+  className?:string
+  background:string
+  width:string
+  shadow:string
 }
 
-const DropDown: FC<DropDownProps> = ({ list, title }) => {
+const DropDown: FC<DropDownProps> = ({ list, title,className,background,width,shadow }) => {
   return (
-    <div className="text-black">
+    <div className={`${className} `}>
       <Menu>
         {({ open }) => (
           <div>
             <Menu.Button
               className={classNames(
-                " flex text-black p-2 rounded-md w-32 items-center justify-around  ",
-                {
-                  "bg-gray-100": open,
-                }
+                `${width} flex  p-2 rounded-md  items-center justify-between `,
+               
               )}
             >
               {" "}
               {title}
               <svg
                 className={classNames({
-                  "rotate-180 text-yellow-300 ": open,
+                  "rotate-180 text-blue-500 ": open,
                 })}
                 viewBox="0 0 24 24"
                 width={18.75}
@@ -39,13 +41,13 @@ const DropDown: FC<DropDownProps> = ({ list, title }) => {
                 ></path>
               </svg>
             </Menu.Button>
-            <div className=" absolute bg-gray-100 w-32 mt-2 hover:border-1">
+            <div className={`absolute ${shadow} ${width} rounded-md mt-2 hover:border-1 ${background}`}>
               <Menu.Items>
                 {list.map((item, i) => (
                   <Menu.Item key={i}>
                     {({ active }) => (
-                      <div className="pl-3 p-1">
-                        <button className={`${active} flex `}>
+                      <div className="p-1 pl-3">
+                        <button className={classNames({ "text-blue-500 font-bold": active })}>
                           {item.name}
                         </button>
                       </div>

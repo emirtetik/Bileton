@@ -4,7 +4,7 @@ import Content from "./content";
 import Item from "./item";
 import Items from "./items";
 import { TabContext } from "./context";
-import Sticky from "../sticky";
+import Sticky from "./sticky";
 
 const Tab: TabType = ({ children, activeTab }) => {
   const [active, setActive] = React.useState(activeTab);

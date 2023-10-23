@@ -62,59 +62,59 @@ export const musicMenu = [
   {
     title: "Tüm Müzik Etkinlikleri",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Rock",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Pop",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Caz",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Klasik",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Alternatif",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Rap",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   }
 ]
 export const sceneMenu = [
   {
     title: "Tüm Sahne Etkinlikleri",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Tiyatro",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Stand-up",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
   {
     title: "Gösteri",
     link: "/account-settings",
-    activeClass: "font-extrabold",
+    activeClass: "font-extrabold text-blue-500",
   },
 ]
 

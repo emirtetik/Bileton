@@ -1,7 +1,7 @@
 import EventRow from "./eventRow";
 import { useState } from "react";
 import useSWR from "swr";
-import { EventService } from "../../services/EventService";
+import { EventService } from "../../../services/EventService";
 interface event {
   image: string;
   name: string;
@@ -20,29 +20,29 @@ const EventList = () => {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
   return (
-    <div className="w-full bg-white rounded-md">
+    <div className="w-full max-w-6xl mx-auto bg-white rounded-md ">
       <div>
-        <div className="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
+        <div className="py-4 overflow-x-auto ">
           <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
-            <table className="min-w-full leading-normal">
+            <table className="min-w-full leading-normal border">
               <thead>
                 <tr>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
                     Date
                   </th>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
                     Event
                   </th>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
                     Location
                   </th>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase bg-gray-100 border-b-2 border-gray-200">
+                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
                     Status
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {events.slice(page - 1, page + 5).map((event: event) => (
+                {events.slice(page - 1, page + 5).map((event: event,) => (
                   <EventRow {...event} />
                 ))}
               </tbody>
@@ -60,7 +60,7 @@ const EventList = () => {
                       setPage(page - 5);
                     }
                   }}
-                  className="px-4 py-2 text-sm font-semibold transition duration-150 bg-indigo-600 rounded-l text-indigo-50 hover:bg-indigo-500"
+                  className="px-4 py-2 text-sm font-semibold transition duration-150 bg-blue-600 rounded-l text-indigo-50 hover:bg-indigo-500"
                 >
                   Prev
                 </button>
@@ -71,7 +71,7 @@ const EventList = () => {
                       setPage(page + 5);
                     }
                   }}
-                  className="px-4 py-2 text-sm font-semibold transition duration-150 bg-indigo-600 rounded-r text-indigo-50 hover:bg-indigo-500"
+                  className="px-4 py-2 text-sm font-semibold transition duration-150 bg-blue-600 rounded-r text-indigo-50 hover:bg-indigo-500"
                 >
                   Next
                 </button>
