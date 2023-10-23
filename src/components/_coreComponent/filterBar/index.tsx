@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CustomButton from "../mui/button";
 import MuiTextField from "../mui/textfield";
 import DropDown from "../headless/dropDown";
+import MuiButton from "../mui/button";
 
 const FilterBar: React.FC = () => {
   const [startDate, setStartDate] = useState<string>("");
@@ -52,14 +52,14 @@ const FilterBar: React.FC = () => {
         list={[{ name: "İstanbul" }, { name: "Ankara" }, { name: "İzmir" }]}
       />
 
-      <CustomButton
-        variant="custom1"
+      <MuiButton
+        variant="text"
         color="primary"
         size="small"
         onClick={search}
       >
         Ara
-      </CustomButton>
+      </MuiButton>
     </div>
   );
 };
