@@ -3,6 +3,7 @@ import { ReactNode,  FC } from "react";
 export interface TabProps {
   children: ReactNode;
   activeTab:string
+  setActive: React.Dispatch<React.SetStateAction<string>>;
   
 }
 
@@ -28,6 +29,6 @@ export interface ContentProps {
 
 
 export type TabContextTypes = {
-  active:string
-  setActive:(value: string) => void;
+  active: string;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
 }
