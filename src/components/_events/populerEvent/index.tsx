@@ -3,8 +3,10 @@ import { Autoplay } from 'swiper/modules';
 
 
 import "swiper/css";
+import CustomButton from '../../_coreComponent/mui/button';
 
-const UpComing = () => {
+const PopulerEvent
+ = () => {
   const cards = [
     {
       title: "Film Festivali 2010",
@@ -45,17 +47,19 @@ const UpComing = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center  gap-5 ">
-      <div className="flex justify-between items-center w-full max-w-6xl mt-4">
-        <h6 className="text-4xl text-black font-bold">Etkinlikler</h6>
-        <button className=" rounded-md px-5 py-2 bg-blue-700 text-white font-medium">Event</button>
+    <div className="flex flex-col items-center justify-center gap-5 ">
+      <div className="flex items-center justify-between w-full max-w-6xl mt-4">
+        <h6 className="text-4xl font-bold text-black">Etkinlikler</h6>
+        <CustomButton variant="custom1" size='small' onClick={() => {}}>
+             Etkinlikler
+        </CustomButton>
       </div>
-      <h5 className="text-gray-500 text-xl font-bold text-left w-full max-w-6xl">
-        Yaklaşan etkinlikler
+      <h5 className="w-full max-w-6xl text-xl font-bold text-left text-gray-500">
+        Populer etkinlikler
       </h5>
       <div className="w-full max-w-6xl ">
         <Swiper
-        modules={[Autoplay]}
+          modules={[Autoplay]}
           spaceBetween={50}
           slidesPerView={4}
           autoplay={{
@@ -85,8 +89,8 @@ const UpComing = () => {
           {cards.map((card, index) => (
             <SwiperSlide key={index}>
               <div className="text-black w-[250px] h-[250px] rounded-md shadow-lg border border-gray-400  hover:shadow-2xl">
-                <div className=" flex justify-center items-center z-10  relative">
-                  <div className="absolute top-2 right-1 bg-blue-700 rounded-md p-2 text-white font-medium">
+                <div className="relative z-10 flex items-center justify-center ">
+                  <div className="absolute p-2 font-medium text-white bg-blue-700 rounded-md top-2 right-1">
                     <div className="text-center">{card.date.split(" ")[0]}</div>
                     <div>{card.date.split(" ")[1]}</div>
                   </div>
@@ -109,4 +113,5 @@ const UpComing = () => {
   );
 };
 
-export default UpComing;
+export default PopulerEvent
+;

@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import { items } from "../../constant";
+import { items } from "../../../constant";
 
-const TodayProgram = () => {
+const TodayEvent = () => {
   return (
-    <section className="bg-black text-white h-[15rem]">
-      <div className="max-w-5xl mx-auto pt-12">
-        <div className=" flex justify-between mb-4">
-          <h6 className="text-2xl font-bold uppercase before:border-r-4 before:border-yellow-500 before:mr-3 text-yellow-300">Bugün Programı</h6>
-          <h6 className="font-bold text-yellow-300">24 agustos</h6>
+    <section className="h-[15rem] text-white bg-black">
+      <div className="max-w-6xl pt-12 mx-auto">
+        <div className="flex justify-between mb-4 ">
+          <h6 className="text-2xl font-bold text-blue-500 uppercase before:border-r-4 before:border-blue-500 before:mr-3">Bugün Programı</h6>
+          <h6 className="font-bold text-blue-500">24 agustos</h6>
         </div>
-        <div className=" rounded-2xl  flex items-center gap-5">
+        <div className="flex items-center gap-5 rounded-2xl">
           <div className="text-[13px]">
             <svg
               width="30px"
@@ -31,15 +31,15 @@ const TodayProgram = () => {
             {items.map((item, i) => (
               <div key={i} className="flex flex-col items-center">
                 <button className="w-8 h-8 rounded-full flex items-center justify-center -top-3.5 relative transition-colors ">
-                  <div className="w-3 h-3 bg-yellow-300 rounded-full mt-2"></div>
+                  <div className="w-3 h-3 mt-2 bg-blue-500 rounded-full"></div>
                 </button>
-                <div className=" text-center text-gray-500 mb-3">{item.title}</div>
+                <div className="mb-3 text-center text-gray-500 ">{item.title}</div>
                 <div className="w-[100px] text-center">{item.cardTitle}</div>
               </div>
             ))}
           </div>
           <div >
-            <Link to="/" className="hover:text-yellow-300">Tüm etkinlikler</Link>
+            <Link to="/" className="hover:text-blue-500">Tüm etkinlikler</Link>
           </div>
         </div>
       </div>
@@ -47,4 +47,4 @@ const TodayProgram = () => {
   );
 };
 
-export default TodayProgram;
+export default TodayEvent;

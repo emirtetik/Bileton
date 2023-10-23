@@ -4,10 +4,10 @@ import EventList from './eventList'
 
 const EventsSection = () => {
   return (
-        <>
+        <div >
         <CriteriaBar />
       <EventList />
-      </>
+      </div>
   )
 }
 
