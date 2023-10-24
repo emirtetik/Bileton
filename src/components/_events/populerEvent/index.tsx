@@ -47,7 +47,7 @@ const PopulerEvent
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center gap-5 ">
+    <div className="flex flex-col items-center justify-center gap-5 mt-20 ">
       <div className="flex items-center justify-between w-full max-w-6xl mt-4">
         <h6 className="text-4xl font-bold text-black">Etkinlikler</h6>
         <MuiButton variant="text" size='small'  onClick={() => {}}>
