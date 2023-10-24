@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function Logo() {
   return (
-    <div className="py-0.5">
-    <Link to='/' className="w-[full] h-[3.25rem]  flex items-center  ">
+    <div className="">
+    <Link to='/' className="flex items-center w-full ">
       <div className="">
-        <h6 className="text-blue-500  font-extrabold text-3xl ">
+        <h6 className="text-3xl font-bold text-blue-500 ">
         Bileton
-        <span className=" text-sm text-blue-200 font-normal ml-1 ">"Tonla bilet"</span>
+        <span className="ml-1 text-sm font-normal text-blue-200 ">"Tonla bilet"</span>
         </h6>
       </div>
     </Link>
