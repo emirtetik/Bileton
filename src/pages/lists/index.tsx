@@ -1,11 +1,12 @@
-import EventDetail from "../../components/eventDetail"
+
+import EventDetail from "../../components/eventDetail";
 
 const Lists = () => {
   return (
-    <div>
-       <EventDetail />
-    </div>
-  )
-}
+    <>
+      <EventDetail />
+    </>
+  );
+};
 
-export default Lists
+export default Lists;

@@ -1,24 +1,17 @@
 import EventRow from "./eventRow";
 import { useState } from "react";
-import useSWR from "swr";
-import { EventService } from "../../../services/EventService";
-interface event {
-  image: string;
-  name: string;
-  description: string;
-  date: string;
-  location: string;
-  status: string;
-}
+import { event, searchProps } from "../../../types";
 
-const fetcher = () => EventService.getAll();
-
-const EventList = () => {
+const EventList = (props: {
+  search: searchProps;
+  events: event[];
+  isLoading: boolean;
+  error: any;
+}) => {
   const [page, setPage] = useState(1);
-  const { data: events, isLoading, error } = useSWR("events", fetcher);
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (props.error) return <div>failed to load</div>;
+  if (props.isLoading) return <div>loading...</div>;
   return (
     <div className="w-full max-w-6xl mx-auto bg-white rounded-md ">
       <div>
@@ -42,7 +35,7 @@ const EventList = () => {
                 </tr>
               </thead>
               <tbody>
-                {events.slice(page - 1, page + 5).map((event: event,) => (
+                {props.events.slice(page - 1, page + 5).map((event: event) => (
                   <EventRow {...event} />
                 ))}
               </tbody>
@@ -50,8 +43,10 @@ const EventList = () => {
             <div className="flex flex-col items-center px-5 py-5 bg-white border-t xs:flex-row xs:justify-between ">
               <span className="text-xs text-gray-900 xs:text-sm">
                 Showing {page} to{" "}
-                {page + 5 > events.length ? events.length : page + 5} of{" "}
-                {events.length}
+                {page + 5 > props.events.length
+                  ? props.events.length
+                  : page + 5}{" "}
+                of {props.events.length}
               </span>
               <div className="inline-flex mt-2 xs:mt-0">
                 <button
@@ -67,7 +62,7 @@ const EventList = () => {
                 &nbsp; &nbsp;
                 <button
                   onClick={() => {
-                    if (page + 5 < events.length) {
+                    if (page + 5 < props.events.length) {
                       setPage(page + 5);
                     }
                   }}
