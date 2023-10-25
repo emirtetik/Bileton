@@ -8,7 +8,6 @@ interface event {
 }
 
 const EventRow = (props: event) => {
-  console.log(props);
   return (
     <tr>
       <td className="px-5  border-b border-gray-300 bg-white text-sm">

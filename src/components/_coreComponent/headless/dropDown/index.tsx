@@ -7,13 +7,22 @@ interface DropDownProps {
     name: string;
   }[];
   title: string;
-  className?:string
-  background:string
-  width:string
-  shadow:string
+  className?: string;
+  background: string;
+  width: string;
+  shadow: string;
+  onclick?: (value: string) => void;
 }
 
-const DropDown: FC<DropDownProps> = ({ list, title,className,background,width,shadow }) => {
+const DropDown: FC<DropDownProps> = ({
+  list,
+  title,
+  className,
+  background,
+  width,
+  shadow,
+  onclick,
+}) => {
   return (
     <div className={`${className} `}>
       <Menu>
@@ -21,8 +30,7 @@ const DropDown: FC<DropDownProps> = ({ list, title,className,background,width,sh
           <div>
             <Menu.Button
               className={classNames(
-                `${width} flex  p-2 rounded-md  items-center justify-between `,
-               
+                `${width} flex  p-2 rounded-md  items-center justify-between `
               )}
             >
               {" "}
@@ -41,13 +49,22 @@ const DropDown: FC<DropDownProps> = ({ list, title,className,background,width,sh
                 ></path>
               </svg>
             </Menu.Button>
-            <div className={`absolute ${shadow} ${width} rounded-md mt-2 hover:border-1 ${background}`}>
+            <div
+              className={`absolute ${shadow} ${width} rounded-md mt-2 hover:border-1 ${background}`}
+            >
               <Menu.Items>
                 {list.map((item, i) => (
                   <Menu.Item key={i}>
                     {({ active }) => (
                       <div className="p-1 pl-3">
-                        <button className={classNames({ "text-blue-500 font-bold": active })}>
+                        <button
+                          onClick={() => {
+                            onclick && onclick(item.name);
+                          }}
+                          className={classNames({
+                            "text-blue-500 font-bold": active,
+                          })}
+                        >
                           {item.name}
                         </button>
                       </div>
