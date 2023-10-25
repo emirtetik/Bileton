@@ -1,13 +1,14 @@
 import MuiButton from "../_coreComponent/mui/button";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import Map from "./map";
 
 const DetailSection = () => {
   return (
-    <div className="flex flex-row gap-24 px-12 pt-8 mx-24 mt-24">
-      <div className="flex flex-col w-4/6 gap-8">
-        <div className="flex flex-col gap-6">
-          <h2 className="darkText">Description</h2>
-          <h3 className="text-xl">
+    <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:flex-row md:px-12 md:mx-24 md:mt-24 font-raleway">
+      <div className="flex flex-col w-full gap-8 md:w-4/6">
+        <div className="flex flex-col w-3/4 gap-6">
+          <h2 className="font-bold darkText text-subtitle ">Description</h2>
+          <h3 className=" text-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
             nobis, accusantium facere architecto minima unde iure dolorem
             repellendus natus modi molestiae hic eaque! Expedita quae incidunt
@@ -20,8 +21,12 @@ const DetailSection = () => {
         <div className="flex flex-col gap-6">
           <h2>Hours</h2>
           <div>
-            <h3>Monday: 9:00 AM – 5:00 PM</h3>
-            <h3>Tuesday: 9:00 AM – 5:00 PM</h3>
+            <h3>
+              Monday: <span className="font-bold "> 9:00 AM – 5:00 PM</span>
+            </h3>
+            <h3>
+              Tuesday: <span className="font-bold "> 9:00 AM – 5:00 PM</span>
+            </h3>
           </div>
         </div>
         <div className="flex flex-col gap-6">
@@ -33,15 +38,16 @@ const DetailSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-2/6 gap-16 ">
+      <div className="flex flex-col w-full gap-8 mt-8 md:w-2/6 md:mt-0">
         <div className="flex flex-col gap-6">
-          <h2>Location</h2>
-          <div>Map</div>
+          <h2 >Location</h2>
+          <div >
+            <Map />
+          </div>
           <div>
-            <h2>Jakarta</h2>
+            <h2>Dream World Wide</h2>
             <h3>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium alias possimus mollitia
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem pariatur impedit reprehenderit dolore suscipit adipisci est ea, doloremque animi commodi  
             </h3>
           </div>
         </div>
@@ -56,9 +62,9 @@ const DetailSection = () => {
         <div className="flex flex-col gap-6">
           <h2>Share with friends</h2>
           <div className="flex gap-2">
-            <FaFacebookF />
-            <FaTwitter />
-            <FaInstagram />
+            <FaFacebookF className="w-8 h-8 p-1.5 bg-blue-500 rounded-full" />
+            <FaTwitter className="w-8 h-8 p-1.5 bg-blue-300 rounded-full" />
+            <FaInstagram className="w-8 h-8 p-1.5 bg-red-600 rounded-full" />
           </div>
         </div>
       </div>
