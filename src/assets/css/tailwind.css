@@ -2,7 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-white text-black p-0 m-0 box-border antialiased font-mono;
+}
 
-body{
-    @apply bg-white text-black p-0 m-0 box-border antialiased
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-2xl  font-medium darkText;
+}
+h3 {
+  @apply text-base;
+}
+
+p {
+  @apply text-lg  font-normal;
+}
+
+.lightText {
+  @apply text-gray-500;
+}
+
+.darkText {
+  @apply font-bold;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden;
 }
