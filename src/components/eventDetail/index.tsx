@@ -1,13 +1,15 @@
 import DetailSection from "./detailSection";
-import OtherEvents from "./otherEvents";
 import SummaryCard from "./summaryCard";
+import OtherEvents from "./otherEvents";
 
 const EventDetail = () => {
   return (
-    <div className=" h-screen p-10">
+    <div className="h-screen ">
       <SummaryCard />
       <DetailSection />
+      <div className="bg-gray-100 ">
       <OtherEvents />
+      </div> 
     </div>
   );
 };

@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      backgroundImage: theme => ({
+        'background-image-1': "url('/src/assets/images/bg1.jpg')",
+      }),
       fontFamily: {
         'raleway': ['Raleway', 'sans-serif'],
       },
