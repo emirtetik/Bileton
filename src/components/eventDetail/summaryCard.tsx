@@ -1,4 +1,5 @@
 import MuiButton from "../_coreComponent/mui/button";
+import { CiLocationOn } from "react-icons/ci";
 
 const SummaryCard = () => {
   return (
@@ -11,7 +12,10 @@ const SummaryCard = () => {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Accusantium itaque neque, maiores animi nam eaque optio.
           </p>
-          <div className="pt-4">View Map</div>
+          <div className="pt-4 flex  gap-2">
+            <CiLocationOn />
+            View Map
+          </div>
         </div>
       </div>
       <div className="flex flex-col rounded-lg h-3/5 flex-1 ">

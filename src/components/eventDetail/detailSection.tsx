@@ -1,4 +1,5 @@
 import MuiButton from "../_coreComponent/mui/button";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const DetailSection = () => {
   return (
@@ -55,9 +56,9 @@ const DetailSection = () => {
         <div className="flex flex-col gap-6">
           <h2>Share with friends</h2>
           <div className="flex gap-2">
-            <h3>Facebook</h3>
-            <h3>Twitter</h3>
-            <h3>Instagram</h3>
+            <FaFacebookF />
+            <FaTwitter />
+            <FaInstagram />
           </div>
         </div>
       </div>
