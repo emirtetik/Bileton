@@ -1,10 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-
+import MuiButton from '../../_coreComponent/mui/button';
 
 import "swiper/css";
-import MuiButton from '../../_coreComponent/filterBar/button';
-
 const PopulerEvent
  = () => {
   const cards = [

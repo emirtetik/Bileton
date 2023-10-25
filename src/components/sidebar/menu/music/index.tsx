@@ -15,14 +15,10 @@ const Music = () => {
       className="font-normal text-white font-raleway "
         title="Müzik"
         list={[
-          { name: "Müzik" },
-          { name: "Spor" },
-          { name: "Eğlence" },
-          { name: "Sanat" },
-          { name: "Eğitim" },
-          { name: "Sağlık" },
-          { name: "Teknoloji" },
-          { name: "Diğer" },
+          { name: "Rock" },
+          { name: "Pop" },
+          { name: "Rap" },
+          { name: "Klasik" },
         ]}
       />
     </div>

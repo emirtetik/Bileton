@@ -3,8 +3,8 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const DetailSection = () => {
   return (
-    <div className="flex flex-row mx-24 mt-24 pt-8 px-12 gap-24">
-      <div className="w-4/6 flex flex-col gap-8">
+    <div className="flex flex-row gap-24 px-12 pt-8 mx-24 mt-24">
+      <div className="flex flex-col w-4/6 gap-8">
         <div className="flex flex-col gap-6">
           <h2 className="darkText">Description</h2>
           <h3 className="text-xl">
@@ -33,7 +33,7 @@ const DetailSection = () => {
           </div>
         </div>
       </div>
-      <div className=" w-2/6  flex flex-col gap-16">
+      <div className="flex flex-col w-2/6 gap-16 ">
         <div className="flex flex-col gap-6">
           <h2>Location</h2>
           <div>Map</div>
