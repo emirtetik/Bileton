@@ -3,12 +3,12 @@ import DropDown from "../../../_coreComponent/headless/dropDown"
 
 const Scene = () => {
   return (
-    <div className="text-white">
+    <div className="text-white" >
      <DropDown
      shadow="shadow-light"
      width="w-full"
       background="bg-black"
-      className="text-white "
+      className="font-normal text-white font-raleway"
         title="Sahne"
         list={[
           { name: "Tüm Sahne Etkinlikleri" },

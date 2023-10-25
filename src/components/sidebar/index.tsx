@@ -10,7 +10,7 @@ const SideBar: React.FC<SideBarProps> = () => {
 
   return (
     <aside
-      className={`sticky top-0 flex flex-col transition-all duration-500 ease-in-out h-screen min-h-full ${
+      className={`sticky z-10 top-0 flex flex-col transition-all duration-500 ease-in-out h-screen min-h-full ${
         isOpen ? "w-60" : "w-16"
       }`}
     >

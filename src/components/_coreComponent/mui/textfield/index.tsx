@@ -13,7 +13,7 @@ const MuiTextField: React.FC<MuiTextFieldProps> = ({ value, onChange, label,vari
     <Stack spacing={4}>
       <Stack direction={"row"} spacing={2}>
         <TextField
-        className="flex items-center justify-center"
+        className="flex items-center justify-center font-raleway "
         type={type}
           label={label}
           variant={variant}

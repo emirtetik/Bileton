@@ -1,16 +1,14 @@
-import PopulerEvent from "../../components/_events/populerEvent";
 import TodayEvent from "../../components/_events/todayEvent";
-
-
-import ViewTab from "../../components/tab/viewTab";
+ import PopulerEvent from "../../components/_events/populerEvent";
+ import ViewTab from "../../components/tab/viewTab";
 
 const Home = () => {
   return (
-    <div>
+    <div className="ml-16">
 
       <PopulerEvent />
-      <ViewTab />
-      <TodayEvent />
+       <ViewTab /> 
+      <TodayEvent /> 
 
     </div>
   );

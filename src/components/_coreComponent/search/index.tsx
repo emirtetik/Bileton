@@ -15,7 +15,7 @@ const Search = () => {
       />
     </svg>
     <input
-      className="block ml-1 outline-none bg-gray-50 "
+      className="block ml-1 font-bold outline-none bg-gray-50 text-text font-raleway"
       type="text"
       name=""
       id=""
