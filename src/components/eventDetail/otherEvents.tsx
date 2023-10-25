@@ -40,18 +40,18 @@ const OtherEvents = () => {
     },
   ];
   return (
-    <div className="flex flex-col gap-12 m-32">
+    <div className="flex flex-col gap-12 m-32 p-4">
       <h1>Other Events You May Like</h1>
-      <div className="flex flex-wrap gap-4 justify-between p-4">
+      <div className="flex flex-wrap gap-4 justify-between ">
         {cards.map((card) => (
-          <div className="text-black w-[350px] h-[340px] rounded-md shadow-lg   hover:shadow-2xl">
-            <div className="relative z-10 flex items-center justify-center "></div>
+          <div className="text-black w-[350px] h-[340px] rounded-md shadow-lg hover:shadow-2xl">
+            <div className="relative z-10 flex items-center  justify-center "></div>
             <img
               src={card.img}
               alt="events"
-              className="rounded-t-md w-full max-h-[220px]"
+              className="rounded-t-md w-full max-h-[220px] object-cover"
             />
-            <div className="flex p-3 gap-4 items-center">
+            <div className="flex p-4 gap-4 items-center">
               <div className=" p-4 font-medium rounded-md ">
                 <div className="text-purple-700 darkText ">
                   {card.date.split(" ")[1]}
