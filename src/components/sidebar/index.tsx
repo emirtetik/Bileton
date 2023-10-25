@@ -1,9 +1,20 @@
+import { useState } from "react";
 import Menu from "./menu";
 
-const SideBar = () => {
+interface SideBarProps {
+  setIsOpen: (value: boolean) => void;  
+  isOpen: boolean;
+}
+const SideBar: React.FC<SideBarProps> = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <aside className="flex flex-col sticky top-0 w-[17rem] bg-black min-h-full h-screen ">
-    <Menu/>
+    <aside
+      className={`sticky top-0 flex flex-col transition-all duration-500 ease-in-out h-screen min-h-full ${
+        isOpen ? "w-60" : "w-16"
+      }`}
+    >
+      <Menu setIsOpen={setIsOpen} isOpen={isOpen} />
     </aside>
   );
 };

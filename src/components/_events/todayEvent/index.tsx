@@ -3,8 +3,8 @@ import { items } from "../../../constant";
 
 const TodayEvent = () => {
   return (
-    <section className="h-[15rem] text-white bg-black">
-      <div className="max-w-6xl pt-12 mx-auto">
+    <section className="max-w-6xl mx-auto mb-6 text-black h-52">
+      <div className="max-w-4xl pt-10 mx-auto ">
         <div className="flex justify-between mb-4 ">
           <h6 className="text-2xl font-bold text-blue-500 uppercase before:border-r-4 before:border-blue-500 before:mr-3">Bugün Programı</h6>
           <h6 className="font-bold text-blue-500">24 agustos</h6>
@@ -12,6 +12,7 @@ const TodayEvent = () => {
         <div className="flex items-center gap-5 rounded-2xl">
           <div className="text-[13px]">
             <svg
+            className="text-blue-500"
               width="30px"
               height="30px"
               viewBox="0 0 24 24"

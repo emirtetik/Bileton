@@ -11,7 +11,6 @@ const Home = () => {
      <ViewTab/>
      <TodayEvent/> */}
       <EventDetail />
-      {/* <EventsSection /> */}
     </div>
   );
 };
