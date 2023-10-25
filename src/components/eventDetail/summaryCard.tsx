@@ -3,7 +3,7 @@ import { CiLocationOn } from "react-icons/ci";
 
 const SummaryCard = () => {
   return (
-    <div className="bg-gray-500 flex h-4/5 mt-8 mx-12 justify-around items-center">
+    <div className="bg-gray-500 flex h-4/5 mt-8 mx-12 justify-around items-center rounded-2xl">
       <div className="flex-1  ">
         <div className="mx-16 ">
           <h1 className="pb-6 ">Dream World Wide in Jakarta</h1>
@@ -18,7 +18,7 @@ const SummaryCard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col rounded-lg h-3/5 flex-1 ">
+      <div className="flex flex-col rounded-lg flex-1 m-20 ">
         <div className="flex flex-col mx-28 bg-white gap-4 h-full p-8 rounded-xl">
           <div className="flex flex-col gap-2">
             <h2 className="darkText">Date & Time</h2>
@@ -30,7 +30,7 @@ const SummaryCard = () => {
               Book Now
             </MuiButton>
             <MuiButton variant="contained" size="large" fullWidth>
-              See Programm
+              See Program
             </MuiButton>
             <MuiButton variant="contained" size="large" fullWidth>
               Participants

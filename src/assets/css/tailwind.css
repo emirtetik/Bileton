@@ -26,7 +26,7 @@ p {
 }
 
 .darkText {
-  @apply text-gray-900 font-bold;
+  @apply font-bold;
 }
 
 .card {
