@@ -18,7 +18,9 @@ const MuiButton: React.FC<MuiButtonProps> = ({ size, variant, children, ...other
 
   return (
     <Button size={size} style={customVariants} variant={variant} {...otherProps}>
+      <div className='font-normal lowercase text-text font-raleway' >
       {children}
+      </div>
     </Button>
   );
 };

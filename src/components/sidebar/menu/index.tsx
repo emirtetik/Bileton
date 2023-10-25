@@ -44,8 +44,8 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
               {({ isActive }) => (
                 <div
                   className={classNames(
-                    "inline-flex rounded-full p-1 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-white/10",
-                    { "bg-white/10 font-bold text-white": isActive }
+                    "inline-flex rounded-full p-1 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-white/10 font-raleway ",
+                    { "bg-white/10 font-bold font-raleway text-white": isActive }
                   )}
                 >
                   <div className="flex items-center ">
@@ -61,7 +61,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         <div className="mt-3 mb-3 bg-white border" />
         <div className="flex flex-col gap-3 items-left ">
           {isOpen ? (
-            <h6 className="py-1 text-white/30"> Kategoriler</h6>
+            <h6 className="py-1 font-normal text-white/30 font-raleway"> Kategoriler</h6>
           ) : (
             <BiSolidCategoryAlt className="w-6 h-6" />
           )}

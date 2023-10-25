@@ -12,7 +12,7 @@ const Music = () => {
       shadow="shadow-light"
       width="w-full"
       background="bg-black"
-      className="text-white "
+      className="font-normal text-white font-raleway "
         title="Müzik"
         list={[
           { name: "Müzik" },

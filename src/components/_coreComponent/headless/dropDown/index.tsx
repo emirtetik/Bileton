@@ -21,7 +21,7 @@ const DropDown: FC<DropDownProps> = ({ list, title,className,background,width,sh
           <div>
             <Menu.Button
               className={classNames(
-                `${width} flex  p-2 rounded-md  items-center justify-between `,
+                `${width} flex font-raleway font-normal  p-2 rounded-md  items-center justify-between `,
                
               )}
             >
@@ -47,7 +47,7 @@ const DropDown: FC<DropDownProps> = ({ list, title,className,background,width,sh
                   <Menu.Item key={i}>
                     {({ active }) => (
                       <div className="p-1 pl-3">
-                        <button className={classNames({ "text-blue-500 font-bold": active })}>
+                        <button className={classNames("font-raleway",{ " text-blue-500 font-bold": active })}>
                           {item.name}
                         </button>
                       </div>

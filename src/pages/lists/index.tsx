@@ -1,7 +1,10 @@
+import EventDetail from "../../components/eventDetail"
 
 const Lists = () => {
   return (
-    <div>Lists</div>
+    <div>
+       <EventDetail />
+    </div>
   )
 }
 
