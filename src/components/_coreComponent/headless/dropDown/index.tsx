@@ -12,6 +12,7 @@ interface DropDownProps {
   width: string;
   shadow: string;
   onclick?: (value: string) => void;
+  onSecondClick?: (value: string) => void;
 }
 
 const DropDown: FC<DropDownProps> = ({

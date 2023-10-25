@@ -7,7 +7,7 @@ import Lists from "../pages/lists";
 const routes = createBrowserRouter([
   {
     path: "/",
-    // element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         index: true,

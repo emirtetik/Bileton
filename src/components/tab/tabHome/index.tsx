@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import Sticky from "../sticky"
-import Tab from ".."
-import FilterBar from "../../_coreComponent/filterBar"
-import EventsSection from "../../_events/eventList/eventsSections"
+import { useState } from "react";
+import Sticky from "../sticky";
+import Tab from "..";
+import EventsSection from "../../_events/eventList/eventsSections";
 
 const TabHome = () => {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState("home");
 
   return (
     <div>
@@ -18,11 +17,9 @@ const TabHome = () => {
         </Sticky>
         <Tab.Content id="home">
           {/* Anasayfada bir component  gösterilicekse burda olmalı  */}
-          <FilterBar/>
-           <EventsSection/> 
-         </Tab.Content>
-         <Tab.Content id='past'>
-
+          <EventsSection />
+        </Tab.Content>
+        <Tab.Content id="past">
           {/* Past sekmesinde bir component  gösterilicekse burda olmalı  */}
           merhaba
         </Tab.Content>
