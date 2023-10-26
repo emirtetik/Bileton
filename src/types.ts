@@ -19,3 +19,9 @@ export  interface searchProps {
     location: string;
     status: string;
   }
+
+  export interface category {
+    name: string;
+    id: string;
+    description: string;
+  }

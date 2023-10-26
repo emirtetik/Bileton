@@ -1,14 +1,14 @@
-import DropDown from "../../../_coreComponent/headless/dropDown"
-
+import DropDown from "../../../_coreComponent/headless/dropDown";
 
 const Scene = () => {
   return (
-    <div className="text-white" >
-     <DropDown
-     shadow="shadow-light"
-     width="w-full"
-      background="bg-black"
-      className="font-normal text-white font-raleway"
+    <div className="text-white">
+      <DropDown
+        linkActive={true}
+        shadow="shadow-light"
+        width="w-full"
+        background="bg-black"
+        className="font-normal text-white font-raleway"
         title="Sahne"
         list={[
           { name: "Tüm Sahne Etkinlikleri" },
@@ -17,8 +17,8 @@ const Scene = () => {
           { name: "Gösteri" },
         ]}
       />
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Scene
+export default Scene;

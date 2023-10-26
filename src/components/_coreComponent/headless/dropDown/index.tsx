@@ -1,6 +1,7 @@
 import { Menu } from "@headlessui/react";
 import classNames from "classnames";
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 interface DropDownProps {
   list: {
@@ -12,7 +13,7 @@ interface DropDownProps {
   width: string;
   shadow: string;
   onclick?: (value: string) => void;
-  onSecondClick?: (value: string) => void;
+  linkActive?: boolean;
 }
 
 const DropDown: FC<DropDownProps> = ({
@@ -23,6 +24,7 @@ const DropDown: FC<DropDownProps> = ({
   width,
   shadow,
   onclick,
+  linkActive,
 }) => {
   return (
     <div className={`${className} `}>
@@ -31,8 +33,7 @@ const DropDown: FC<DropDownProps> = ({
           <div>
             <Menu.Button
               className={classNames(
-                `${width} flex font-raleway font-normal  p-2 rounded-md  items-center justify-between `,
-               
+                `${width} flex font-raleway font-normal  p-2 rounded-md  items-center justify-between `
               )}
             >
               {" "}
@@ -59,17 +60,31 @@ const DropDown: FC<DropDownProps> = ({
                   <Menu.Item key={i}>
                     {({ active }) => (
                       <div className="p-1 pl-3">
-
-                        <button
-                          onClick={() => {
-                            onclick && onclick(item.name);
-                          }}
-                          className={classNames({
-                            "text-blue-500 font-bold": active,
-                          })}
-                        >
-                          {item.name}
-                        </button>
+                        {linkActive ? (
+                          <Link to={`/category/${item.name}`}>
+                            <button
+                              onClick={() => {
+                                onclick && onclick(item.name);
+                              }}
+                              className={classNames({
+                                "text-blue-500 font-bold": active,
+                              })}
+                            >
+                              {item.name}
+                            </button>
+                          </Link>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              onclick && onclick(item.name);
+                            }}
+                            className={classNames({
+                              "text-blue-500 font-bold": active,
+                            })}
+                          >
+                            {item.name}
+                          </button>
+                        )}
                       </div>
                     )}
                   </Menu.Item>

@@ -8,7 +8,7 @@ const Music = () => {
   return (
     <div className="">
       <DropDown
-        onSecondClick={(value) => console.log(value)}
+        linkActive={true}
         shadow="shadow-light"
         width="w-full"
         background="bg-black"
