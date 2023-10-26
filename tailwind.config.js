@@ -9,6 +9,9 @@ export default {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       backgroundImage: theme => ({
         'background-image-1': "url('/src/assets/images/bg1.jpg')",
+        'background-image-4': "url('/src/assets/images/bg4.jpg')",
+        'background-image-7': "url('/src/assets/images/bg4.jpg')",
+
       }),
       fontFamily: {
         'raleway': ['Raleway', 'sans-serif'],

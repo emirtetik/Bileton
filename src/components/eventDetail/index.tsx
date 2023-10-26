@@ -4,7 +4,7 @@ import OtherEvents from "./otherEvents";
 
 const EventDetail = () => {
   return (
-    <div className="h-screen ">
+    <div className="h-screen p-4">
       <SummaryCard />
       <DetailSection />
       <div className="bg-gray-100 ">
