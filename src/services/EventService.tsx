@@ -1,15 +1,10 @@
 import { BaseService } from "./BaseService";
-interface event {
-  image: string;
-  name: string;
-  description: string;
-  date: string;
-  location: string;
-  status: string;
-}
+import { event } from "../types";
+
 export const EventService = {
   getAll: async () => await BaseService.get("products"),
   get: async (id: string) => await BaseService.get("events/" + id),
+
   getSearched: async (search: string) => {
     const response = await BaseService.get("products");
     const data = response.data;

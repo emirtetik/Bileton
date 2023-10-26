@@ -3,11 +3,12 @@ import NotFound from "../pages/notFound";
 import MainLayout from "../layouts/main";
 import Home from "../pages/home";
 import Lists from "../pages/lists";
+import EventsBycategory from "../components/category/eventsByCategory";
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         index: true,
@@ -16,6 +17,10 @@ const routes = createBrowserRouter([
       {
         path: "/lists",
         element: <Lists />,
+      },
+      {
+        path: "category/:name",
+        element: <EventsBycategory />,
       },
       {
         path: "*",
