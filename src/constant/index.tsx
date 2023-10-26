@@ -16,8 +16,8 @@ export const mainMenu = [
        },
     },
     {
-        path:"/lists",
-        title:'Listeler',
+        path:"/category",
+        title:'Tüm Kategoriler',
         icon:{
             active: (
               <FaRegListAlt className="w-6 h-6 "/>
