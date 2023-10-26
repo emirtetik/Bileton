@@ -1,6 +1,13 @@
 import { useParams } from "react-router-dom";
 
+import useSWR from "swr";
+import { event, category } from "../../types";
+import { CategoryService } from "../../services/CategoryService";
+
+const fetcher = () => CategoryService.getAll();
+
 const EventsBycategory = () => {
+  const { data } = useSWR("categories", fetcher);
   const { name } = useParams();
   const cardList = [
     {
@@ -41,6 +48,7 @@ const EventsBycategory = () => {
     },
   ];
 
+  // const cards = data.filter((card: event) => card.name.includes(name || ""));
   const cards = cardList.filter((card) => card.title.includes(name || ""));
   return (
     <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
@@ -50,7 +58,9 @@ const EventsBycategory = () => {
           <div className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-white">
             <div className="relative z-10 flex items-center justify-center "></div>
             <img
-              src={card.img}
+              src={
+                "https://i.pinimg.com/originals/7e/99/9b/7e999ba5942bf7e1816ed609824bad78.jpg"
+              }
               alt="events"
               className="rounded-t-md w-full max-h-[150px] object-cover"
             />

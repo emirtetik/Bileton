@@ -3,8 +3,14 @@
 // import { musicMenu } from "../../../../constant";
 // import { Link } from "react-router-dom";
 import DropDown from "../../../_coreComponent/headless/dropDown";
+import { CategoryService } from "../../../../services/CategoryService";
+import useSWR from "swr";
+import { category } from "../../../../types";
+const fetcher = () => CategoryService.getAll();
 
 const Music = () => {
+  const { data } = useSWR("categories", fetcher);
+
   return (
     <div className="">
       <DropDown
@@ -14,6 +20,7 @@ const Music = () => {
         background="bg-black"
         className="text-white "
         title="Müzik"
+        // list={data.map((category: category) => ({ name: category.name }))}
         list={[
           { name: "Rock" },
           { name: "Pop" },
