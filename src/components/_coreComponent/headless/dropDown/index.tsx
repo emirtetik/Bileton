@@ -2,7 +2,16 @@ import { Menu } from "@headlessui/react";
 import classNames from "classnames";
 import { FC } from "react";
 import { Link } from "react-router-dom";
-
+function slugify(str) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
 interface DropDownProps {
   list: {
     name: string;
@@ -61,7 +70,7 @@ const DropDown: FC<DropDownProps> = ({
                     {({ active }) => (
                       <div className="p-1 pl-3">
                         {linkActive ? (
-                          <Link to={`/category/${item.name}`}>
+                          <Link to={`/category/${slugify(item.name)}`}>
                             <button
                               onClick={() => {
                                 onclick && onclick(item.name);

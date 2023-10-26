@@ -5,7 +5,16 @@ import { event, category } from "../../types";
 import { CategoryService } from "../../services/CategoryService";
 
 const fetcher = () => CategoryService.getAll();
-
+function slugify(str) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
 const EventsBycategory = () => {
   const { data } = useSWR("categories", fetcher);
   const { name } = useParams();
@@ -49,7 +58,9 @@ const EventsBycategory = () => {
   ];
 
   // const cards = data.filter((card: event) => card.name.includes(name || ""));
-  const cards = cardList.filter((card) => card.title.includes(name || ""));
+  const cards = cardList.filter((card) =>
+    slugify(card.title).includes(slugify(name) || "")
+  );
   return (
     <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
       <h1 className="text-center font-bold text-title">{name}</h1>
