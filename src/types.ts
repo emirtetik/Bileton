@@ -1,7 +1,11 @@
-export type User = {
-  username: string | null;
-  isAdmin: boolean;
+export type Account = {
+  id: number;
+  username: string;
+  fullname: string;
+  avatar: string;
 };
+
+
 
 export  interface searchProps {
     startDate: string;

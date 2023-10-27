@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import { ImMenu } from "react-icons/im";
-import { GrClose } from "react-icons/gr";
+import { GrClose,GrUserAdmin } from "react-icons/gr";
 import { BiSolidCategoryAlt, BiSolidSearch } from "react-icons/bi";
 import { FaMusic } from "react-icons/fa";
 import { GiTheater } from "react-icons/gi";
@@ -11,9 +11,11 @@ import Logo from "../logo";
 import Music from "./music";
 import Scene from "./scene";
 import Search from "../../_coreComponent/search";
+import Account from "../account";
 import useSWR from "swr";
 import { EventService } from "../../../services/EventService";
 import { event } from "../../../types";
+
 
 interface SideBarProps {
   setIsOpen: (value: boolean) => void;
@@ -52,7 +54,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 h-full transition-all duration-500 ease-in-out ${
+      className={`max-h-screen min-h-screen  flex flex-col sticky top-0 transition-all duration-500 ease-in-out ${
         isOpen ? "w-72" : "w-16"
       } bg-blue-900`}
     >
@@ -138,6 +140,15 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
           )}
         </div>
       </div>
+      <div className="px-5 py-6 mt-auto ">
+      {!isOpen ? (
+           <GrUserAdmin className="w-6 h-6 cursor-pointer"/>
+      ) : (
+      
+      <Account/>
+     ) }
+      </div> 
+
     </nav>
   );
 };

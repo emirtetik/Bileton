@@ -26,6 +26,7 @@ const EventDetail = () => {
   );
 
   return (
+
     <div className="h-screen ">
       <SummaryCard event={cards} />
       <DetailSection event={cards} />
