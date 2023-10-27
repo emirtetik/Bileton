@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 
 import useSWR from "swr";
 import { event, category } from "../../types";
-import { CategoryService } from "../../services/CategoryService";
+import { EventService } from "../../services/EventService";
 
-const fetcher = () => CategoryService.getAll();
-function slugify(str) {
+const fetcher = () => EventService.getAll();
+function slugify(str: string) {
   return String(str)
     .normalize("NFKD") // split accented characters into their base characters and diacritical marks
     .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
@@ -16,7 +16,7 @@ function slugify(str) {
     .replace(/-+/g, "-"); // remove consecutive hyphens
 }
 const EventsBycategory = () => {
-  const { data } = useSWR("categories", fetcher);
+  const { data, isLoading } = useSWR("categories2", fetcher);
   const { name } = useParams();
   const cardList = [
     {
@@ -56,11 +56,13 @@ const EventsBycategory = () => {
       date: "10 AUG",
     },
   ];
-
-  // const cards = data.filter((card: event) => card.name.includes(name || ""));
-  const cards = cardList.filter((card) =>
-    slugify(card.title).includes(slugify(name) || "")
+  if (isLoading) return <div>Loading...</div>;
+  const cards = data.filter((event) =>
+    slugify(event.name).includes(slugify(name) || "")
   );
+  // const cards = cardList.filter((card) =>
+  //   slugify(card.title).includes(slugify(name) || "")
+  // );
   return (
     <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
       <h1 className="text-center font-bold text-title">{name}</h1>
@@ -77,15 +79,15 @@ const EventsBycategory = () => {
             />
             <div className="flex items-center gap-2 p-4">
               <div className="p-4 font-medium rounded-md ">
-                <div className="text-purple-700 darkText ">
+                {/* <div className="text-purple-700 darkText ">
                   {card.date.split(" ")[1]}
                 </div>
                 <div className="text-center darkText ">
                   {card.date.split(" ")[0]}
-                </div>
+                </div> */}
               </div>
               <div>
-                <h2 className="text-xl font-bold text-left">{card.title}</h2>
+                <h2 className="text-xl font-bold text-left">{card.name}</h2>
                 <p className="text-left text-gray-600">{card.description}</p>
               </div>
             </div>

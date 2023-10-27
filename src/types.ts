@@ -16,12 +16,14 @@ export  interface searchProps {
 
 
   export interface event {
+    id: string;
     image: string;
     name: string;
     description: string;
     date: string;
     location: string;
     status: string;
+    category: string;
   }
 
   export interface category {
