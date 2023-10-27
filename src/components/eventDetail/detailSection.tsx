@@ -1,21 +1,20 @@
 import MuiButton from "../_coreComponent/mui/button";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Map from "./map";
+import { event } from "../../types";
 
-const DetailSection = () => {
+
+const DetailSection = ({event}: {event:event}) => {
+
+    
+
   return (
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:flex-row md:px-12 md:mx-24 md:mt-24 font-raleway">
       <div className="flex flex-col w-full gap-8 md:w-4/6">
         <div className="flex flex-col w-3/4 gap-6">
           <h2 className="font-bold darkText text-subtitle ">Description</h2>
           <h3 className=" text-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-            nobis, accusantium facere architecto minima unde iure dolorem
-            repellendus natus modi molestiae hic eaque! Expedita quae incidunt
-            hic error eaque nesciunt. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Laborum nobis, accusantium facere architecto
-            minima unde iure dolorem repellendus natus modi molestiae hic eaque!
-            Expedita quae incidunt
+            {event.name}
           </h3>
         </div>
         <div className="flex flex-col gap-6">

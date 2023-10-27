@@ -1,9 +1,9 @@
 import { useState } from "react";
-import FilterBar from "../../_coreComponent/filterBar";
+import FilterBar from "../../../_coreComponent/filterBar";
 import EventList from "./eventList";
 import useSWR from "swr";
-import { EventService } from "../../../services/EventService";
-import { searchProps } from "../../../types";
+import { EventService } from "../../../../services/EventService";
+import { searchProps } from "../../../../types";
 
 const fetcher = () => EventService.getAll();
 

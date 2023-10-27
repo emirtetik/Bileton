@@ -1,6 +1,6 @@
 import EventRow from "./eventRow";
 import { useState } from "react";
-import { event, searchProps } from "../../../types";
+import { event, searchProps } from "../../../../types";
 
 const EventList = (props: {
   search: searchProps;
