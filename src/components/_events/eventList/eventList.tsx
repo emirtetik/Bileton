@@ -6,7 +6,7 @@ const EventList = (props: {
   search: searchProps;
   events: event[];
   isLoading: boolean;
-  error: any;
+  error: unknown;
 }) => {
   const [page, setPage] = useState(1);
 
