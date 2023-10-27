@@ -5,7 +5,7 @@
 import DropDown from "../../../_coreComponent/headless/dropDown";
 import { CategoryService } from "../../../../services/CategoryService";
 import useSWR from "swr";
-import { category } from "../../../../types";
+// import { category } from "../../../../types";
 const fetcher = () => CategoryService.getAll();
 
 const Music = () => {

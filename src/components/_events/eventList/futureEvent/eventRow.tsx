@@ -1,3 +1,5 @@
+// import Moment from 'react-moment';
+
 interface event {
   image: string;
   name: string;
@@ -28,7 +30,7 @@ const EventRow = (props: event) => {
         <p className="text-gray-900 whitespace-no-wrap">Admin</p>
       </td>
       <td className="px-5  border-b border-gray-300 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">Jan 21, 2020</p>
+        {/* <p className="text-gray-900 whitespace-no-wrap"><Moment format="DD/MM/YYYY">{props.date}</Moment></p> */}
       </td>
       <td className="px-5 py-4 border-b border-gray-300 bg-white text-sm">
         <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">

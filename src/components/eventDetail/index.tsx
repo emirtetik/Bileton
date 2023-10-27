@@ -21,9 +21,11 @@ const EventDetail = () => {
   const { name } = useParams();
 
   if (isLoading) return <div>Loading...</div>;
-  const cards = data.filter((event: event) =>
+  
+  const cards = data.find((event: event) =>
     slugify(event.name).includes(slugify(name))
   );
+  console.log(cards)
 
   return (
 

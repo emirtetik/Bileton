@@ -2,6 +2,7 @@ import { Menu } from "@headlessui/react";
 import classNames from "classnames";
 import { FC } from "react";
 import { Link } from "react-router-dom";
+
 function slugify(str: string) {
   return String(str)
     .normalize("NFKD") // split accented characters into their base characters and diacritical marks
@@ -62,13 +63,13 @@ const DropDown: FC<DropDownProps> = ({
               </svg>
             </Menu.Button>
             <div
-              className={`absolute ${shadow} ${width} rounded-md mt-2 hover:border-1 ${background}`}
+              className={`absolute ${shadow} ${width} z-20 rounded-md mt-2 hover:border-1 ${background}`}
             >
               <Menu.Items>
                 {list.map((item, i) => (
                   <Menu.Item key={i}>
                     {({ active }) => (
-                      <div className="p-1 pl-3">
+                      <div className="p-1 pl-3 ">
                         {linkActive ? (
                           <Link to={`/category/${slugify(item.name)}`}>
                             <button

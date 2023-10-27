@@ -1,12 +1,12 @@
 import EventRow from "./eventRow";
 import { useState } from "react";
-import { event, searchProps } from "../../../types";
+import { event, searchProps } from "../../../../types";
 
 const EventList = (props: {
   search: searchProps;
   events: event[];
   isLoading: boolean;
-  error: any;
+  error: unknown;
 }) => {
   const [page, setPage] = useState(1);
 

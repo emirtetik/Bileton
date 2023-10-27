@@ -4,15 +4,13 @@ export type Account = {
   fullname: string;
   avatar: string;
 };
-
-
-
 export  interface searchProps {
-    startDate: string;
-    endDate: string;
-    location: string;
-    category: string;
-  }
+  startDate: string;
+  endDate: string;
+  location: string;
+  category: string;
+}
+
 
 
   export interface event {
@@ -24,6 +22,8 @@ export  interface searchProps {
     location: string;
     status: string;
     category: string;
+    unitsInStock:number
+     
   }
 
   export interface category {

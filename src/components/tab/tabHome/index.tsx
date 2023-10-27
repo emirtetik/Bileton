@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Sticky from "../sticky";
 import Tab from "..";
-import EventsSection from "../../_events/eventList/eventsSections";
+import EventsSection from "../../_events/eventList/futureEvent/eventsSections";
+import PastEvent from "../../_events/eventList/pastEvent";
 
 const TabHome = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -21,7 +22,7 @@ const TabHome = () => {
         </Tab.Content>
         <Tab.Content id="past">
           {/* Past sekmesinde bir component  gösterilicekse burda olmalı  */}
-          merhaba
+          <PastEvent/>
         </Tab.Content>
       </Tab>
     </div>

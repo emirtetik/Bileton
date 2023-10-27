@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import { ImMenu } from "react-icons/im";
@@ -15,8 +16,7 @@ import Account from "../account";
 import useSWR from "swr";
 import { EventService } from "../../../services/EventService";
 import { event } from "../../../types";
-
-
+import { useClickAway } from 'react-use';
 interface SideBarProps {
   setIsOpen: (value: boolean) => void;
   isOpen: boolean;
@@ -34,13 +34,19 @@ function slugify(str: string) {
 const fetcher = () => EventService.getAll();
 
 const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
+  const ref = useRef(null)
   const [inputValue, setInputValue] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     setListOpen(true);
   };
-
+  // search altında açılan divi kapatmak için
+  useClickAway(ref,() => {
+    if (listOpen) {
+       setListOpen(false)
+    }
+  }) 
   const { data, isLoading } = useSWR("search", fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
@@ -51,10 +57,12 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
   const filtered = data.filter((item: event) => {
     return item.name.toLowerCase().includes(inputValue.toLowerCase());
   });
+  
+  
 
   return (
     <nav
-      className={`max-h-screen min-h-screen  flex flex-col sticky top-0 transition-all duration-500 ease-in-out ${
+      className={`max-h-screen min-h-screen  flex flex-col fixed top-0 transition-all duration-500 ease-in-out ${
         isOpen ? "w-72" : "w-16"
       } bg-blue-900`}
     >
@@ -112,10 +120,10 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
             <GiTheater className="w-6 h-6 cursor-pointer " />
           )}
           {isOpen ? (
-            <div className="relative ">
+            <div ref={ref} className="relative  ">
               <Search onInputChange={onInputChange} inputValue={inputValue} />
               {listOpen && (
-                <div className="absolute mt-2 h-36 overflow-auto p-2 bg-white rounded-md w-full">
+                <div className="absolute text-text font-medium font-raleway mt-2 h-72 overflow-auto p-2 bg-white rounded-md w-full">
                   {filtered?.map((item: event) => (
                     <div
                       className="hover:bg-gray-300 rounded-md"

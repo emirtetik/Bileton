@@ -2,8 +2,12 @@ import MuiButton from "../_coreComponent/mui/button";
 import { CiLocationOn } from "react-icons/ci";
 import { BsArrowLeft } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import {event} from '../../types'
 
-const SummaryCard = () => {
+
+const SummaryCard = ({event}: {event:event}) => {
+      
+
   return (
     <div className="box-border flex flex-col mx-4 mt-8 text-white bg-center bg-cover md:mx-12 font-raleway h-4/5 rounded-2xl bg-background-image-1">
       <div className="relative ">
@@ -14,11 +18,10 @@ const SummaryCard = () => {
       <div className="flex flex-col items-center justify-around mt-20 md:flex-row sm:mt-0 md:mt-16">
         <div className="flex-1 ">
           <div className="mx-4 md:mx-16 ">
-            <h1 className="pb-6 font-bold text-title">Dream World Wide in Jakarta</h1>
+            <h1 className="pb-6 font-bold text-title">{event.name}</h1>
             <h3 className="pb-8 text-subtitle">By Samil Basayev</h3>
-            <p className="text-text">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Accusantium itaque neque, maiores animi nam eaque optio.
+            <p className="text-title text-red-800">
+              {event.unitsInStock}
             </p>
             <div className="flex gap-2 pt-4 font-bold ">
               <CiLocationOn />
