@@ -4,6 +4,7 @@ import MainLayout from "../layouts/main";
 import Home from "../pages/home";
 import Lists from "../pages/lists";
 import EventsBycategory from "../components/category/eventsByCategory";
+import EventDetail from "../components/eventDetail";
 
 const routes = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const routes = createBrowserRouter([
       {
         path: "category/:name",
         element: <EventsBycategory />,
+      },
+      {
+        path: "event/:name",
+        element: <EventDetail />,
       },
       {
         path: "*",

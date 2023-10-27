@@ -110,7 +110,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
             <GiTheater className="w-6 h-6 cursor-pointer " />
           )}
           {isOpen ? (
-            <div className="relative " on>
+            <div className="relative ">
               <Search onInputChange={onInputChange} inputValue={inputValue} />
               {listOpen && (
                 <div className="absolute mt-2 h-36 overflow-auto p-2 bg-white rounded-md w-full">
@@ -123,7 +123,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
                       }}
                     >
                       <Link
-                        to={`/category/${slugify(item.name)}`}
+                        to={`/event/${slugify(item.name)}`}
                         className="block"
                       >
                         {item.name}
