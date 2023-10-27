@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
-import useSWR from "swr";
-import { event, category } from "../../types";
-import { CategoryService } from "../../services/CategoryService";
+// import useSWR from "swr";
+// import { event, category } from "../../types";
+// import { CategoryService } from "../../services/CategoryService";
 
-const fetcher = () => CategoryService.getAll();
-function slugify(str) {
+// const fetcher = () => CategoryService.getAll();
+function slugify(str: string) {
   return String(str)
     .normalize("NFKD") // split accented characters into their base characters and diacritical marks
     .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
@@ -16,7 +16,7 @@ function slugify(str) {
     .replace(/-+/g, "-"); // remove consecutive hyphens
 }
 const EventsBycategory = () => {
-  const { data } = useSWR("categories", fetcher);
+  // const { data } = useSWR("categories2", fetcher);
   const { name } = useParams();
   const cardList = [
     {
