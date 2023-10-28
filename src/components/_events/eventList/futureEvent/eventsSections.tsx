@@ -18,7 +18,7 @@ const EventsSection = () => {
   });
 
   return (
-    <div>
+    <div >
       <FilterBar search={search} setSearch={setSearch} events={events} />
       <EventList
         search={search}

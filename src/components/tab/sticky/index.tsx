@@ -8,7 +8,7 @@ interface StickyProps{
 
 const Sticky = ({children}: StickyProps) => {
   return (
-    <header className="text-white bg-blue-500 border-b ">
+    <header className="text-white">
         {children}
     </header>
   )

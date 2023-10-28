@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-black p-0 m-0 box-border antialiased font-mono;
+  @apply bg-gray-200 text-black p-0 m-0 box-border antialiased font-mono;
 }
 
 h1 {
@@ -32,3 +32,17 @@ p {
 .card {
   @apply bg-white rounded-lg shadow-lg overflow-hidden;
 }
+::-webkit-scrollbar{
+  width: 0.8rem;
+  }
+  ::-webkit-scrollbar-track{
+  background: #FF6000;
+  }
+  ::-webkit-scrollbar-thumb{
+  background-color: #454545;
+  border: 1px solid wheat;
+  
+  }
+  ::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(0, 0, 0);
+  }

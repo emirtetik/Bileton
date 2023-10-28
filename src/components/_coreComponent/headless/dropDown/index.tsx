@@ -43,14 +43,14 @@ const DropDown: FC<DropDownProps> = ({
           <div>
             <Menu.Button
               className={classNames(
-                `${width} flex font-raleway font-normal  p-2 rounded-md  items-center justify-between `
+                `${width} flex font-raleway font-medium  p-2 rounded-md  items-center justify-between `
               )}
             >
               {" "}
               {title}
               <svg
                 className={classNames({
-                  "rotate-180 text-blue-500 ": open,
+                  "rotate-180 text-secondary ": open,
                 })}
                 viewBox="0 0 24 24"
                 width={18.75}
@@ -77,7 +77,7 @@ const DropDown: FC<DropDownProps> = ({
                                 onclick && onclick(item.name);
                               }}
                               className={classNames({
-                                "text-blue-500 font-bold": active,
+                                "text-white font-bold": active,
                               })}
                             >
                               {item.name}
@@ -88,8 +88,8 @@ const DropDown: FC<DropDownProps> = ({
                             onClick={() => {
                               onclick && onclick(item.name);
                             }}
-                            className={classNames({
-                              "text-blue-500 font-bold": active,
+                            className={classNames("text-fourth",{
+                              "text-primary font-bold": active,
                             })}
                           >
                             {item.name}

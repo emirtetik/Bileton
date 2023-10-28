@@ -12,7 +12,7 @@ const Item: React.FC<ItemProps> = ({ children, id }) => {
      onClick={() => {
          setActive(id)
      }}
-     className="flex-1 p-1 text-center border-r border-gray-200 bg-blue-500/50 bg-blur-sm last:border-r-0 hover:bg-blue-500/60 "
+     className="flex-1 p-1 rounded-full transition-all duration-300 text-center border-r border-secondary bg-fourth bg-blur-sm last:border-r-0 hover:bg-secondary shadow-dark "
      type="button"
      id={id}
      >
@@ -21,7 +21,7 @@ const Item: React.FC<ItemProps> = ({ children, id }) => {
       })}>
         {children}
         {active === id && (
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-white " />
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-secondary " />
         )}
       </div>
     </button>

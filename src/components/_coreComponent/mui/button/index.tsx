@@ -1,25 +1,50 @@
-import React from 'react';
-import Button, { ButtonProps } from '@mui/material/Button';
+import React from "react";
+import Button, { ButtonProps } from "@mui/material/Button";
 
-interface MuiButtonProps extends Omit<ButtonProps, 'size' | 'variant'> {
-  size: 'small' | 'medium' | 'large';
-  variant: 'text' | 'outlined' | 'contained';
+interface MuiButtonProps extends Omit<ButtonProps, "size" | "variant"> {
+  size: "small" | "medium" | "large";
+  variant: "text" | "outlined" | "contained";
 }
 
 const variants = {
-  text: { backgroundColor: '#3b82f6', color: 'white' },
-  outlined: { backgroundColor: '#020617', color: 'white' },
-  contained: { backgroundColor: '#16a34a', color: 'white' },
+  text: {
+    backgroundColor: "#FFA559",
+    color: "#454545",
+    boxShadow:
+      "0 4px 6px 0 rgba(69, 69, 69, 0.7), 0 5px 15px rgba(69, 69, 69, 0.1)",
+     border:'1px solid #C4CCCC' 
+  },
+  outlined: { 
+    backgroundColor: "#C4CCCC", 
+    color: "#FF6000",
+    border: "2px solid #454545",
+    boxShadow:
+      "0 4px 6px 0 rgba(255,255,255,0.7), 0 5px 15px rgba(255,255,255,0.1)",
+   },
+  contained: { 
+    backgroundColor: "#C4CCCC", 
+    color: "black",
+    border: "1px solid #454545",
+   },
 };
 
-const MuiButton: React.FC<MuiButtonProps> = ({ size, variant, children, ...otherProps }) => {
-
+const MuiButton: React.FC<MuiButtonProps> = ({
+  size,
+  variant,
+  children,
+  ...otherProps
+}) => {
   const customVariants = variants[variant];
 
   return (
-    <Button size={size} style={customVariants} variant={variant} {...otherProps}>
-      <div className='font-normal lowercase text-text font-raleway' >
-      {children}
+    <Button
+      size={size}
+      style={customVariants}
+      variant={variant}
+      {...otherProps}
+    >
+      <div className="font-bold lowercase text-text font-raleway ">
+        {children}
       </div>
     </Button>
   );
