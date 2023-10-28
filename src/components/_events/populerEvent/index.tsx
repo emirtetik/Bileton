@@ -1,10 +1,27 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import MuiButton from '../../_coreComponent/mui/button';
-
+// import { EventService } from "../../../services/EventService";
+// import useSWR from "swr";
 import "swiper/css";
-const PopulerEvent
- = () => {
+
+// interface PopularEventProps {
+//   title: string;
+//   img: string;
+//   date: string;
+//   description:string
+// }
+// const fetcher = () => EventService.getAll();
+const PopularEvent = () => {
+  // const {data,error,isLoading} = useSWR("PopulerEvent",fetcher)
+
+  // if (isLoading) {
+    //   return <div>..Loading</div>
+    // }
+    // if (error) {
+    //   return  <div>...failed</div>
+    // }
+      
   const cards = [
     {
       title: "Film Festivali 2010",
@@ -89,7 +106,7 @@ const PopulerEvent
             <SwiperSlide key={index}>
               <div className="text-black bg-third w-[250px] h-[250px] rounded-md shadow-lg border border-fifth  hover:shadow-dark mb-3">
                 <div className="relative z-10 flex items-center justify-center ">
-                  <div className="absolute p-2 font-bold text-white bg-secondary rounded-md font-raleway top-2 right-1">
+                  <div className="absolute p-2 font-bold text-white rounded-md bg-secondary font-raleway top-2 right-1">
                     <div className="text-center">{card.date.split(" ")[0]}</div>
                     <div>{card.date.split(" ")[1]}</div>
                   </div>
@@ -112,5 +129,5 @@ const PopulerEvent
   );
 };
 
-export default PopulerEvent
+export default PopularEvent
 ;
