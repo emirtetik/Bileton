@@ -12,13 +12,13 @@ const DetailSection = ({event}: {event:event}) => {
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:flex-row md:px-12 md:mx-24 md:mt-24 font-raleway">
       <div className="flex flex-col w-full gap-8 md:w-4/6">
         <div className="flex flex-col w-3/4 gap-6">
-          <h2 className="font-bold darkText text-subtitle ">Description</h2>
+          <h2 className="font-bold darkText text-title ">Description</h2>
           <h3 className=" text-text">
             {event.name}
           </h3>
         </div>
         <div className="flex flex-col gap-6">
-          <h2>Hours</h2>
+          <h2 className="text-subtitle ">Hours</h2>
           <div>
             <h3>
               Monday: <span className="font-bold "> 9:00 AM – 5:00 PM</span>
@@ -29,7 +29,7 @@ const DetailSection = ({event}: {event:event}) => {
           </div>
         </div>
         <div className="flex flex-col gap-6">
-          <h2>Participants</h2>
+          <h2 className="text-subtitle ">Participants</h2>
           <div>
             <h3>Nedim Ramicevic</h3>
             <h3>John Doe</h3>

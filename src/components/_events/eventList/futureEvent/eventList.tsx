@@ -1,7 +1,8 @@
 import EventRow from "./eventRow";
 import { useState } from "react";
 import { event, searchProps } from "../../../../types";
-
+import MuiButton from "../../../_coreComponent/mui/button";
+import {TbPlayerTrackPrevFilled,TbPlayerTrackNextFilled} from 'react-icons/tb'
 const EventList = (props: {
   search: searchProps;
   events: event[];
@@ -13,63 +14,62 @@ const EventList = (props: {
   if (props.error) return <div>failed to load</div>;
   if (props.isLoading) return <div>loading...</div>;
   return (
-    <div className="w-full max-w-6xl mx-auto bg-white rounded-md ">
+    <div className="w-full max-w-6xl mx-auto  rounded-md font-raleway  ">
       <div>
-        <div className="py-4 overflow-x-auto ">
-          <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
-            <table className="min-w-full leading-normal border">
+        <div className="py-2 overflow-x-auto ">
+          <div className="inline-block min-w-full shadow-dark overflow-hidden  ">
+            <table className="min-w-full leading-normal  bg-third rounded-2xl">
               <thead>
                 <tr>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
+                  <th className="px-5 py-3  tracking-wider text-left text-fourth  border-b-4 border-fifth ">
                     Date
                   </th>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
+                  <th className="px-5 py-3  tracking-wider text-left text-fourth  border-b-4 border-fifth">
                     Event
                   </th>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
+                  <th className="px-5 py-3  tracking-wider text-left text-fourth  border-b-4 border-fifth">
                     Location
                   </th>
-                  <th className="px-5 py-3 text-xs font-semibold tracking-wider text-left text-gray-600 uppercase border-b-2 border-gray-300">
+                  <th className="px-5 py-3  tracking-wider text-left text-fourth  border-b-4 border-fifth">
                     Status
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {props.events.slice(page - 1, page + 5).map((event: event) => (
+                {props.events.slice(page - 1, page + 7).map((event: event) => (
                   <EventRow {...event} />
                 ))}
               </tbody>
             </table>
-            <div className="flex flex-col items-center px-5 py-5 bg-white border-t xs:flex-row xs:justify-between ">
-              <span className="text-xs text-gray-900 xs:text-sm">
+            <div className="flex flex-col items-center  py-2 bg-third border-t-4 xs:flex-row xs:justify-between ">
+              <span className="text-md text-fourth xs:text-sm">
                 Showing {page} to{" "}
                 {page + 5 > props.events.length
                   ? props.events.length
                   : page + 5}{" "}
                 of {props.events.length}
               </span>
-              <div className="inline-flex mt-2 xs:mt-0">
-                <button
+              <div className="inline-flex mt-2 xs:mt-0 gap-3">
+                <MuiButton
+                size="small" variant="outlined"
                   onClick={() => {
-                    if (page - 5 > 0) {
-                      setPage(page - 5);
+                    if (page - 8 > 0) {
+                      setPage(page - 8);
                     }
                   }}
-                  className="px-4 py-2 text-sm font-semibold transition duration-150 bg-blue-600 rounded-l text-indigo-50 hover:bg-indigo-500"
                 >
-                  Prev
-                </button>
-                &nbsp; &nbsp;
-                <button
+                  <TbPlayerTrackPrevFilled/>
+                </MuiButton>
+                <MuiButton
+                size="small" variant="outlined"
                   onClick={() => {
-                    if (page + 5 < props.events.length) {
-                      setPage(page + 5);
+                    if (page + 8 < props.events.length) {
+                      setPage(page + 8);
                     }
                   }}
-                  className="px-4 py-2 text-sm font-semibold transition duration-150 bg-blue-600 rounded-r text-indigo-50 hover:bg-indigo-500"
                 >
-                  Next
-                </button>
+                  <TbPlayerTrackNextFilled/>
+                </MuiButton>
               </div>
             </div>
           </div>

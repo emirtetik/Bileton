@@ -30,15 +30,15 @@ const TodayEvent = () => {
     // const today = moment().format('YYYY-MM-DD'); 
     // const todayData = data.filter((event:TodayEventProps) => moment(event.date).format('YYYY-MM-DD') === today); 
   return (
-    <section className="max-w-6xl mx-auto mb-6 text-black h-52">
+    <section className="max-w-6xl mx-auto mb-6  h-52">
       <div className="max-w-4xl pt-10 mx-auto ">
         <div className="flex justify-between mb-4 ">
-          <h6 className="text-2xl font-bold text-blue-500 uppercase text-subtitle font-raleway before:border-r-4 before:border-blue-500 before:mr-3">Bugün Programı</h6>
-          <h6 className="flex font-bold text-subtitle font-raleway"><BsFillCalendarDateFill className="text-blue-500 w-6 h-6 mr-1 mt-0.5"/> 24 agustos</h6>
+          <h6 className="text-2xl font-bold text-primary uppercase text-subtitle font-raleway before:border-r-4 before:border-primary before:mr-3">Bugün Programı</h6>
+          <h6 className="flex font-bold text-subtitle font-raleway text-primary"><BsFillCalendarDateFill className="text-fourth w-6 h-6 mr-1 mt-1.5"/> 24 agustos</h6>
         </div>
         <div className="flex items-center gap-5 rounded-2xl ">
-          <ImClock2 className="text-blue-600 w-7 h-7"/>
-          <div className="bg-black h-[1px] flex-1 flex justify-between rounded-full">
+          <ImClock2 className="text-fourth w-7 h-7"/>
+          <div className="bg-primary h-[1px] flex-1 flex justify-between rounded-full">
             {/* {todayData.map((item:TodayEventProps, i:number) => (
               <div key={i} className="flex flex-col items-center">
                 <button className="w-8 h-8 rounded-full flex items-center justify-center -top-3.5 relative transition-colors ">
@@ -50,7 +50,7 @@ const TodayEvent = () => {
             ))} */}
           </div>
           <div >
-            <Link to="/" className="font-bold hover:text-blue-500 font-raleway">Tüm etkinlikler</Link>
+            <Link to="/" className="font-bold text-fourth hover:text-primary font-raleway">Tüm etkinlikler</Link>
           </div>
         </div>
       </div>

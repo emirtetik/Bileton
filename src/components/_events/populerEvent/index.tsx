@@ -47,13 +47,13 @@ const PopulerEvent
   return (
     <div className="flex flex-col items-center justify-center max-w-2xl gap-5 p-4 mx-auto mt-0 sm:mt-10 lg:max-w-7xl md:max-w-4xl ">
      <div className="flex flex-col items-start justify-between w-full mt-4 sm:flex-row sm:items-center ">
-    <h6 className="font-bold text-black font-raleway text-title">Etkinlikler</h6>
+    <h6 className="font-bold text-primary font-raleway text-title ">Etkinlikler</h6>
     <MuiButton variant="text" size='small'  onClick={() => {}}>
       events
     </MuiButton>
 </div>
 
-      <h5 className="w-full font-bold text-left text-gray-500 font-raleway text-subtitle ">
+      <h5 className="w-full font-bold text-left text-black/50 font-raleway text-subtitle ">
         Populer etkinlikler
       </h5>
       <div className="w-full ">
@@ -87,9 +87,9 @@ const PopulerEvent
         >
           {cards.map((card, index) => (
             <SwiperSlide key={index}>
-              <div className="text-black w-[250px] h-[250px] rounded-md shadow-lg border border-gray-400  hover:shadow-2xl">
+              <div className="text-black bg-third w-[250px] h-[250px] rounded-md shadow-lg border border-fifth  hover:shadow-dark mb-3">
                 <div className="relative z-10 flex items-center justify-center ">
-                  <div className="absolute p-2 font-bold text-white bg-blue-700 rounded-md font-raleway top-2 right-1">
+                  <div className="absolute p-2 font-bold text-white bg-secondary rounded-md font-raleway top-2 right-1">
                     <div className="text-center">{card.date.split(" ")[0]}</div>
                     <div>{card.date.split(" ")[1]}</div>
                   </div>
@@ -101,7 +101,7 @@ const PopulerEvent
                 />
                 <div className="p-3">
                   <h2 className="font-bold text-left font-raleway text-subtitle">{card.title}</h2>
-                  <p className="font-medium text-left text-gray-600 font-raleway text-text">{card.description}</p>
+                  <p className="font-medium text-left text-fourth font-raleway text-text">{card.description}</p>
                 </div>
               </div>
             </SwiperSlide>

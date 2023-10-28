@@ -6,7 +6,7 @@ interface SideBarProps {
   isOpen: boolean;
 }
 const SideBar: React.FC<SideBarProps> = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <aside
