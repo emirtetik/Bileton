@@ -9,7 +9,7 @@ import "swiper/css";
 //   title: string;
 //   img: string;
 //   date: string;
-//   description:string
+//   location:string
 // }
 // const fetcher = () => EventService.getAll();
 const PopularEvent = () => {
@@ -22,6 +22,8 @@ const PopularEvent = () => {
     //   return  <div>...failed</div>
     // }
       
+    // const popularEvents = data.filter((event: PopularEventProps) => event.popular);
+
   const cards = [
     {
       title: "Film Festivali 2010",
@@ -104,9 +106,9 @@ const PopularEvent = () => {
         >
           {cards.map((card, index) => (
             <SwiperSlide key={index}>
-              <div className="text-black bg-third w-[250px] h-[250px] rounded-md shadow-lg border border-fifth  hover:shadow-dark mb-3">
+              <div className="text-black bg-third w-[250px] h-[250px] rounded-md shadow-lg border border-fifth  hover:shadow-dark mb-3 hover:bg-primary hover:text-white cursor-pointer transition-colors">
                 <div className="relative z-10 flex items-center justify-center ">
-                  <div className="absolute p-2 font-bold text-white rounded-md bg-secondary font-raleway top-2 right-1">
+                  <div className="absolute p-2 font-bold text-white rounded-md bg-secondary font-raleway top-2 right-1 ">
                     <div className="text-center">{card.date.split(" ")[0]}</div>
                     <div>{card.date.split(" ")[1]}</div>
                   </div>
@@ -117,7 +119,7 @@ const PopularEvent = () => {
                   className="rounded-t-md w-full max-h-[180px]"
                 />
                 <div className="p-3">
-                  <h2 className="font-bold text-left font-raleway text-subtitle">{card.title}</h2>
+                  <h2 className="font-bold text-left font-raleway text-subtitle ">{card.title}</h2>
                   <p className="font-medium text-left text-fourth font-raleway text-text">{card.description}</p>
                 </div>
               </div>

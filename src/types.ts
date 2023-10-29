@@ -7,7 +7,7 @@ export type Account = {
 export  interface searchProps {
   startDate: string;
   endDate: string;
-  location: string;
+  location: string ;
   category: string;
 }
 
@@ -19,7 +19,7 @@ export  interface searchProps {
     name: string;
     description: string;
     date: string;
-    location: string;
+    location: string | [number,number];
     status: string;
     category: string;
     unitsInStock:number

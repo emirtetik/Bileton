@@ -1,26 +1,39 @@
-import { Stack, TextField } from "@mui/material";
+import { InputLabelProps, Stack, SxProps, TextField } from "@mui/material";
+import React from "react";
 
 interface MuiTextFieldProps {
   value: string;
-  type?:string
-  variant:'outlined' | 'standard' | 'filled'
-  label?:string
-  onChange: (value: string) => void;
+  type?: string;
+  variant: 'outlined' | 'standard' | 'filled';
+  size?: "small" | "medium"
+  label?: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  fullWidth?: boolean;
+  id?: string;
+  name?: string;
+  autoComplete?: string;
+  autoFocus?: boolean;
+  className:string
+   sx?:SxProps
+   InputLabelProps?:Partial<InputLabelProps> | undefined
 }
 
-const MuiTextField: React.FC<MuiTextFieldProps> = ({ value, onChange, label,variant,type }) => {
+const MuiTextField: React.FC<MuiTextFieldProps> = ({size,InputLabelProps,sx,className, value, onChange, label,variant,type, ...otherProps }) => {
   return (
     <Stack spacing={4}>
       <Stack direction={"row"} spacing={2}>
         <TextField
-        className="flex items-center justify-center font-raleway "
+        className={className}
         type={type}
-          label={label}
-          variant={variant}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          InputLabelProps={{style: {fontSize: 14}}}
-        
+        label={label}
+        variant={variant}
+        value={value}
+        onChange={onChange}
+        InputLabelProps={InputLabelProps}
+        sx={sx}
+        size={size}
+        {...otherProps}
         />
       </Stack>
     </Stack>
