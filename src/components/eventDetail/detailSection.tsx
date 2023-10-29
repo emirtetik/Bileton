@@ -6,7 +6,13 @@ import { event } from "../../types";
 
 const DetailSection = ({event}: {event:event}) => {
 
-    
+  let eventkonum: [number, number];
+
+if (typeof event.location === 'string') {
+  eventkonum = event.location.split(',').map(Number) as [number, number];
+} else {
+  eventkonum = event.location;
+}
 
   return (
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:flex-row md:px-12 md:mx-24 md:mt-24 font-raleway">
@@ -41,7 +47,7 @@ const DetailSection = ({event}: {event:event}) => {
         <div className="flex flex-col gap-6">
           <h2 >Location</h2>
           <div >
-            <Map />
+            <Map  konum={eventkonum}/>
           </div>
           <div>
             <h2>Dream World Wide</h2>

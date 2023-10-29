@@ -32,6 +32,9 @@ p {
 .card {
   @apply bg-white rounded-lg shadow-lg overflow-hidden;
 }
+
+
+
 ::-webkit-scrollbar{
   width: 0.8rem;
   }
