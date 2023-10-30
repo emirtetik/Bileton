@@ -22,9 +22,11 @@ export default {
         'bold': 700,
       },
       boxShadow:{
-        'dark': 'rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;',
-
-        'light':'rgba(255, 255, 255, 0.07) 0px 1px 2px, rgba(255, 255, 255, 0.07) 0px 2px 4px, rgba(255, 255, 255, 0.07) 0px 4px 8px, rgba(255, 255, 255, 0.07) 0px 8px 16px, rgba(255, 255, 255, 0.07) 0px 16px 32px, rgba(255, 255, 255, 0.07) 0px 32px 64px'
+        'dark': '0 4px 6px 0 rgba(69, 69, 69, 0.7), 0 5px 15px rgba(69, 69, 69, 0.1); ',
+        'light':'0px 4px 4px rgba(196, 204, 204, 0.25), 0px 4px 4px rgba(196, 204, 204, 0.22)'
+      },
+      dropShadow:{
+        'text':'0 4px 6px 0 rgba(69, 69, 69, 0.7), 0 5px 15px rgba(69, 69, 69, 0.1);',
       },
    
     screens: {
@@ -34,11 +36,11 @@ export default {
       'xl': '1280px',
     },
     colors: {
-      'primary': '#123456',
-      'secondary': '#789abc',
-      'third': '#def012',
-      'fourth': '#345678',
-      'fifth': '#9abcdef'
+      'primary': '#FF6000',         //turuncu
+      'secondary': '#FFA559',       //açık krem       
+      'third': '#FFE6C7',           //krem
+      'fourth': '#454545',           //gri 
+      'fifth': '#C4CCCC'             // açık gri   
     },
     fontSize: {
       'title': ['2.5rem', { sm: '2rem', md: '2.5rem', lg: '3rem', xl: '4rem', '2xl': '5rem' }],

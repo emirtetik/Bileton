@@ -90,23 +90,23 @@ export const sceneMenu = [
 
 export const items = [
   {
-  title: "13:00",
-  cardTitle: "Dunkirk",
+  time: "13:00",
+  title: "Dunkirk",
 },
 {
-  title: "15:00",
-  cardTitle: "The Matrix",
+  time: "15:00",
+  title: "The Matrix",
 },
 {
-  title: "18:00",
-  cardTitle: "The Lord of the Rings",
+  time: "18:00",
+  title: "The Lord of the Rings",
 },
 {
-  title: "20:00",
-  cardTitle: "The Godfather"
+  time: "20:00",
+  title: "The Godfather"
 },
 {
-  title: "22:00",
-  cardTitle: "Inception",
+  time: "22:00",
+  title: "Inception",
 },
 ];

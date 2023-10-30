@@ -40,10 +40,10 @@ const OtherEvents = () => {
   ];
   return (
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-24 font-raleway">
-      <h1 className="mt-10 font-bold text-title">Other Events You May Like</h1>
+      <h1 className="mt-10 font-bold text-title text-primary">Other Events You May Like</h1>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
-        {cards.map((card) => (
-          <div className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-white">
+        {cards.map((card, i) => (
+          <div key={i} className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-fifth">
             <div className="relative z-10 flex items-center justify-center "></div>
             <img
               src={card.img}
@@ -51,17 +51,17 @@ const OtherEvents = () => {
               className="rounded-t-md w-full max-h-[150px] object-cover"
             />
             <div className="flex items-center gap-2 p-4">
-              <div className="p-4 font-medium rounded-md ">
-                <div className="text-purple-700 darkText ">
+              <div className="p-2 font-medium rounded-md  bg-white">
+                <div className="text-secondary font-bold  ">
                   {card.date.split(" ")[1]}
                 </div>
-                <div className="text-center darkText ">
+                <div className="text-center text-secondary font-bold ">
                   {card.date.split(" ")[0]}
                 </div>
               </div>
               <div>
                 <h2 className="text-xl font-bold text-left">{card.title}</h2>
-                <p className="text-left text-gray-600">{card.description}</p>
+                <p className="text-left text-fourth">{card.description}</p>
               </div>
             </div>
           </div>

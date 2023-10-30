@@ -5,4 +5,4 @@ export const BaseService = {
     const response = await fetch(BASE_API_URL + path);
     return await response.json();
   },
-};
+

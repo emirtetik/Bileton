@@ -1,10 +1,10 @@
+import { useRef } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import { ImMenu } from "react-icons/im";
 import { GrClose, GrUserAdmin } from "react-icons/gr";
 import { BiSolidCategoryAlt, BiSolidSearch } from "react-icons/bi";
-import { FaMusic } from "react-icons/fa";
-import { GiTheater } from "react-icons/gi";
+import { FaMusic,FaTheaterMasks } from "react-icons/fa";
 import { useState } from "react";
 import classNames from "classnames";
 import Logo from "../logo";
@@ -16,6 +16,7 @@ import useSWR from "swr";
 import { EventService } from "../../../services/EventService";
 import { event } from "../../../types";
 
+import { useClickAway } from 'react-use';
 interface SideBarProps {
   setIsOpen: (value: boolean) => void;
   isOpen: boolean;
@@ -33,6 +34,7 @@ function slugify(str: string) {
 const fetcher = () => EventService.getAll();
 
 const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
+  const ref = useRef(null)
   const [inputValue, setInputValue] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +42,14 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
     setListOpen(true);
   };
 
-  const { data, isLoading, error } = useSWR("search", fetcher, {
+  // search altında açılan divi kapatmak için
+  useClickAway(ref,() => {
+    if (listOpen) {
+       setListOpen(false)
+    }
+  }) 
+  const { data, isLoading } = useSWR("search", fetcher, {
+
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
@@ -51,18 +60,20 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
   const filtered = data.filter((item: event) => {
     return item.name.toLowerCase().includes(inputValue.toLowerCase());
   });
+  
+  
 
   return (
     <nav
-      className={`max-h-screen min-h-screen  flex flex-col sticky top-0 transition-all duration-500 ease-in-out ${
+      className={`max-h-screen min-h-screen  flex flex-col fixed top-0 transition-all duration-500 ease-in-out ${
         isOpen ? "w-72" : "w-16"
-      } bg-blue-900`}
+      } bg-primary`}
     >
       <div className="px-4 py-4">
         <header className="flex items-center justify-around h-16">
           <button
             type="button"
-            className="text-white"
+            className='text-third'
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -75,13 +86,13 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         </header>
         <div className="mt-8 space-y-4">
           {mainMenu.map((item, index) => (
-            <NavLink key={index} to={item.path} className="py-1 text-white/30">
+            <NavLink key={index} to={item.path} className="py-1 text-fifth">
               {({ isActive }) => (
                 <div
                   className={classNames(
-                    "inline-flex rounded-full p-1 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-white/10 font-raleway ",
+                    "inline-flex rounded-full p-1 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-fourth font-raleway ",
                     {
-                      "bg-white/10 font-bold font-raleway text-white": isActive,
+                      "bg-fourth  font-bold font-raleway text-white": isActive,
                     }
                   )}
                 >
@@ -96,29 +107,30 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
           ))}
         </div>
         <div className="mt-3 mb-3 bg-white border" />
-        <div className="flex flex-col gap-3 items-left ">
+        <div className="flex flex-col gap-4 items-left ">
           {isOpen ? (
-            <h6 className="py-1 font-normal text-white/30 font-raleway">
+            <h6 className="py-1 font-normal text-fifth font-raleway">
               {" "}
               Kategoriler
             </h6>
           ) : (
             <BiSolidCategoryAlt className="w-6 h-6" />
           )}
-          {isOpen ? <Music /> : <FaMusic className="w-6 h-6 cursor-pointer " />}
+          {isOpen ? <Music /> : <FaMusic className="w-6 h-6 cursor-pointer text-fifth" />}
           {isOpen ? (
             <Scene />
           ) : (
-            <GiTheater className="w-6 h-6 cursor-pointer " />
+            <FaTheaterMasks className="w-6 h-6 cursor-pointer text-fifth " />
           )}
           {isOpen ? (
-            <div className="relative ">
+            <div ref={ref} className="relative  ">
               <Search onInputChange={onInputChange} inputValue={inputValue} />
               {listOpen && (
-                <div className="absolute mt-2 h-36 overflow-auto p-2 bg-white rounded-md w-full">
-                  {filtered?.map((item: event) => (
+                <div className="absolute text-text font-medium font-raleway mt-2 h-72 overflow-auto p-2 bg-fifth rounded-md w-full text-black">
+                  {filtered?.map((item: event, i:number) => (
                     <div
-                      className="hover:bg-gray-300 rounded-md"
+                    key={i}
+                      className="hover:bg-secondary rounded-md"
                       onClick={() => {
                         setListOpen(false);
                         setInputValue("");
@@ -136,17 +148,19 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
               )}
             </div>
           ) : (
-            <BiSolidSearch className="w-6 h-6 cursor-pointer " />
+            <BiSolidSearch className="w-6 h-6 cursor-pointer text-fifth" />
           )}
         </div>
       </div>
       <div className="px-5 py-6 mt-auto ">
+
         {!isOpen ? (
           <GrUserAdmin className="w-6 h-6 cursor-pointer" />
         ) : (
           <Account />
         )}
       </div>
+
     </nav>
   );
 };

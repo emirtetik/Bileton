@@ -2,6 +2,7 @@ import { Menu } from "@headlessui/react";
 import classNames from "classnames";
 import { FC } from "react";
 import { Link } from "react-router-dom";
+
 function slugify(str: string) {
   return String(str)
     .normalize("NFKD") // split accented characters into their base characters and diacritical marks
@@ -35,6 +36,8 @@ const DropDown: FC<DropDownProps> = ({
   onclick,
   linkActive,
 }) => {
+     
+ 
   return (
     <div className={`${className} `}>
       <Menu>
@@ -42,14 +45,14 @@ const DropDown: FC<DropDownProps> = ({
           <div>
             <Menu.Button
               className={classNames(
-                `${width} flex font-raleway font-normal  p-2 rounded-md  items-center justify-between `
+                `${width} flex font-raleway font-medium  p-2 rounded-md  items-center justify-between `
               )}
             >
               {" "}
               {title}
               <svg
                 className={classNames({
-                  "rotate-180 text-blue-500 ": open,
+                  "rotate-180 text-secondary ": open,
                 })}
                 viewBox="0 0 24 24"
                 width={18.75}
@@ -62,13 +65,13 @@ const DropDown: FC<DropDownProps> = ({
               </svg>
             </Menu.Button>
             <div
-              className={`absolute ${shadow} ${width} z-10 rounded-md mt-2 hover:border-1 ${background}`}
+              className={`absolute ${shadow} ${width} z-20 rounded-md mt-2 hover:border-1 ${background}`}
             >
               <Menu.Items>
                 {list.map((item, i) => (
                   <Menu.Item key={i}>
                     {({ active }) => (
-                      <div className="p-1 pl-3">
+                      <div className="p-1 pl-3 ">
                         {linkActive ? (
                           <Link to={`/category/${slugify(item.name)}`}>
                             <button
@@ -76,7 +79,7 @@ const DropDown: FC<DropDownProps> = ({
                                 onclick && onclick(item.name);
                               }}
                               className={classNames({
-                                "text-blue-500 font-bold": active,
+                                "text-white font-bold": active,
                               })}
                             >
                               {item.name}
@@ -87,8 +90,8 @@ const DropDown: FC<DropDownProps> = ({
                             onClick={() => {
                               onclick && onclick(item.name);
                             }}
-                            className={classNames({
-                              "text-blue-500 font-bold": active,
+                            className={classNames("text-fourth",{
+                              "text-primary font-bold": active,
                             })}
                           >
                             {item.name}
