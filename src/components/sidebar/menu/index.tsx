@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import { ImMenu } from "react-icons/im";
-import { GrClose,GrUserAdmin } from "react-icons/gr";
+import { GrClose, GrUserAdmin } from "react-icons/gr";
 import { BiSolidCategoryAlt, BiSolidSearch } from "react-icons/bi";
 import { FaMusic } from "react-icons/fa";
 import { GiTheater } from "react-icons/gi";
@@ -15,7 +15,6 @@ import Account from "../account";
 import useSWR from "swr";
 import { EventService } from "../../../services/EventService";
 import { event } from "../../../types";
-
 
 interface SideBarProps {
   setIsOpen: (value: boolean) => void;
@@ -41,12 +40,13 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
     setListOpen(true);
   };
 
-  const { data, isLoading } = useSWR("search", fetcher, {
+  const { data, isLoading, error } = useSWR("search", fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
-
+  console.log(error);
+  if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   const filtered = data.filter((item: event) => {
     return item.name.toLowerCase().includes(inputValue.toLowerCase());
@@ -141,14 +141,12 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         </div>
       </div>
       <div className="px-5 py-6 mt-auto ">
-      {!isOpen ? (
-           <GrUserAdmin className="w-6 h-6 cursor-pointer"/>
-      ) : (
-      
-      <Account/>
-     ) }
-      </div> 
-
+        {!isOpen ? (
+          <GrUserAdmin className="w-6 h-6 cursor-pointer" />
+        ) : (
+          <Account />
+        )}
+      </div>
     </nav>
   );
 };

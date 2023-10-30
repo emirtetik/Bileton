@@ -9,8 +9,9 @@ import { category } from "../../../../types";
 const fetcher = () => CategoryService.getAll();
 
 const Music = () => {
-  const { data } = useSWR("categories", fetcher);
-
+  const { data, isLoading, error } = useSWR("categories", fetcher);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>failed to load</div>;
   return (
     <div className="">
       <DropDown
@@ -20,13 +21,13 @@ const Music = () => {
         background="bg-black"
         className="text-white "
         title="Müzik"
-        // list={data.map((category: category) => ({ name: category.name }))}
-        list={[
-          { name: "Rock" },
-          { name: "Pop" },
-          { name: "Rap" },
-          { name: "Klasik" },
-        ]}
+        list={data.map((category: category) => ({ name: category.name }))}
+        // list={[
+        //   { name: "Rock" },
+        //   { name: "Pop" },
+        //   { name: "Rap" },
+        //   { name: "Klasik" },
+        // ]}
       />
     </div>
   );

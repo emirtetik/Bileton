@@ -62,7 +62,7 @@ const DropDown: FC<DropDownProps> = ({
               </svg>
             </Menu.Button>
             <div
-              className={`absolute ${shadow} ${width} rounded-md mt-2 hover:border-1 ${background}`}
+              className={`absolute ${shadow} ${width} z-10 rounded-md mt-2 hover:border-1 ${background}`}
             >
               <Menu.Items>
                 {list.map((item, i) => (
