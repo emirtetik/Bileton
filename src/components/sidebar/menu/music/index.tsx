@@ -9,7 +9,6 @@ import { category } from "../../../../types";
 const fetcher = () => CategoryService.getAll();
 
 const Music = () => {
-
   const { data, isLoading, error } = useSWR("categories", fetcher);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>failed to load</div>;
@@ -21,8 +20,9 @@ const Music = () => {
         shadow="shadow-dark"
         width="w-full"
         background="bg-secondary"
-        className="text-fourth "
-        title="Müzik"
+        className="text-fourth  "
+        title="Category"
+        type="category"
         list={data.map((category: category) => ({ name: category.name }))}
         // list={[
         //   { name: "Rock" },
