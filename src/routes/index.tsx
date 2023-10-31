@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import Category from "../pages/category";
 import EventsBycategory from "../components/category/eventsByCategory";
 import EventDetail from "../components/eventDetail";
+import EventsByLocation from "../components/location/index";
 
 const routes = createBrowserRouter([
   {
@@ -17,11 +18,15 @@ const routes = createBrowserRouter([
       },
       {
         path: "/category",
-        element: <Category/>,
+        element: <Category />,
       },
       {
         path: "category/:name",
         element: <EventsBycategory />,
+      },
+      {
+        path: "location/:name",
+        element: <EventsByLocation />,
       },
       {
         path: "event/:name",

@@ -21,7 +21,8 @@ const Music = () => {
         width="w-full"
         background="bg-secondary"
         className="text-fourth  "
-        title="Müzik"
+        title="Category"
+        type="category"
         list={data.map((category: category) => ({ name: category.name }))}
         // list={[
         //   { name: "Rock" },

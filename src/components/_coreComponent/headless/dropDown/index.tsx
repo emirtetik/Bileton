@@ -24,6 +24,7 @@ interface DropDownProps {
   shadow: string;
   onclick?: (value: string) => void;
   linkActive?: boolean;
+  type: string;
 }
 
 const DropDown: FC<DropDownProps> = ({
@@ -35,9 +36,8 @@ const DropDown: FC<DropDownProps> = ({
   shadow,
   onclick,
   linkActive,
+  type,
 }) => {
-     
- 
   return (
     <div className={`${className} `}>
       <Menu>
@@ -73,7 +73,7 @@ const DropDown: FC<DropDownProps> = ({
                     {({ active }) => (
                       <div className="p-1 pl-3 ">
                         {linkActive ? (
-                          <Link to={`/category/${slugify(item.name)}`}>
+                          <Link to={`/${type}/${slugify(item.name)}`}>
                             <button
                               onClick={() => {
                                 onclick && onclick(item.name);
@@ -90,7 +90,7 @@ const DropDown: FC<DropDownProps> = ({
                             onClick={() => {
                               onclick && onclick(item.name);
                             }}
-                            className={classNames("text-fourth",{
+                            className={classNames("text-fourth", {
                               "text-primary font-bold": active,
                             })}
                           >
