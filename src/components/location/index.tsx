@@ -15,8 +15,8 @@ function slugify(str: string) {
     .replace(/\s+/g, "-") // replace spaces with hyphens
     .replace(/-+/g, "-"); // remove consecutive hyphens
 }
-const EventsBycategory = () => {
-  const { data, isLoading, error } = useSWR("categories2", fetcher);
+const EventsByLocation = () => {
+  const { data, isLoading, error } = useSWR("location", fetcher);
   const { name } = useParams();
   // const cardList = [
   //   {
@@ -59,7 +59,7 @@ const EventsBycategory = () => {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   const cards = data.filter((event: event) =>
-    slugify(event.category).includes(slugify(name) || "")
+    slugify(event.location).includes(slugify(name) || "")
   );
   // const cards = cardList.filter((card) =>
   //   slugify(card.title).includes(slugify(name) || "")
@@ -101,4 +101,4 @@ const EventsBycategory = () => {
   );
 };
 
-export default EventsBycategory;
+export default EventsByLocation;

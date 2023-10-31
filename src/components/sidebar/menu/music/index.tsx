@@ -3,13 +3,12 @@
 // import { musicMenu } from "../../../../constant";
 // import { Link } from "react-router-dom";
 import DropDown from "../../../_coreComponent/headless/dropDown";
-// import { CategoryService } from "../../../../services/CategoryService";
-// import useSWR from "swr";
-// import { category } from "../../../../types";
-// const fetcher = () => CategoryService.getAll();
+import { CategoryService } from "../../../../services/CategoryService";
+import useSWR from "swr";
+import { category } from "../../../../types";
+const fetcher = () => CategoryService.getAll();
 
 const Music = () => {
-
   const { data, isLoading, error } = useSWR("categories", fetcher);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>failed to load</div>;
@@ -22,7 +21,8 @@ const Music = () => {
         width="w-full"
         background="bg-secondary"
         className="text-fourth  "
-        title="Müzik"
+        title="Category"
+        type="category"
         list={data.map((category: category) => ({ name: category.name }))}
         // list={[
         //   { name: "Rock" },

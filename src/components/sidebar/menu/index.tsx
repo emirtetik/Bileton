@@ -1,10 +1,10 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import { ImMenu } from "react-icons/im";
 import { GrClose, GrUserAdmin } from "react-icons/gr";
 import { BiSolidCategoryAlt, BiSolidSearch } from "react-icons/bi";
-import { FaMusic,FaTheaterMasks } from "react-icons/fa";
+import { FaMusic, FaTheaterMasks } from "react-icons/fa";
 import { useState } from "react";
 import classNames from "classnames";
 import Logo from "../logo";
@@ -16,7 +16,7 @@ import useSWR from "swr";
 import { EventService } from "../../../services/EventService";
 import { event } from "../../../types";
 
-import { useClickAway } from 'react-use';
+import { useClickAway } from "react-use";
 interface SideBarProps {
   setIsOpen: (value: boolean) => void;
   isOpen: boolean;
@@ -34,7 +34,7 @@ function slugify(str: string) {
 const fetcher = () => EventService.getAll();
 
 const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const [inputValue, setInputValue] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,13 +43,12 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
   };
 
   // search altında açılan divi kapatmak için
-  useClickAway(ref,() => {
+  useClickAway(ref, () => {
     if (listOpen) {
-       setListOpen(false)
+      setListOpen(false);
     }
-  }) 
-  const { data, isLoading } = useSWR("search", fetcher, {
-
+  });
+  const { data, isLoading, error } = useSWR("search", fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
@@ -60,8 +59,6 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
   const filtered = data.filter((item: event) => {
     return item.name.toLowerCase().includes(inputValue.toLowerCase());
   });
-  
-  
 
   return (
     <nav
@@ -73,7 +70,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         <header className="flex items-center justify-around h-16">
           <button
             type="button"
-            className='text-third'
+            className="text-third"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -116,7 +113,11 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
           ) : (
             <BiSolidCategoryAlt className="w-6 h-6" />
           )}
-          {isOpen ? <Music /> : <FaMusic className="w-6 h-6 cursor-pointer text-fifth" />}
+          {isOpen ? (
+            <Music />
+          ) : (
+            <FaMusic className="w-6 h-6 cursor-pointer text-fifth" />
+          )}
           {isOpen ? (
             <Scene />
           ) : (
@@ -127,9 +128,9 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
               <Search onInputChange={onInputChange} inputValue={inputValue} />
               {listOpen && (
                 <div className="absolute text-text font-medium font-raleway mt-2 h-72 overflow-auto p-2 bg-fifth rounded-md w-full text-black">
-                  {filtered?.map((item: event, i:number) => (
+                  {filtered?.map((item: event, i: number) => (
                     <div
-                    key={i}
+                      key={i}
                       className="hover:bg-secondary rounded-md"
                       onClick={() => {
                         setListOpen(false);
@@ -153,14 +154,12 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         </div>
       </div>
       <div className="px-5 py-6 mt-auto ">
-
         {!isOpen ? (
           <GrUserAdmin className="w-6 h-6 cursor-pointer" />
         ) : (
           <Account />
         )}
       </div>
-
     </nav>
   );
 };
