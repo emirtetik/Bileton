@@ -48,13 +48,12 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
        setListOpen(false)
     }
   }) 
-  const { data, isLoading } = useSWR("search", fetcher, {
+  const { data, isLoading,error } = useSWR("search", fetcher, {
 
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
-  console.log(error);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   const filtered = data.filter((item: event) => {
@@ -123,14 +122,14 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
             <FaTheaterMasks className="w-6 h-6 cursor-pointer text-fifth " />
           )}
           {isOpen ? (
-            <div ref={ref} className="relative  ">
+            <div ref={ref} className="relative ">
               <Search onInputChange={onInputChange} inputValue={inputValue} />
               {listOpen && (
-                <div className="absolute text-text font-medium font-raleway mt-2 h-72 overflow-auto p-2 bg-fifth rounded-md w-full text-black">
+                <div className="absolute w-full p-2 mt-2 overflow-auto font-medium text-black rounded-md text-text font-raleway h-48 bg-fifth">
                   {filtered?.map((item: event, i:number) => (
                     <div
                     key={i}
-                      className="hover:bg-secondary rounded-md"
+                      className="rounded-md hover:bg-secondary"
                       onClick={() => {
                         setListOpen(false);
                         setInputValue("");
