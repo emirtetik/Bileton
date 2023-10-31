@@ -18,16 +18,15 @@ function slugify(str: string) {
 }
 const EventDetail = () => {
   const { data, isLoading } = useSWR("eventByName", fetcher);
-  const { name = '' } = useParams();
+  const { name = "" } = useParams();
 
   if (isLoading) return <div>Loading...</div>;
   const cards = data.find((event: event) =>
-    slugify(event.name).includes(slugify(name))
+    slugify(event.name).includes(slugify(name.split("-")[0]))
   );
-  console.log(cards)
+  console.log(cards);
 
   return (
-
     <div className="h-screen ">
       <SummaryCard event={cards} />
       <DetailSection event={cards} />

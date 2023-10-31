@@ -16,6 +16,7 @@ function slugify(str: string) {
 interface DropDownProps {
   list: {
     name: string;
+    id?: string;
   }[];
   title: string;
   className?: string;
@@ -73,7 +74,9 @@ const DropDown: FC<DropDownProps> = ({
                     {({ active }) => (
                       <div className="p-1 pl-3 ">
                         {linkActive ? (
-                          <Link to={`/${type}/${slugify(item.name)}`}>
+                          <Link
+                            to={`/${type}/${slugify(item.name)}-${item.id}`}
+                          >
                             <button
                               onClick={() => {
                                 onclick && onclick(item.name);
