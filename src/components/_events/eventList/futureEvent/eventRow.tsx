@@ -22,7 +22,9 @@ const EventRow = (props: event) => {
             />
           </div>
           <div className="ml-3">
-            <p className="text-fourth font-bold   whitespace-no-wrap">{props.name}</p>
+            <p className="text-fourth font-bold   whitespace-no-wrap">
+              {props.name}
+            </p>
           </div>
         </div>
       </td>
