@@ -74,9 +74,7 @@ const DropDown: FC<DropDownProps> = ({
                     {({ active }) => (
                       <div className="p-1 pl-3 ">
                         {linkActive ? (
-                          <Link
-                            to={`/${type}/${slugify(item.name)}-${item.id}`}
-                          >
+                          <Link to={`/${type}/${slugify(item.name)}`}>
                             <button
                               onClick={() => {
                                 onclick && onclick(item.name);

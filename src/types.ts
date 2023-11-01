@@ -22,7 +22,8 @@ export  interface searchProps {
     location: string | [number,number];
     status: string;
     category: string;
-    unitsInStock:number
+    unitsInStock:number;
+    photos: string[];
      
   }
 

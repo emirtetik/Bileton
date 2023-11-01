@@ -25,7 +25,7 @@ const EventDetail = () => {
     slugify(event.name).includes(slugify(name.split("-")[0]))
   );
   console.log(cards);
-
+  cards.photos = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   return (
     <div className="h-screen ">
       <SummaryCard event={cards} />
