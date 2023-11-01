@@ -14,7 +14,7 @@ export  interface searchProps {
 
 
   export interface event {
-    id: string;
+    _id: string;
     image: string;
     name: string;
     description: string;

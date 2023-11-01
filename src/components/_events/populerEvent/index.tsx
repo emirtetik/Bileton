@@ -5,6 +5,7 @@ import { EventService } from "../../../services/EventService";
 import useSWR from "swr";
 import { event } from "../../../types";
 import "swiper/css";
+import { Link } from "react-router-dom";
 
 // interface PopularEventProps {
 //   title: string;
@@ -109,27 +110,31 @@ const PopularEvent = () => {
         >
           {cards.map((card: event, index: number) => (
             <SwiperSlide key={index}>
-              <div className="text-black bg-third w-[250px] h-[250px] rounded-md shadow-lg border border-fifth  hover:shadow-dark mb-3 hover:bg-primary hover:text-white cursor-pointer transition-colors">
-                <div className="relative z-10 flex items-center justify-center ">
-                  <div className="absolute p-2 font-bold text-white rounded-md bg-secondary font-raleway top-2 right-1 ">
-                    <div className="text-center">{card.date.split(" ")[0]}</div>
-                    <div>{card.date.split(" ")[1]}</div>
+              <Link to={`/event/${card.name}-${card._id}`}>
+                <div className="text-black bg-third w-[250px] h-[250px] rounded-md shadow-lg border border-fifth  hover:shadow-dark mb-3 hover:bg-primary hover:text-white cursor-pointer transition-colors">
+                  <div className="relative z-10 flex items-center justify-center ">
+                    <div className="absolute p-2 font-bold text-white rounded-md bg-secondary font-raleway top-2 right-1 ">
+                      <div className="text-center">
+                        {card.date.split(" ")[0]}
+                      </div>
+                      <div>{card.date.split(" ")[1]}</div>
+                    </div>
+                  </div>
+                  <img
+                    src={card.image}
+                    alt="events"
+                    className="rounded-t-md w-full max-h-[180px]"
+                  />
+                  <div className="p-3">
+                    <h2 className="font-bold text-left font-raleway text-subtitle ">
+                      {card.name}
+                    </h2>
+                    <p className="font-medium text-left text-fourth font-raleway text-text">
+                      {card.description}
+                    </p>
                   </div>
                 </div>
-                <img
-                  src={card.image}
-                  alt="events"
-                  className="rounded-t-md w-full max-h-[180px]"
-                />
-                <div className="p-3">
-                  <h2 className="font-bold text-left font-raleway text-subtitle ">
-                    {card.name}
-                  </h2>
-                  <p className="font-medium text-left text-fourth font-raleway text-text">
-                    {card.description}
-                  </p>
-                </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
