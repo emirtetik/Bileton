@@ -11,9 +11,9 @@ interface event {
 
 const EventRow = (props: event) => {
   return (
-    <tr>
-      <td className="px-5  border border-fifth bg-white text-sm">
-        <div className="flex items-center">
+    <tr className="w-full flex gap-1">
+      <td className="px-5  border border-fifth  text-sm  bg-white flex sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]">
+        <div className="flex items-center justify-center ">
           <div className="flex-shrink-0 w-10 h-10">
             <img
               className="w-full h-full rounded-md"
@@ -21,24 +21,26 @@ const EventRow = (props: event) => {
               alt=""
             />
           </div>
-          <div className="ml-3">
+          <div className="ml-3 ">
             <p className="text-fourth font-bold   whitespace-no-wrap">
               {props.name}
             </p>
           </div>
         </div>
       </td>
-      <td className="px-5 border border-fifth bg-white text-sm">
-        <p className="text-fourth whitespace-no-wrap">Admin</p>
+      <td className="px-5 border border-fifth bg-white text-sm flex sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]">
+        <div className="flex items-center justify-center">
+          <p className="text-fourth whitespace-no-wrap">Admin</p>
+        </div>
       </td>
-      <td className="px-5  border border-fifth bg-white text-sm">
+      <td className="px-5  border border-fifth bg-white text-sm sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]">
         {/* <p className="text-fourth whitespace-no-wrap"><Moment format="DD/MM/YYYY">{props.date}</Moment></p> */}
       </td>
-      <td className="px-5 py-4 border border-fifth bg-third text-sm">
+      <td className="px-5 py-4 border border-fifth bg-third text-sm sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]  hover:bg-fourth hover:text-primary hover:font-bold">
         <span className="relative inline-block px-3 py-1  text-white leading-tight">
           <span
             aria-hidden
-            className="absolute inset-0 bg-primary opacity-50 rounded-full"
+            className="absolute inset-0 bg-primary opacity-50 rounded-full "
           ></span>
           <span className="relative">Active</span>
         </span>

@@ -29,6 +29,7 @@ const FilterBar = (props: {
           setSelectedCategory(value);
           props.setSearch({ ...props.search, category: value });
         }}
+        type="button"
         shadow="shadow-dark"
         width="w-32"
         background="bg-gray-200 "
@@ -53,16 +54,18 @@ const FilterBar = (props: {
         type={"date"}
         value={props.search.startDate}
         onChange={(value) =>
-          props.setSearch({ ...props.search, startDate: value })
+          props.setSearch({ ...props.search, startDate: value.target.value })
         }
+        className=""
       />
       <MuiTextField
         variant="standard"
         type={"date"}
         value={props.search.endDate}
         onChange={(value) =>
-          props.setSearch({ ...props.search, endDate: value })
+          props.setSearch({ ...props.search, endDate: value.target.value})
         }
+        className=""
       />
 
       <DropDown
@@ -70,6 +73,7 @@ const FilterBar = (props: {
           setSelectedLocation(value);
           props.setSearch({ ...props.search, location: value });
         }}
+        type="button"
         shadow="shadow-dark"
         width="w-32"
         background="bg-gray-200 "

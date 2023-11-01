@@ -22,13 +22,13 @@ const EventList = (props: {
       <div>
         <div className="py-2 overflow-x-auto ">
           <div className="inline-block min-w-full overflow-hidden shadow-dark ">
-            <table className="min-w-full leading-normal bg-third rounded-2xl">
+            <table className="w-full leading-normal bg-third rounded-2xl table-fixed">
               <thead>
                 <tr>
-                  <th className="px-5 py-3 tracking-wider text-left border-b-4 text-fourth border-fifth ">
+                  <th className="px-5 py-3 tracking-wider text-left border-b-4 text-fourth border-fifth  ">
                     Date
                   </th>
-                  <th className="px-5 py-3 tracking-wider text-left border-b-4 text-fourth border-fifth">
+                  <th className="px-5 py-3 tracking-wider text-left border-b-4 text-fourth border-fifth  truncate">
                     Event
                   </th>
                   <th className="px-5 py-3 tracking-wider text-left border-b-4 text-fourth border-fifth">
@@ -41,7 +41,7 @@ const EventList = (props: {
               </thead>
               <tbody>
                 {props.events
-                  .slice(page - 1, page + 7)
+                  .slice(page - 1, page + 5)
                   .map((event: event, i: number) => (
                     <Link to={`/event/${event.name}-${event._id}`} key={i}>
                       <EventRow {...event} />
@@ -62,8 +62,8 @@ const EventList = (props: {
                   size="small"
                   variant="outlined"
                   onClick={() => {
-                    if (page - 8 > 0) {
-                      setPage(page - 8);
+                    if (page - 5 > 0) {
+                      setPage(page - 5);
                     }
                   }}
                 >
@@ -73,8 +73,8 @@ const EventList = (props: {
                   size="small"
                   variant="outlined"
                   onClick={() => {
-                    if (page + 8 < props.events.length) {
-                      setPage(page + 8);
+                    if (page + 5 < props.events.length) {
+                      setPage(page + 5);
                     }
                   }}
                 >

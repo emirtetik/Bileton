@@ -6,3 +6,4 @@ export const BaseService = {
     return await response.json();
   },
 };
+

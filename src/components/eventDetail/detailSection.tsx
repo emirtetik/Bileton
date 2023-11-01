@@ -1,6 +1,6 @@
 import MuiButton from "../_coreComponent/mui/button";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import Map from "./map";
+// import Map from "./map";
 import { event } from "../../types";
 
 const DetailSection = ({ event }: { event: event }) => {
@@ -11,6 +11,7 @@ const DetailSection = ({ event }: { event: event }) => {
   } else {
     eventkonum = event.location;
   }
+
 
   return (
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:flex-row md:px-12 md:mx-24 md:mt-24 font-raleway">

@@ -17,7 +17,7 @@ function slugify(str: string) {
 }
 const EventsBycategory = () => {
   const { data, isLoading, error } = useSWR("categories2", fetcher);
-  const { name } = useParams();
+  const { name = "" } = useParams();
   // const cardList = [
   //   {
   //     title: "Film Festivali 2010",
@@ -66,7 +66,7 @@ const EventsBycategory = () => {
   // );
   return (
     <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
-      <h1 className="text-center font-bold text-title">{name}</h1>
+      <h1 className="text-center font-bold text-6xl text-primary ">{name}</h1>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
         {cards.map((card: event) => (
           <Link to={`/event/${card.name}-${card._id}`} key={card._id}>
@@ -89,7 +89,7 @@ const EventsBycategory = () => {
                 </div> */}
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-left">{card.name}</h2>
+                  <h2 className="text-xl font-bold text-left ">{card.name}</h2>
                   <p className="text-left text-gray-600">{card.description}</p>
                 </div>
               </div>

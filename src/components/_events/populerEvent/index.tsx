@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 // }
 const fetcher = () => EventService.getAll();
 const PopularEvent = () => {
-  const { data, error, isLoading } = useSWR("PopulerEvent", fetcher);
+  const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
 
   if (isLoading) {
     return <div>..Loading</div>;
@@ -97,14 +97,11 @@ const PopularEvent = () => {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            "768": {
+            "1284": {
               slidesPerView: 3,
               spaceBetween: 20,
             },
-            "1024": {
-              slidesPerView: 4,
-              spaceBetween: 40,
-            },
+           
           }}
           className="w-full"
         >
