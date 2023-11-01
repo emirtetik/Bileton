@@ -14,7 +14,7 @@ export  interface searchProps {
 
 
   export interface event {
-    id: string;
+    _id: string;
     image: string;
     name: string;
     description: string;
@@ -22,7 +22,8 @@ export  interface searchProps {
     location: string | [number,number];
     status: string;
     category: string;
-    unitsInStock:number
+    unitsInStock:number;
+    photos: string[];
      
   }
 

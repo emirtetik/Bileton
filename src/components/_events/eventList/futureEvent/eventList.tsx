@@ -43,8 +43,8 @@ const EventList = (props: {
                 {props.events
                   .slice(page - 1, page + 5)
                   .map((event: event, i: number) => (
-                    <Link to={`/event/${event.name}`} key={i}>
-                      <EventRow {...event}  />
+                    <Link to={`/event/${event.name}-${event._id}`} key={i}>
+                      <EventRow {...event} />
                     </Link>
                   ))}
               </tbody>

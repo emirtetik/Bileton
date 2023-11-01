@@ -69,7 +69,8 @@ const EventsByLocation = () => {
       <h1 className="text-center font-bold text-title">{name}</h1>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
         {cards.map((card: event) => (
-          <Link to={`/event/${card.name}`} key={card.id} >
+          <Link to={`/event/${card.name}-${card.id}`} key={card.id}>
+
             <div className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-white">
               <div className="relative z-10 flex items-center justify-center "></div>
               <img

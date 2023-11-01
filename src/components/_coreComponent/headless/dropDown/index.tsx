@@ -16,6 +16,7 @@ function slugify(str: string) {
 interface DropDownProps {
   list: {
     name: string;
+    id?: string;
   }[];
   title: string;
   className?: string;

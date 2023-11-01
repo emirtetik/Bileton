@@ -1,11 +1,7 @@
 import { useState } from "react";
 import Menu from "./menu";
 
-interface SideBarProps {
-  setIsOpen: (value: boolean) => void;  
-  isOpen: boolean;
-}
-const SideBar: React.FC<SideBarProps> = () => {
+const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
