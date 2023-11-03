@@ -35,7 +35,7 @@ const EventList = (props: {
                     Location
                   </th>
                   <th className="px-5 py-3 tracking-wider text-left border-b-4 text-fourth border-fifth">
-                    Status
+                    Category
                   </th>
                 </tr>
               </thead>

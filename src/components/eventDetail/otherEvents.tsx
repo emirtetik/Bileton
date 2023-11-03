@@ -1,70 +1,24 @@
+import EventCard from "../_coreComponent/eventCard";
+import useSWR from "swr";
+import { EventService } from "../../services/EventService";
+import { event } from "../../types";
+
+const fetcher = () => EventService.getAll();
 
 const OtherEvents = () => {
-  const cards = [
-    {
-      title: "Film Festivali 2010",
-      description: "Ankara, TR",
-      img: "https://filmfestankara.org.tr//uploads/__category/029.jpg",
-      date: "10 AUG",
-    },
-    {
-      title: "Tropical Festivali 2025",
-      description: "İstanbul, TR",
-      img: "https://i.pinimg.com/236x/7d/d3/f1/7dd3f1108e0b5822aaf5defa27e562d5.jpg",
-      date: "10 AUG",
-    },
-    {
-      title: "Caz Festivali 2020",
-      description: "İstanbul, TR",
-      img: "https://cazkolik.com/storage/gorseller/20120608_021301.jpg",
-      date: "10 AUG",
-    },
-    {
-      title: "Caz Festivali 2025",
-      description: "İstanbul, TR",
-      img: "https://cazkolik.com/storage/gorseller/20120608_021341.jpg",
-      date: "10 AUG",
-    },
-    {
-      title: "Dans Festivali 2025",
-      description: "İstanbul, TR",
-      img: "https://marketplace.canva.com/EAExRafOmWE/1/0/1131w/canva-gri-ill%C3%BCstrasyon-dans-festivali-posteri-26SP97CNeOs.jpg",
-      date: "10 AUG",
-    },
-    {
-      title: "Caz Festivali 2025",
-      description: "İstanbul, TR",
-      img: "https://i.pinimg.com/originals/7e/99/9b/7e999ba5942bf7e1816ed609824bad78.jpg",
-      date: "10 AUG",
-    },
-  ];
+  const { data, isLoading, error } = useSWR("otherEvents", fetcher);
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>is loading</div>;
+  const cards = data.slice(0, 8);
+
   return (
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-24 font-raleway">
-      <h1 className="mt-10 font-bold text-title text-primary">Other Events You May Like</h1>
+      <h1 className="mt-10 font-bold text-title text-primary">
+        Other Events You May Like
+      </h1>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
-        {cards.map((card, i) => (
-          <div key={i} className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-fifth">
-            <div className="relative z-10 flex items-center justify-center "></div>
-            <img
-              src={card.img}
-              alt="events"
-              className="rounded-t-md w-full max-h-[150px] object-cover"
-            />
-            <div className="flex items-center gap-2 p-4">
-              <div className="p-2 font-medium rounded-md  bg-white">
-                <div className="text-secondary font-bold  ">
-                  {card.date.split(" ")[1]}
-                </div>
-                <div className="text-center text-secondary font-bold ">
-                  {card.date.split(" ")[0]}
-                </div>
-              </div>
-              <div>
-                <h2 className="text-xl font-bold text-left">{card.title}</h2>
-                <p className="text-left text-fourth">{card.description}</p>
-              </div>
-            </div>
-          </div>
+        {cards.map((card: event, i: number) => (
+          <EventCard card={card} key={i} />
         ))}
       </div>
     </div>

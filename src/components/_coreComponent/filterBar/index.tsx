@@ -5,23 +5,35 @@ import { BiSearchAlt } from "react-icons/bi";
 import { event, searchProps } from "../../../types";
 import { useState } from "react";
 
+function onlyUnique(value, index, array) {
+  return array.indexOf(value) === index;
+}
+
 const FilterBar = (props: {
   search: searchProps;
   setSearch: (search: searchProps) => void;
   events: event[];
   onSearch: () => void;
+  isLoading: boolean;
+  error: unknown;
 }) => {
-  
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
 
+  const uniqueLocation = props.events
+    ?.map((event: event) => event.location)
+    .filter(onlyUnique);
+  const uniqueCategory = props.events
+    ?.map((event: event) => event.category)
+    .filter(onlyUnique);
   const handleSearch = () => {
     props.onSearch();
     setSelectedCategory("");
     setSelectedLocation("");
   };
 
-
+  if (props.error) return <div>failed to load</div>;
+  if (props.isLoading) return <div>loading...</div>;
   return (
     <div className="flex flex-row items-center justify-around my-3 bg-secondary rounded-2xl shadow-dark">
       <DropDown
@@ -35,18 +47,7 @@ const FilterBar = (props: {
         background="bg-gray-200 "
         className="text-fourth "
         title={selectedCategory || "Categories"}
-        // list={props.events.map((event: any) => ({
-        //   name: event.category,
-        // }))}
-        list={[
-          { name: "Müzik" },
-          { name: "Eğlence" },
-          { name: "Sanat" },
-          { name: "Eğitim" },
-          { name: "Sağlık" },
-          { name: "Teknoloji" },
-          { name: "Diğer" },
-        ]}
+        list={uniqueCategory.map((category: string) => ({ name: category }))}
       />
 
       <MuiTextField
@@ -63,7 +64,7 @@ const FilterBar = (props: {
         type={"date"}
         value={props.search.endDate}
         onChange={(value) =>
-          props.setSearch({ ...props.search, endDate: value.target.value})
+          props.setSearch({ ...props.search, endDate: value.target.value })
         }
         className=""
       />
@@ -78,10 +79,7 @@ const FilterBar = (props: {
         width="w-32"
         background="bg-gray-200 "
         title={selectedLocation || "Locations"}
-        // list={props.events.map((event: event) => ({
-        //   name: event.location,
-        // }))}
-        list={[{ name: "İstanbul" }, { name: "Ankara" }, { name: "İzmir" }]}
+        list={uniqueLocation.map((location: string) => ({ name: location }))}
       />
 
       <MuiButton

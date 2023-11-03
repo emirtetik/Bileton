@@ -1,12 +1,10 @@
-import {  useState } from "react";
-import FilterBar from "../../../_coreComponent/filterBar";
-import EventList from "./eventList";
+import { useState } from "react";
+import { lazy, Suspense } from "react";
+const EventList = lazy(() => import("./eventList"));
+const FilterBar = lazy(() => import("../../../_coreComponent/filterBar"));
 import useSWR from "swr";
 import { EventService } from "../../../../services/EventService";
-import { searchProps } from "../../../../types";
-
-
-
+import { event, searchProps } from "../../../../types";
 
 const fetcher = () => EventService.getAll();
 
@@ -19,42 +17,52 @@ const EventsSection = () => {
     location: "",
     category: "",
   });
- 
-  const [filteredEvents, setFilteredEvents] = useState([]);
-   
- 
-  const handleSearch = () => {
-    if (search.startDate && search.endDate && search.location && search.category) {
-      setFilteredEvents(events.filter((event:searchProps) =>
-        event.startDate >= search.startDate &&
-        event.endDate <= search.endDate &&
-        event.location === search.location &&
-        event.category === search.category
-      ));
-      console.log('arama yapılıyor')
-    } else {
-      console.log('Lütfen tüm alanları doldurunuz');
-    }
-  };
-  
-  let displayEvents;
 
-  if (filteredEvents.length > 0) {
-    displayEvents = filteredEvents;
-  } else {
-    displayEvents = events;
-  }
-   
+  const [filteredEvents, setFilteredEvents] = useState(events);
+
+  const handleSearch = () => {
+    setFilteredEvents(
+      events.filter((event: event) => {
+        return (
+          (search.startDate
+            ? Date.parse(event.date) >= Date.parse(search.startDate)
+            : true) &&
+          (search.endDate
+            ? Date.parse(event.date) <= Date.parse(search.endDate)
+            : true) &&
+          (search.location ? event.location === search.location : true) &&
+          (search.category ? event.category === search.category : true)
+        );
+      })
+    );
+    console.log(Date.parse(events[0].date) >= Date.parse(search.startDate));
+    setSearch({
+      startDate: "",
+      endDate: "",
+      location: "",
+      category: "",
+    });
+
+    console.log(search);
+  };
+
   return (
-    <div>
-      <FilterBar search={search} setSearch={setSearch} events={events} onSearch={handleSearch} />
-      <EventList
+    <Suspense fallback={<div>Loading...</div>}>
+      <FilterBar
         search={search}
-        events={displayEvents}
+        setSearch={setSearch}
+        events={events}
+        onSearch={handleSearch}
         isLoading={isLoading}
         error={error}
       />
-    </div>
+      <EventList
+        search={search}
+        events={filteredEvents}
+        isLoading={isLoading}
+        error={error}
+      />
+    </Suspense>
   );
 };
 
