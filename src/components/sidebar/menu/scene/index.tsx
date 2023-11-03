@@ -27,12 +27,6 @@ const Scene = () => {
         className="font-normal text-fourth font-raleway"
         title="Location"
         list={uniqueLocation.map((location: string) => ({ name: location }))}
-        // list={[
-        //   { name: "Tüm Sahne Etkinlikleri" },
-        //   { name: "Tiyatro" },
-        //   { name: "Stand-up" },
-        //   { name: "Gösteri" },
-        // ]}
       />
     </div>
   );

@@ -2,14 +2,7 @@
 
 import Moment from "react-moment";
 
-interface event {
-  image: string;
-  name: string;
-  description: string;
-  date: string;
-  location: string;
-  status: string;
-}
+import { event } from "../../../../types";
 
 const EventRow = (props: event) => {
   return (
@@ -43,13 +36,9 @@ const EventRow = (props: event) => {
         </p>
       </td>
       <td className="px-5 py-4 border border-fifth bg-third text-sm sm:min-w-[140px] md:min-w-[px] lg:min-w-[280px]  hover:bg-fourth hover:text-primary hover:font-bold">
-        <span className="relative inline-block px-3 py-1  text-white leading-tight">
-          <span
-            aria-hidden
-            className="absolute inset-0 bg-primary opacity-50 rounded-full "
-          ></span>
-          <span className="relative">Active</span>
-        </span>
+        <p className="text-fourth text-center whitespace-no-wrap">
+          {props.category}
+        </p>
       </td>
     </tr>
   );
