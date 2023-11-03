@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { lazy, Suspense } from "react";
-const EventList = lazy(() => import("./eventList"));
-const FilterBar = lazy(() => import("../../../_coreComponent/filterBar"));
+import EventList from "./eventList";
+import FilterBar from "../../../_coreComponent/filterBar";
 import useSWR from "swr";
 import { EventService } from "../../../../services/EventService";
 import { event, searchProps } from "../../../../types";
@@ -10,6 +9,7 @@ const fetcher = () => EventService.getAll();
 
 const EventsSection = () => {
   const { data: events, isLoading, error } = useSWR("events", fetcher);
+  const [filteredEvents, setFilteredEvents] = useState(events);
 
   const [search, setSearch] = useState<searchProps>({
     startDate: "",
@@ -17,8 +17,6 @@ const EventsSection = () => {
     location: "",
     category: "",
   });
-
-  const [filteredEvents, setFilteredEvents] = useState(events);
 
   const handleSearch = () => {
     setFilteredEvents(
@@ -35,19 +33,18 @@ const EventsSection = () => {
         );
       })
     );
-    console.log(Date.parse(events[0].date) >= Date.parse(search.startDate));
     setSearch({
       startDate: "",
       endDate: "",
       location: "",
       category: "",
     });
-
-    console.log(search);
   };
 
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <FilterBar
         search={search}
         setSearch={setSearch}
@@ -58,11 +55,11 @@ const EventsSection = () => {
       />
       <EventList
         search={search}
-        events={filteredEvents}
+        events={filteredEvents ? filteredEvents : events}
         isLoading={isLoading}
         error={error}
       />
-    </Suspense>
+    </>
   );
 };
 
