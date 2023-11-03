@@ -19,7 +19,6 @@ const EventList = (props: {
   if (props.isLoading) return <div>loading...</div>;
   if (props.events.length === 0)
     return <div className="text-center">No events found</div>;
-  console.log("nabeeeeeeerrr", props.events);
 
   return (
     <div className="w-full max-w-6xl mx-auto rounded-md font-raleway ">
