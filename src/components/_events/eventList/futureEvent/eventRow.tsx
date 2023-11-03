@@ -1,5 +1,7 @@
 // import Moment from 'react-moment';
 
+import Moment from "react-moment";
+
 interface event {
   image: string;
   name: string;
@@ -17,7 +19,7 @@ const EventRow = (props: event) => {
           <div className="flex-shrink-0 w-10 h-10">
             <img
               className="w-full h-full rounded-md"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+              src={props.image}
               alt=""
             />
           </div>
@@ -30,13 +32,17 @@ const EventRow = (props: event) => {
       </td>
       <td className="px-5 border border-fifth bg-white text-sm flex sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]">
         <div className="flex items-center justify-center">
-          <p className="text-fourth whitespace-no-wrap">Admin</p>
+          <p className="text-fourth whitespace-no-wrap">
+            <Moment format="MMM  Do  YY">{props.date}</Moment>
+          </p>
         </div>
       </td>
-      <td className="px-5  border border-fifth bg-white text-sm sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]">
-        {/* <p className="text-fourth whitespace-no-wrap"><Moment format="DD/MM/YYYY">{props.date}</Moment></p> */}
+      <td className="flex items-center justify-center px-5  border border-fifth bg-white text-sm sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]">
+        <p className="text-fourth text-center whitespace-no-wrap">
+          {props.location}
+        </p>
       </td>
-      <td className="px-5 py-4 border border-fifth bg-third text-sm sm:min-w-[140px] md:min-w-[240px] lg:min-w-[280px]  hover:bg-fourth hover:text-primary hover:font-bold">
+      <td className="px-5 py-4 border border-fifth bg-third text-sm sm:min-w-[140px] md:min-w-[px] lg:min-w-[280px]  hover:bg-fourth hover:text-primary hover:font-bold">
         <span className="relative inline-block px-3 py-1  text-white leading-tight">
           <span
             aria-hidden
