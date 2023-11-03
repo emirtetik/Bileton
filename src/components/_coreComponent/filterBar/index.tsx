@@ -35,7 +35,7 @@ const FilterBar = (props: {
   if (props.error) return <div>failed to load</div>;
   if (props.isLoading) return <div>loading...</div>;
   return (
-    <div className="flex flex-row items-center justify-around my-3 bg-secondary rounded-2xl shadow-dark">
+    <div className="flex flex-row items-center justify-around mt-3 mb-1 bg-gray-100 rounded-lg ">
       <DropDown
         onclick={(value) => {
           setSelectedCategory(value);
