@@ -6,7 +6,7 @@ const EventCard = (props: { card: event; key: number }) => {
   console.log("props", props);
   return (
     <Link key={props.key} to={`/event/${props.card.name}-${props.card._id}`}>
-      <div className="relative flex flex-col border border-gray-400 text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-fifth">
+      <div className="relative flex flex-col border border-gray-400 text-black w-full sm:w-[230px] h-[230px] rounded-md shadow-lg hover:shadow-2xl bg-fifth">
         <div className="flex  flex-1">
           <img
             src={props.card.image}

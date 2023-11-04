@@ -47,7 +47,6 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
     if (listOpen) {
       setListOpen(false);
     }
-
   });
   const { data, isLoading, error } = useSWR("search", fetcher, {
     revalidateIfStale: false,
@@ -62,19 +61,19 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
 
   return (
     <nav
-      className={`max-h-screen min-h-screen  flex flex-col fixed top-0 transition-all duration-500 ease-in-out ${
+      className={`max-h-screen min-h-screen flex flex-col fixed top-0 transition-all duration-500 ease-in-out ${
         isOpen ? "w-72" : "w-16"
-      } bg-primary`}
+      } bg-dark`}
     >
-      <div className="px-4 py-4">
+      <div className="py-4">
         <header className="flex items-center justify-around h-16">
           <button
             type="button"
-            className="text-third"
+            className="text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
-              <GrClose className="w-6 h-6" />
+              <GrClose className="w-6 h- text-red-500" />
             ) : (
               <ImMenu className="w-6 h-6" />
             )}
@@ -87,9 +86,10 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
               {({ isActive }) => (
                 <div
                   className={classNames(
-                    "inline-flex rounded-full p-1 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-fourth font-raleway ",
+                    "inline-flex  p-1 px-4 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-bgHover font-raleway ",
                     {
-                      "bg-fourth  font-bold font-raleway text-white": isActive,
+                      "bg-transparent  font-bold font-raleway text-white":
+                        isActive,
                     }
                   )}
                 >
@@ -106,33 +106,32 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         <div className="mt-3 mb-3 bg-white border" />
         <div className="flex flex-col gap-4 items-left ">
           {isOpen ? (
-            <h6 className="py-1 font-normal text-fifth font-raleway">
+            <h6 className="py-1 px-4 font-normal text-fifth font-raleway">
               {" "}
               Kategoriler
             </h6>
           ) : (
-            <BiSolidCategoryAlt className="w-6 h-6" />
+            <BiSolidCategoryAlt className="w-6 ml-4 text-fifth h-6" />
           )}
           {isOpen ? (
             <Music />
           ) : (
-            <FaMusic className="w-6 h-6 cursor-pointer text-fifth" />
+            <FaMusic className="w-6 h-6 ml-4 cursor-pointer text-fifth" />
           )}
           {isOpen ? (
             <Scene />
           ) : (
-            <FaTheaterMasks className="w-6 h-6 cursor-pointer text-fifth " />
+            <FaTheaterMasks className="w-6 h-6 ml-4 cursor-pointer text-fifth " />
           )}
           {isOpen ? (
             <div ref={ref} className="relative ">
               <Search onInputChange={onInputChange} inputValue={inputValue} />
               {listOpen && (
-                <div className="absolute w-full p-2 mt-2 overflow-auto font-medium text-black rounded-md text-text font-raleway h-48 bg-fifth">
-                  {filtered?.map((item: event, i:number) => (
+                <div className="absolute w-56 mx-6 p-2 mt-2 z-10 \ overflow-auto font-medium text-black rounded-md text-text font-raleway h-48 bg-fifth">
+                  {filtered?.map((item: event, i: number) => (
                     <div
-                    key={i}
-                      className="rounded-md hover:bg-secondary"
-
+                      key={i}
+                      className="rounded-sm px-2 hover:bg-secondary"
                       onClick={() => {
                         setListOpen(false);
                         setInputValue("");
@@ -150,7 +149,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
               )}
             </div>
           ) : (
-            <BiSolidSearch className="w-6 h-6 cursor-pointer text-fifth" />
+            <></>
           )}
         </div>
       </div>

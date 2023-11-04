@@ -40,7 +40,7 @@ const DropDown: FC<DropDownProps> = ({
   type,
 }) => {
   return (
-    <div className={`${className} `}>
+    <div className={`${className} hover:bg-bgHover `}>
       <Menu>
         {({ open }) => (
           <div>
@@ -66,13 +66,13 @@ const DropDown: FC<DropDownProps> = ({
               </svg>
             </Menu.Button>
             <div
-              className={`absolute ${shadow} ${width} z-20 rounded-md mt-2 hover:border-1 ${background}`}
+              className={`absolute ${shadow} w-[90%] z-20 rounded-md mt-2 hover:border-1 ${background}`}
             >
               <Menu.Items>
                 {list.map((item, i) => (
                   <Menu.Item key={i}>
                     {({ active }) => (
-                      <div className="p-1 pl-3 ">
+                      <div className="p-1 pl-3 text-black  ">
                         {linkActive ? (
                           <Link to={`/${type}/${slugify(item.name)}`}>
                             <button
@@ -80,7 +80,7 @@ const DropDown: FC<DropDownProps> = ({
                                 onclick && onclick(item.name);
                               }}
                               className={classNames({
-                                "text-white font-bold": active,
+                                "text-black font-bold": active,
                               })}
                             >
                               {item.name}

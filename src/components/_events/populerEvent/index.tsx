@@ -36,7 +36,7 @@ const PopularEvent = () => {
       <div className="w-full ">
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={50}
+          spaceBetween={20}
           slidesPerView={4}
           autoplay={{
             delay: 3000,
@@ -53,7 +53,7 @@ const PopularEvent = () => {
             },
             "1284": {
               slidesPerView: 3,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
           }}
           className="w-full"

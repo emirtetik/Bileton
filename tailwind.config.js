@@ -32,11 +32,13 @@ export default {
         lg: "1280px",
       },
       colors: {
-        primary: "black", //turuncu
+        dark: "rgba(0, 0, 0, 0.9)",
+        primary: "darkblue", //turuncu
         secondary: "blue", //açık krem
         third: "blue", //krem
         fourth: "black", //gri
         fifth: "white", // açık gri
+        bgHover: "blue",
       },
       fontSize: {
         title: [
