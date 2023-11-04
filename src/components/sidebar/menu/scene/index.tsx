@@ -23,8 +23,8 @@ const Scene = () => {
         type="location"
         shadow="shadow-dark"
         width="w-full"
-        background="bg-secondary"
-        className="font-normal text-fourth font-raleway"
+        background="bg-white"
+        className="font-normal text-white px-4 font-raleway "
         title="Location"
         list={uniqueLocation.map((location: string) => ({ name: location }))}
       />

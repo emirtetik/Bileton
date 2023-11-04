@@ -19,8 +19,8 @@ const Music = () => {
         linkActive={true}
         shadow="shadow-dark"
         width="w-full"
-        background="bg-secondary"
-        className="text-fourth  "
+        background="bg-white"
+        className="text-white px-4  "
         title="Category"
         type="category"
         list={data.map((category: category) => ({ name: category.name }))}
