@@ -4,7 +4,7 @@ import ViewTab from "../../components/tab/viewTab";
 
 const Home = () => {
   return (
-    <div className="m-12">
+    <div className="mx-24">
       <PopulerEvent />
       <ViewTab />
       <TodayEvent />

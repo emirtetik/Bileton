@@ -7,7 +7,7 @@ const MainLayout = () => {
       <div className="">
         <SideBar />
       </div>
-      <div className="overflow-auto px-4">
+      <div className="overflow-auto w-full px-4">
         <Outlet />
       </div>
     </div>
