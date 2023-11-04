@@ -11,10 +11,12 @@ const TabHome = () => {
     <div>
       <Tab activeTab={activeTab} setActive={setActiveTab}>
         <Sticky>
-          <Tab.Items>
-            <Tab.Item id="home">Home</Tab.Item>
-            <Tab.Item id="past">Past</Tab.Item>
-          </Tab.Items>
+          {/* <div>
+            <Tab.Items>
+              <Tab.Item id="home">Home</Tab.Item>
+              <Tab.Item id="past">Past</Tab.Item>
+            </Tab.Items>
+          </div> */}
         </Sticky>
         <Tab.Content id="home">
           {/* Anasayfada bir component  gösterilicekse burda olmalı  */}
@@ -22,7 +24,7 @@ const TabHome = () => {
         </Tab.Content>
         <Tab.Content id="past">
           {/* Past sekmesinde bir component  gösterilicekse burda olmalı  */}
-          <PastEvent/>
+          <PastEvent />
         </Tab.Content>
       </Tab>
     </div>
