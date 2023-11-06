@@ -4,7 +4,7 @@ import { EventService } from "../../../../services/EventService";
 import { event } from "../../../../types";
 
 const fetcher = () => EventService.getAll();
-function onlyUnique(value, index, array) {
+function onlyUnique(value: string, index: number, array: string[]): boolean {
   return array.indexOf(value) === index;
 }
 
