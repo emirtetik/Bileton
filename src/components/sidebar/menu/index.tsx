@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import { ImMenu } from "react-icons/im";
 import { GrClose, GrUserAdmin } from "react-icons/gr";
-import { BiSolidCategoryAlt, BiSolidSearch } from "react-icons/bi";
+import { BiSolidCategoryAlt } from "react-icons/bi";
 import { FaMusic, FaTheaterMasks } from "react-icons/fa";
 import { useState } from "react";
 import classNames from "classnames";

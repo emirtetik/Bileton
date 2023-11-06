@@ -5,9 +5,11 @@ import { BiSearchAlt } from "react-icons/bi";
 import { event, searchProps } from "../../../types";
 import { useState } from "react";
 
-function onlyUnique(value, index, array) {
+
+function onlyUnique(value: string, index: number, array: string[]): boolean {
   return array.indexOf(value) === index;
 }
+
 
 const FilterBar = (props: {
   search: searchProps;
@@ -20,11 +22,11 @@ const FilterBar = (props: {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
 
-  const uniqueLocation = props.events
-    ?.map((event: event) => event.location)
+  const uniqueLocation = (props.events
+    ?.map((event: event) => event.location) as string[])
     .filter(onlyUnique);
-  const uniqueCategory = props.events
-    ?.map((event: event) => event.category)
+const uniqueCategory = (props.events
+    ?.map((event: event) => event.category) as string[])
     .filter(onlyUnique);
   const handleSearch = () => {
     props.onSearch();
