@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-black p-0 m-0 box-border antialiased font-mono;
+  @apply box-border p-0 m-0 overflow-x-hidden font-mono antialiased text-black bg-white;
 }
 
 h1 {
@@ -11,14 +11,14 @@ h1 {
 }
 
 h2 {
-  @apply text-2xl  font-medium darkText;
+  @apply text-2xl font-medium darkText;
 }
 h3 {
   @apply text-base;
 }
 
 p {
-  @apply text-lg  font-normal;
+  @apply text-lg font-normal;
 }
 
 .lightText {
@@ -30,7 +30,7 @@ p {
 }
 
 .card {
-  @apply bg-white rounded-lg shadow-lg overflow-hidden;
+  @apply overflow-hidden bg-white rounded-lg shadow-lg;
 }
 
 ::-webkit-scrollbar {

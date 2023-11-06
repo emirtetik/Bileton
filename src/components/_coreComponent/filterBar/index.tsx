@@ -37,7 +37,7 @@ const uniqueCategory = (props.events
   if (props.error) return <div>failed to load</div>;
   if (props.isLoading) return <div>loading...</div>;
   return (
-    <div className="flex flex-row items-center justify-around mt-3 mb-1 bg-gray-100 rounded-lg ">
+    <div className="flex flex-row flex-wrap items-center justify-around gap-2 mt-3 mb-1 bg-gray-100 rounded-lg space-x-14">
       <DropDown
         onclick={(value) => {
           setSelectedCategory(value);
@@ -47,7 +47,7 @@ const uniqueCategory = (props.events
         shadow="shadow-dark"
         width="w-32"
         background="bg-gray-200 "
-        className="text-fourth "
+        className="text-fourth  w-[20%]"
         title={selectedCategory || "Categories"}
         list={uniqueCategory.map((category: string) => ({ name: category }))}
       />
@@ -79,7 +79,7 @@ const uniqueCategory = (props.events
         type="button"
         shadow="shadow-dark"
         width="w-32"
-        background="bg-gray-200 "
+        background="bg-gray-200 w-[20%]"
         title={selectedLocation || "Locations"}
         list={uniqueLocation.map((location: string) => ({ name: location }))}
       />

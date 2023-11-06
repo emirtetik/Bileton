@@ -20,7 +20,7 @@ const Music = () => {
         shadow="shadow-dark"
         width="w-full"
         background="bg-white"
-        className="text-white px-4  "
+        className="w-full px-4 text-white "
         title="Category"
         type="category"
         list={data.map((category: category) => ({ name: category.name }))}
