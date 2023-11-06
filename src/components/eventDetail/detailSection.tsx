@@ -1,6 +1,6 @@
 import MuiButton from "../_coreComponent/mui/button";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-// import Map from "./map";
+import Map from "./map";
 import { event } from "../../types";
 
 const DetailSection = ({ event }: { event: event }) => {
@@ -21,7 +21,7 @@ const DetailSection = ({ event }: { event: event }) => {
           <div className="flex-1 px-2 sm:px-0 gap-6">
             <div className="grid grid-cols-1 gap-4  sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {event.photos.map((photo: string, i: number) => (
-                <div className="relative rounded-md cursor-pointer">
+                <div key={i} className="relative rounded-md cursor-pointer">
                   <img
                     className="object-cover object-center rounded-md w-[150px] h-[150px]"
                     src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
@@ -59,7 +59,7 @@ const DetailSection = ({ event }: { event: event }) => {
       <div className="flex flex-col w-full gap-8 mt-8 md:w-2/6 md:mt-0">
         <div className="flex flex-col gap-6">
           <h2>Location</h2>
-          <div>{/* <Map konum={eventkonum} /> */}</div>
+          <div><Map konum={eventkonum} /></div>
           <div>
             <h2>Dream World Wide</h2>
             <h3>
