@@ -33,11 +33,11 @@ export default {
       },
       colors: {
         dark: "rgba(0, 0, 0, 0.9)",
-        primary: "darkblue", //turuncu
-        secondary: "blue", //açık krem
-        third: "blue", //krem
-        fourth: "black", //gri
-        fifth: "white", // açık gri
+        primary: "darkblue", 
+        secondary: "blue", 
+        third: "blue", 
+        fourth: "black",
+        fifth: "white", 
         bgHover: "blue",
       },
       fontSize: {

@@ -51,8 +51,9 @@ const PopularEvent = () => {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            "1284": {
-              slidesPerView: 3,
+            
+            "1024": {
+              slidesPerView: 4,
               spaceBetween: 10,
             },
           }}

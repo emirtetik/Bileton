@@ -73,7 +73,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
-              <GrClose className="w-6 h- text-red-500" />
+              <GrClose className="w-6 text-red-500 h-" />
             ) : (
               <ImMenu className="w-6 h-6" />
             )}
@@ -86,7 +86,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
               {({ isActive }) => (
                 <div
                   className={classNames(
-                    "inline-flex  p-1 px-4 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-bgHover font-raleway ",
+                    "inline-flex  p-1 px-4 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-bgHover/50 font-raleway ",
                     {
                       "bg-transparent  font-bold font-raleway text-white":
                         isActive,
@@ -106,12 +106,12 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
         <div className="mt-3 mb-3 bg-white border" />
         <div className="flex flex-col gap-4 items-left ">
           {isOpen ? (
-            <h6 className="py-1 px-4 font-normal text-fifth font-raleway">
+            <h6 className="px-4 py-1 font-normal text-fifth font-raleway">
               {" "}
               Kategoriler
             </h6>
           ) : (
-            <BiSolidCategoryAlt className="w-6 ml-4 text-fifth h-6" />
+            <BiSolidCategoryAlt className="w-6 h-6 ml-4 text-fifth" />
           )}
           {isOpen ? (
             <Music />
@@ -131,7 +131,7 @@ const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
                   {filtered?.map((item: event, i: number) => (
                     <div
                       key={i}
-                      className="rounded-sm px-2 hover:bg-secondary"
+                      className="px-2 rounded-sm hover:bg-secondary"
                       onClick={() => {
                         setListOpen(false);
                         setInputValue("");
