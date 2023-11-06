@@ -17,7 +17,7 @@ function slugify(str: string) {
 }
 const EventsByLocation = () => {
   const { data, isLoading, error } = useSWR("location", fetcher);
-  const { name } = useParams();
+  const { name = "" } = useParams();
   // const cardList = [
   //   {
   //     title: "Film Festivali 2010",
@@ -58,9 +58,15 @@ const EventsByLocation = () => {
   // ];
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
-  const cards = data.filter((event: event) =>
-    slugify(event.location).includes(slugify(name) || "")
-  );
+  const cards = data.filter((event: event) => {
+    let locationSlug: string;
+    if (typeof event.location === 'string') {
+      locationSlug = slugify(event.location);
+    } else {
+      locationSlug = slugify(event.location.join(', '));
+    }
+    return locationSlug.includes(slugify(name) || "");
+  });
   // const cards = cardList.filter((card) =>
   //   slugify(card.title).includes(slugify(name) || "")
   // );
