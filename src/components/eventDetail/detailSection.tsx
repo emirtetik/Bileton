@@ -20,7 +20,7 @@ const DetailSection = ({ event }: { event: event }) => {
           <h2 className="font-bold darkText text-subtitle ">Photos</h2>
           <div className="flex-1 px-2 sm:px-0 gap-6">
             <div className="grid grid-cols-1 gap-4  sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {event.photos.map((photo: string, i: number) => (
+              {event.photos.map((_photo: string, i: number) => (
                 <div key={i} className="relative rounded-md cursor-pointer">
                   <img
                     className="object-cover object-center rounded-md w-[150px] h-[150px]"
