@@ -13,7 +13,7 @@ const columns: GridColDef[] = [
 
     renderCell: (params) => (
       <h3 className="text-fourth   whitespace-no-wrap">
-        <Moment format="MMM  Do  ">{params.row.date}</Moment>
+        <Moment format="MMM  Do  ">{params.row.eventDate}</Moment>
       </h3>
     ),
   },
