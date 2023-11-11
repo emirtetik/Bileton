@@ -4,6 +4,7 @@ import Button, { ButtonProps } from "@mui/material/Button";
 interface MuiButtonProps extends Omit<ButtonProps, "size" | "variant"> {
   size: "small" | "medium" | "large";
   variant: "text" | "outlined" | "contained";
+  className:string
 }
 
 const variants = {
@@ -32,6 +33,7 @@ const MuiButton: React.FC<MuiButtonProps> = ({
   size,
   variant,
   children,
+  className,
   ...otherProps
 }) => {
   const customVariants = variants[variant];
@@ -43,7 +45,7 @@ const MuiButton: React.FC<MuiButtonProps> = ({
       variant={variant}
       {...otherProps}
     >
-      <div className="font-bold lowercase text-text font-raleway ">
+      <div className={className}>
         {children}
       </div>
     </Button>
