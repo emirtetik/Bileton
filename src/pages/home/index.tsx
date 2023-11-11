@@ -1,13 +1,9 @@
-import TodayEvent from "../../components/_events/todayEvent";
-import PopulerEvent from "../../components/_events/populerEvent";
-import ViewTab from "../../components/tab/viewTab";
+import Carousel from "../../components/carousel";
 
 const Home = () => {
   return (
-    <div className="mx-0 sm:mx-20">
-      <PopulerEvent />
-      <ViewTab />
-      <TodayEvent />
+    <div className="mt-28">
+      <Carousel/>
     </div>
   );
 };

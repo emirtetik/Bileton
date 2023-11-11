@@ -2,6 +2,7 @@ import DropDown from "../../../_coreComponent/headless/dropDown";
 import useSWR from "swr";
 import { EventService } from "../../../../services/EventService";
 import { event } from "../../../../types";
+import { CiLocationOn } from "react-icons/ci";
 
 const fetcher = () => EventService.getAll();
 function onlyUnique(value: string, index: number, array: string[]): boolean {
@@ -23,9 +24,11 @@ const Scene = () => {
         type="location"
         shadow="shadow-dark"
         width="w-full"
-        background="bg-white "
-        className="w-full px-4 font-normal text-white font-raleway "
-        title="Location"
+        background="bg-black "
+        className="font-normal text-white font-raleway"
+        icon={
+          <CiLocationOn className="w-6 h-6 text-white" />
+        }
         list={uniqueLocation.map((location: string) => ({ name: location }))}
       />
     </div>

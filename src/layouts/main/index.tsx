@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
-import SideBar from "../../components/sidebar";
+import Header from "../../components/sidebar";
+import Footer from "../../components/sidebar/footer";
 
 const MainLayout = () => {
   return (
-    <div className="flex w-full ">
-      <div className="">
-        <SideBar />
+    <div className="flex flex-col min-h-screen w-full ">
+      <div className="flex ">
+        <Header />
       </div>
-      <div className="overflow-auto w-full px-4">
+      <div className="w-full  ">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 };

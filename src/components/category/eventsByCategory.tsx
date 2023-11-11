@@ -18,44 +18,7 @@ function slugify(str: string) {
 const EventsBycategory = () => {
   const { data, isLoading, error } = useSWR("categories2", fetcher);
   const { name = "" } = useParams();
-  // const cardList = [
-  //   {
-  //     title: "Film Festivali 2010",
-  //     description: "Ankara, TR",
-  //     img: "https://filmfestankara.org.tr//uploads/__category/029.jpg",
-  //     date: "10 AUG",
-  //   },
-  //   {
-  //     title: "Tropical Festivali 2025",
-  //     description: "İstanbul, TR",
-  //     img: "https://i.pinimg.com/236x/7d/d3/f1/7dd3f1108e0b5822aaf5defa27e562d5.jpg",
-  //     date: "10 AUG",
-  //   },
-  //   {
-  //     title: "Caz Festivali 2020",
-  //     description: "İstanbul, TR",
-  //     img: "https://cazkolik.com/storage/gorseller/20120608_021301.jpg",
-  //     date: "10 AUG",
-  //   },
-  //   {
-  //     title: "Caz Festivali 2025",
-  //     description: "İstanbul, TR",
-  //     img: "https://cazkolik.com/storage/gorseller/20120608_021341.jpg",
-  //     date: "10 AUG",
-  //   },
-  //   {
-  //     title: "Dans Festivali 2025",
-  //     description: "İstanbul, TR",
-  //     img: "https://marketplace.canva.com/EAExRafOmWE/1/0/1131w/canva-gri-ill%C3%BCstrasyon-dans-festivali-posteri-26SP97CNeOs.jpg",
-  //     date: "10 AUG",
-  //   },
-  //   {
-  //     title: "Caz Festivali 2025",
-  //     description: "İstanbul, TR",
-  //     img: "https://i.pinimg.com/originals/7e/99/9b/7e999ba5942bf7e1816ed609824bad78.jpg",
-  //     date: "10 AUG",
-  //   },
-  // ];
+ 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   const cards = data.filter((event: event) =>

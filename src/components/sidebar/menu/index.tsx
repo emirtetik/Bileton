@@ -1,164 +1,144 @@
-import { useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
-import { ImMenu } from "react-icons/im";
-import { GrClose, GrUserAdmin } from "react-icons/gr";
-import { BiSolidCategoryAlt } from "react-icons/bi";
-import { FaMusic, FaTheaterMasks } from "react-icons/fa";
-import { useState } from "react";
 import classNames from "classnames";
 import Logo from "../logo";
-import Music from "./music";
+import { BiCalendar, BiSearchAlt } from "react-icons/bi";
+import MuiButton from "../../_coreComponent/mui/button";
+import { useEffect, useState } from "react";
+import { RiMenuUnfoldLine, RiMenuFoldLine } from "react-icons/ri";
+import SearchModal from "../../modals/searchModal";
 import Scene from "./scene";
-import Search from "../../_coreComponent/search";
-import Account from "../account";
-import useSWR from "swr";
-import { EventService } from "../../../services/EventService";
-import { event } from "../../../types";
+import CalendarModal from "../../modals/calendar";
 
-import { useClickAway } from "react-use";
 interface SideBarProps {
-  setIsOpen: (value: boolean) => void;
-  isOpen: boolean;
+  setIsMenuOpen: (value: boolean) => void;
+  isMenuOpen: boolean;
 }
-function slugify(str: string) {
-  return String(str)
-    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
-    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
-    .trim() // trim leading or trailing whitespace
-    .toLowerCase() // convert to lowercase
-    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
-    .replace(/\s+/g, "-") // replace spaces with hyphens
-    .replace(/-+/g, "-"); // remove consecutive hyphens
-}
-const fetcher = () => EventService.getAll();
 
-const Menu: React.FC<SideBarProps> = ({ setIsOpen, isOpen }) => {
-  const ref = useRef(null);
-  const [inputValue, setInputValue] = useState("");
-  const [listOpen, setListOpen] = useState(false);
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    setListOpen(true);
+const Menu: React.FC<SideBarProps> = ({
+  setIsMenuOpen,
+  isMenuOpen,
+}: SideBarProps) => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const toogleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  // search altında açılan divi kapatmak için
-  useClickAway(ref, () => {
-    if (listOpen) {
-      setListOpen(false);
-    }
-  });
-  const { data, isLoading, error } = useSWR("search", fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
-  const filtered = data.filter((item: event) => {
-    return item.name.toLowerCase().includes(inputValue.toLowerCase());
-  });
+  useEffect(() => {
+    return () => {};
+  }, []);
 
   return (
     <nav
-      className={`max-h-screen min-h-screen flex flex-col fixed top-0 transition-all duration-500 ease-in-out ${
-        isOpen ? "w-72" : "w-16"
-      } bg-dark`}
+      className={`flex justify-between transition-all duration-500  fixed w-full py-4 bg-black  border-b-2 border-yellow-500 ease-in-out `}
     >
-      <div className="py-4">
-        <header className="flex items-center justify-around h-16">
-          <button
-            type="button"
-            className="text-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <GrClose className="w-6 text-red-500 h-" />
-            ) : (
-              <ImMenu className="w-6 h-6" />
-            )}
-          </button>
-          {isOpen && <Logo />}
-        </header>
-        <div className="mt-8 space-y-4">
+      <Logo />
+      {/* PC MENU */}
+      <header className="flex-row items-center justify-between hidden w-full md:flex">
+        <div className="flex items-center px-5 ">
           {mainMenu.map((item, index) => (
-            <NavLink key={index} to={item.path} className="py-1 text-fifth">
+            <NavLink key={index} to={item.path}>
               {({ isActive }) => (
                 <div
                   className={classNames(
-                    "inline-flex  p-1 px-4 mb-3 items-center w-full group-active:scale-95 self-stretch transition-all duration-200 hover:bg-bgHover/50 font-raleway ",
+                    "flex items-center   px-4     text-gray-500 transition-all duration-500 hover:text-white group-active:scale-95 font-raleway font-bold text-[13px]",
                     {
-                      "bg-transparent  font-bold font-raleway text-white":
-                        isActive,
+                      "  font-raleway text-white ": isActive,
                     }
                   )}
                 >
-                  <div className="flex items-center ">
-                    {!isActive && item.icon.passive}
-                    {isActive && item.icon.active}
-                    {isOpen && <div className="pl-2">{item.title}</div>}
+                  <div className="">
+                    <div className="">{item.title}</div>
                   </div>
                 </div>
               )}
             </NavLink>
           ))}
         </div>
-        <div className="mt-3 mb-3 bg-white border" />
-        <div className="flex flex-col gap-4 items-left ">
-          {isOpen ? (
-            <h6 className="px-4 py-1 font-normal text-fifth font-raleway">
-              {" "}
-              Kategoriler
-            </h6>
-          ) : (
-            <BiSolidCategoryAlt className="w-6 h-6 ml-4 text-fifth" />
-          )}
-          {isOpen ? (
-            <Music />
-          ) : (
-            <FaMusic className="w-6 h-6 ml-4 cursor-pointer text-fifth" />
-          )}
-          {isOpen ? (
-            <Scene />
-          ) : (
-            <FaTheaterMasks className="w-6 h-6 ml-4 cursor-pointer text-fifth " />
-          )}
-          {isOpen ? (
-            <div ref={ref} className="relative ">
-              <Search onInputChange={onInputChange} inputValue={inputValue} />
-              {listOpen && (
-                <div className="absolute w-56 mx-6 p-2 mt-2 z-10 \ overflow-auto font-medium text-black rounded-md text-text font-raleway h-48 bg-fifth">
-                  {filtered?.map((item: event, i: number) => (
-                    <div
-                      key={i}
-                      className="px-2 rounded-sm hover:bg-secondary"
-                      onClick={() => {
-                        setListOpen(false);
-                        setInputValue("");
-                      }}
-                    >
-                      <Link
-                        to={`/event/${slugify(item.name)}`}
-                        className="block"
-                      >
-                        {item.name}
-                      </Link>
-                    </div>
-                  ))}
+        <div className="flex items-center gap-5 px-10 ">
+          <button onClick={() => setIsSearchOpen(true)}>
+            <BiSearchAlt className="w-6 h-6 text-white " />
+          </button>
+          <SearchModal
+            isModalOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+          />
+          {/* LOCATİON  => */} <Scene />
+          <button onClick={() => setIsCalendarOpen(true)}>
+            <BiCalendar className="w-6 h-6 text-white" />
+          </button>
+          <div className="w-px h-10 bg-white " />
+          <CalendarModal
+            isModalOpen={isCalendarOpen}
+            onClose={() => setIsCalendarOpen(false)}
+          />
+          <MuiButton
+            size="small"
+            variant="contained"
+            className="text-black lowercase "
+          >
+            Admin
+          </MuiButton>
+        </div>
+      </header>
+      {/* MOBİLE MENU */}
+      <header className={`md:hidden  ${isMenuOpen ? "block " : "hidden"}`}>
+        <div className="flex flex-col items-center gap-3 px-5 mt-3 mb-5 ">
+          {mainMenu.map((item, index) => (
+            <NavLink key={index} to={item.path}>
+              {({ isActive }) => (
+                <div
+                  className={classNames(
+                    "flex items-center   px-4     text-gray-500 transition-all duration-500 hover:text-white group-active:scale-95 font-raleway font-bold text-[13px]",
+                    {
+                      "  font-raleway text-white  ": isActive,
+                    }
+                  )}
+                >
+                  <div className="">
+                    <div className="">{item.title}</div>
+                  </div>
                 </div>
               )}
-            </div>
-          ) : (
-            <></>
-          )}
+            </NavLink>
+          ))}
         </div>
-      </div>
-      <div className="px-5 py-6 mt-auto ">
-        {!isOpen ? (
-          <GrUserAdmin className="w-6 h-6 cursor-pointer" />
-        ) : (
-          <Account />
-        )}
+        <div className="flex items-center gap-3 sm:gap-5 sm:px-10 px-1">
+          <button onClick={() => setIsSearchOpen(true)}>
+            <BiSearchAlt className="w-6 h-6 text-white " />
+          </button>
+          <SearchModal
+            isModalOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+          />
+          {/* LOCATİON  => */} <Scene />
+          <button onClick={() => setIsCalendarOpen(true)}>
+            <BiCalendar className="w-6 h-6 text-white" />
+          </button>
+          <div className="w-px h-10 bg-white " />
+          <CalendarModal
+            isModalOpen={isCalendarOpen}
+            onClose={() => setIsCalendarOpen(false)}
+          />
+          <MuiButton
+            size="small"
+            variant="contained"
+            className="text-black lowercase "
+          >
+            Admin
+          </MuiButton>
+        </div>
+      </header>
+      {/* AÇMA KAPAMA */}
+      <div className="mt-3 mr-10 md:hidden">
+        <button onClick={toogleMenu}>
+          {isMenuOpen ? (
+            <RiMenuUnfoldLine className="w-6 h-6 text-white" />
+          ) : (
+            <RiMenuFoldLine className="w-6 h-6 text-white" />
+          )}
+        </button>
       </div>
     </nav>
   );

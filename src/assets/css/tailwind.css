@@ -2,25 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
-  @apply box-border p-0 m-0 overflow-x-hidden font-mono antialiased text-black bg-white;
+  @apply box-border p-0 m-0 overflow-x-hidden font-mono antialiased text-white bg-black;
 }
 
-h1 {
-  @apply text-4xl font-bold;
+.populer-carousel .swiper-pagination-bullet {
+  @apply w-6 h-2 bg-yellow-500 rounded-none;
 }
-
-h2 {
-  @apply text-2xl font-medium darkText;
+.populer-carousel .swiper-button-next, 
+.populer-carousel .swiper-button-prev {
+  @apply  text-white ;
 }
-h3 {
-  @apply text-base;
+.allevent-carousel .swiper-button-next,
+.allevent-carousel .swiper-button-prev{
+  @apply  text-white ;
 }
-
-p {
-  @apply text-lg font-normal;
+@layer components {
+  .swiper-slide {
+    @apply shadow-dark;
+  }
 }
-
 .lightText {
   @apply text-gray-500;
 }
@@ -37,12 +39,9 @@ p {
   width: 0.8rem;
 }
 ::-webkit-scrollbar-track {
-  background: #ff6000;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #454545;
-  border: 1px solid wheat;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: #5f5109;
+  border: 2px solid rgb(255, 255, 255);
 }

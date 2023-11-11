@@ -2,6 +2,7 @@ import { Menu } from "@headlessui/react";
 import classNames from "classnames";
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import React from 'react'
 
 function slugify(str: string) {
   return String(str)
@@ -18,7 +19,7 @@ interface DropDownProps {
     name: string;
     id?: string;
   }[];
-  title: string;
+  title?: string;
   className?: string;
   background: string;
   width: string;
@@ -26,6 +27,8 @@ interface DropDownProps {
   onclick?: (value: string) => void;
   linkActive?: boolean;
   type: string;
+  icon?: React.ReactNode
+
 }
 
 const DropDown: FC<DropDownProps> = ({
@@ -38,41 +41,27 @@ const DropDown: FC<DropDownProps> = ({
   onclick,
   linkActive,
   type,
+  icon
 }) => {
   return (
-    <div className={`${className} hover:bg-bgHover/50 transition-colors `}>
+    <div className={`${className}  transition-colors `}>
       <Menu>
-        {({ open }) => (
           <div>
             <Menu.Button
               className={classNames(
                 `${width} flex font-raleway font-medium  p-2 rounded-md  items-center justify-between `
               )}
             >
-              {" "}
-              {title}
-              <svg
-                className={classNames({
-                  "rotate-180 text-secondary ": open,
-                })}
-                viewBox="0 0 24 24"
-                width={18.75}
-                height={18.75}
-              >
-                <path
-                  fill="currentColor"
-                  d="M3.543 8.96l1.414-1.42L12 14.59l7.043-7.05 1.414 1.42L12 17.41 3.543 8.96z"
-                ></path>
-              </svg>
+            {icon ? icon : title}
             </Menu.Button>
             <div
-              className={`absolute ${shadow} ${className}  z-20 rounded-md mt-2 hover:border-1 ${background}`}
+              className={`absolute ${shadow} ${className}  text-black z-20  mt-2 hover:border-1 ${background}`}
             >
               <Menu.Items>
                 {list.map((item, i) => (
-                  <Menu.Item key={i}>
+                  <Menu.Item key={i} >
                     {({ active }) => (
-                      <div className="p-1 pl-3 text-black ">
+                      <div className="p-1 pl-3 text-black border border-yellow-500">
                         {linkActive ? (
                           <Link to={`/${type}/${slugify(item.name)}`}>
                             <button
@@ -105,7 +94,6 @@ const DropDown: FC<DropDownProps> = ({
               </Menu.Items>
             </div>
           </div>
-        )}
       </Menu>
     </div>
   );

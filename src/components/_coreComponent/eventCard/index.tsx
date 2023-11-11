@@ -3,18 +3,17 @@ import { event } from "../../../types";
 import Moment from "react-moment";
 
 const EventCard = (props: { card: event; key: number }) => {
-  console.log("props", props);
   return (
     <Link key={props.key} to={`/event/${props.card.name}-${props.card._id}`}>
       <div className="relative flex flex-col border border-gray-400 text-black w-full sm:w-[230px] h-[230px] rounded-md shadow-lg hover:shadow-2xl bg-fifth">
-        <div className="flex  flex-1">
+        <div className="flex flex-1">
           <img
             src={props.card.image}
             alt="events"
-            className="rounded-t-md w-full  object-cover"
+            className="object-cover w-full rounded-t-md"
           />
         </div>
-        <div className="absolute uppercase flex flex-col bg-blue-700 leading-none p-2 rounded-sm z-10 top-3 right-3 text-center text-white">
+        <div className="absolute z-10 flex flex-col p-2 leading-none text-center text-white uppercase bg-blue-700 rounded-sm top-3 right-3">
           <Moment format="DD">{props.card.date}</Moment>
           <Moment format="MMM" titleFormat="uppercase">
             {props.card.date}
