@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import { event } from "../../../types";
 
-const EventCard = (props: { card: event; key: number }) => {
+const EventCard = (props: { card: event; key: number; size: string }) => {
   return (
     <Link key={props.key} to={`/event/${props.card.name}-${props.card._id}`}>
       <img
         src={props.card.img}
         alt={props.card.title}
-        className="w-[250px] h-[250px] rounded-lg "
+        className={
+          props.size == "big"
+            ? "h-[350px] w-[350px] rounded-lg"
+            : "h-[250px] w-[250px] rounded-lg"
+        }
       />
 
       <div className="z-20 pt-3 text-left">

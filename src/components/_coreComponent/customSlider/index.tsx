@@ -9,8 +9,8 @@ import EventCard from "../eventCard";
 
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
-    <div className="font-raleway relative my-6 text-gray-300">
-      <div className="absolute text-6xl z-[2] bg-gradient-to-r pointer-events-none from-black to-red w-[20%] h-[90%] top-10">
+    <div className="font-raleway relative ml-[10px] px-[5%] my-6 text-gray-300">
+      <div className="absolute text-6xl z-[2] grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[30%] h-[90%] top-10">
         <div className="absolute top-[45%] left-0">
           <BsChevronLeft />
         </div>
@@ -56,7 +56,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         <div className="w-full">
           {props.events.map((card, index: number) => (
             <SwiperSlide key={index}>
-              <EventCard card={card} key={index} />
+              <EventCard card={card} key={index} size="small" />
             </SwiperSlide>
           ))}
         </div>
