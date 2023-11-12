@@ -19,18 +19,19 @@ export default {
       },
       boxShadow: {
         dark: "0 4px 6px 0 rgba(69, 69, 69, 0.7), 0 5px 15px rgba(69, 69, 69, 0.1)",
-        dark2: "10px 0 15px -3px rgba(0, 0, 0, 0.1), -10px 0 15px -3px rgba(0, 0, 0, 0.1)",
+        dark2:
+          "10px 0 15px -3px rgba(0, 0, 0, 0.1), -10px 0 15px -3px rgba(0, 0, 0, 0.1)",
         light:
           "0px 4px 4px rgba(196, 204, 204, 0.25), 0px 4px 4px rgba(196, 204, 204, 0.22)",
       },
       
       colors: {
         dark: "rgba(0, 0, 0, 0.9)",
-        primary: "darkblue", 
-        secondary: "blue", 
-        third: "blue", 
+        primary: "darkblue",
+        secondary: "blue",
+        third: "blue",
         fourth: "black",
-        fifth: "white", 
+        fifth: "white",
         bgHover: "blue",
       },
       fontSize: {
@@ -38,6 +39,9 @@ export default {
           "2.5rem",
           { sm: "2rem", md: "2.5rem", lg: "3rem", xl: "4rem", "2xl": "5rem" },
         ],
+        zIndex: {
+          2: "2",
+        },
         subtitle: [
           "1.25rem",
           {

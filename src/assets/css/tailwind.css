@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   @apply box-border p-0 m-0 overflow-x-hidden font-mono antialiased text-white bg-black;
 }
@@ -10,13 +9,13 @@ body {
 .populer-carousel .swiper-pagination-bullet {
   @apply w-6 h-2 bg-yellow-500 rounded-none;
 }
-.populer-carousel .swiper-button-next, 
+.populer-carousel .swiper-button-next,
 .populer-carousel .swiper-button-prev {
-  @apply  text-white ;
+  @apply text-white;
 }
 .allevent-carousel .swiper-button-next,
-.allevent-carousel .swiper-button-prev{
-  @apply  text-white ;
+.allevent-carousel .swiper-button-prev {
+  @apply text-white;
 }
 @layer components {
   .swiper-slide {
