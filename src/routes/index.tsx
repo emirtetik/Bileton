@@ -7,6 +7,8 @@ import EventDetail from "../components/eventDetail";
 import EventsByLocation from "../components/location/index";
 import Calendar from "../pages/calendar";
 import Events from "../pages/events";
+import Venue from "../pages/venue";
+import Artist from "../pages/artist";
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const routes = createBrowserRouter([
       {
         path: "/events",
         element: <Events />,
+      },
+      {
+        path: "/venue",
+        element: <Venue />,
+      },
+      {
+        path: "/artist",
+        element: <Artist />,
       },
       {
         path: "/category",
