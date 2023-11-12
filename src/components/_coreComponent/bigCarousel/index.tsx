@@ -11,7 +11,7 @@ import "swiper/css/effect-coverflow";
 import { cardList } from "../../../constant";
 
 // const fetcher = () => EventService.getAll();
-const PopularCarousel = () => {
+const BigCarousel = () => {
   //   const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
 
   //   if (isLoading) {
@@ -54,4 +54,4 @@ const PopularCarousel = () => {
   );
 };
 
-export default PopularCarousel;
+export default BigCarousel;

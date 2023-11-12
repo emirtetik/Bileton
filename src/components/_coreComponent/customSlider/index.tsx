@@ -1,15 +1,16 @@
-import CustomCarousel from "../../_coreComponent/customCarousel";
+import CustomCarousel from "../customCarousel";
 import { Navigation } from "swiper/modules";
 import { SwiperSlide } from "swiper/react";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
-import { cardList } from "../../../constant";
+import { event } from "../../../types";
+import EventCard from "../eventCard";
 
-const ForYou = () => {
+const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
-    <div className="font-raleway relative my-6">
-      <div className="absolute text-6xl z-[2] bg-gradient-to-r pointer-events-none from-black to-red w-[15%] h-[90%] top-10">
+    <div className="font-raleway relative my-6 text-gray-300">
+      <div className="absolute text-6xl z-[2] bg-gradient-to-r pointer-events-none from-black to-red w-[20%] h-[90%] top-10">
         <div className="absolute top-[45%] left-0">
           <BsChevronLeft />
         </div>
@@ -20,9 +21,12 @@ const ForYou = () => {
         </div>
       </div>
       <div className="flex items-center justify-between w-full py-4">
-        <h1 className="font-medium text-subtitle ">Sizin İçin Seçtiklerimiz</h1>
-        <div>
-          <button>Tümü</button>
+        <h1 className="font-medium text-subtitle ">{props.title}</h1>
+        <div className="flex flex-row  items-center pr-2 gap-1 text-lg justify-center">
+          <button className="text-sm">See All</button>
+          <div className=" text-xl text-gray-400">
+            <BsChevronRight />
+          </div>
         </div>
       </div>
       <CustomCarousel
@@ -50,21 +54,9 @@ const ForYou = () => {
         className="relative allevent-carousel "
       >
         <div className="w-full">
-          {cardList.map((card, index: number) => (
+          {props.events.map((card, index: number) => (
             <SwiperSlide key={index}>
-              <img
-                src={card.img}
-                alt={card.title}
-                className="w-[250px] h-[250px] rounded-lg "
-              />
-
-              <div className="z-20 pt-3 text-left">
-                <h2 className="font-medium  text-[18px]">{card.title}</h2>
-                <p className="text-sm text-gray-500">{card.date}</p>
-                <p className="text-sm text-gray-500">{card.time}</p>
-                <p className="text-sm text-gray-500">{card.venue}</p>
-              </div>
-              <div className="absolute inset-y-0 right-0 w-24 "></div>
+              <EventCard card={card} key={index} />
             </SwiperSlide>
           ))}
         </div>
@@ -73,4 +65,4 @@ const ForYou = () => {
   );
 };
 
-export default ForYou;
+export default CustomSlider;

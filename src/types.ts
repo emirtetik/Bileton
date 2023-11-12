@@ -18,12 +18,15 @@ export  interface searchProps {
     image: string;
     name: string;
     description: string;
-    date: string;
+    eventDate: string;
+    startDate: string;
+    eventHours: string;
+    endDate: string;
+    venue: string;
+    city: string;
     location: string | [number,number];
     status: string;
     category: string;
-    unitsInStock:number;
-    photos: string[];
      
   }
 

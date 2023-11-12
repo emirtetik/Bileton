@@ -1,24 +1,25 @@
-import AllEventCarousel from "./allEvent";
-import ForYou from "./forYou";
-import HotTicket from "./hotTicket";
-import MonthCarousel from "./month";
+import CustomSlider from "./../_coreComponent/customSlider";
 import PopularCarousel from "./populer";
+import { cardList } from "../../constant";
+import BigCarousel from "../_coreComponent/bigCarousel";
 
 const Carousel = () => {
   return (
     <div className="space-y-6">
       <div>
-        <PopularCarousel />
+        <BigCarousel />
       </div>
-      <div className="px-0 sm:px-12 space-y-6">
-        <AllEventCarousel />
-        <MonthCarousel />
+      <div className="ml-[10px] px-[5%]">
+        <CustomSlider events={cardList} title="this Week" />
       </div>
-      <div className="border-t-4 border-b-4 border-yellow-500 ">
-        <HotTicket />
+      <div className="ml-[10px] px-[5%]">
+        <CustomSlider events={cardList} title="Only Bileton" />
+      </div>
+      <div className="ml-[10px] px-[5%]">
+        <CustomSlider events={cardList} title="Hot Tickets" />
       </div>
       <div className="  space-y- ml-[10px] px-[5%]">
-        <ForYou />
+        <CustomSlider events={cardList} title="Selected For You" />
       </div>
     </div>
   );
