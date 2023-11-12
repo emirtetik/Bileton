@@ -5,7 +5,11 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import { event } from "../../../types";
-import EventCard from "../eventCard";
+import { cardList} from "../../../constant"
+import Card from "../card";
+import AosDiv from "../aosEffect";
+
+// import EventCard from "../eventCard";
 
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
@@ -54,9 +58,18 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         className="relative allevent-carousel "
       >
         <div className="w-full">
-          {props.events.map((card, index: number) => (
-            <SwiperSlide key={index}>
-              <EventCard card={card} key={index} size="small" />
+          {cardList.map((card, index: number) => (
+            <SwiperSlide key={index} >
+                <AosDiv aosType="fade-left" aosDuration={900} >
+              <Card 
+                title={card.title}
+                size="medium"
+                image={card.img}
+                time={card.time}
+                venue={card.venue}
+                // route={}
+               />
+            </AosDiv>
             </SwiperSlide>
           ))}
         </div>

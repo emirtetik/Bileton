@@ -3,6 +3,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { cardList } from "../../constant";
 import { NavLink, useMatch } from "react-router-dom";
 import { CiCircleList } from "react-icons/ci";
+import Card from "../../components/_coreComponent/card";
+import AosDiv from "../../components/_coreComponent/aosEffect";
 
 
 
@@ -29,23 +31,21 @@ const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
           </div>
           {/* LİSTE */}
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-10">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10">
             {cardList.map((card, index: number) => (
-              <div key={index}>
-                <img
-                  src={card.img}
-                  alt={card.title}
-                  className="w-full h-[15rem] rounded-lg "
-                />
-                <div className="mt-1 text-left">
-                  <h2 className="font-medium truncate text-[18px]">
-                    {card.title}
-                  </h2>
-                  <p className="text-sm text-gray-500">{card.date}</p>
-                  <p className="text-sm text-gray-500">{card.time}</p>
-                  <p className="text-sm text-gray-500">{card.venue}</p>
-                </div>
-              </div>
+              <AosDiv aosType="zoom-in" aosDuration={500}>
+                <Card
+               key={index}
+               title={card.title}
+               image={card.img}
+               date={card.date}
+               time={card.time}
+               venue={card.venue}
+               size="medium"
+               className="text-left"
+              //  route={}
+              />
+              </AosDiv>
             ))}
           </div>
         </div>

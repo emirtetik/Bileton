@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply box-border p-0 m-0 overflow-x-hidden font-mono antialiased text-white bg-black;
+  @apply box-border p-0 m-0 overflow-x-hidden font-raleway antialiased text-white bg-black;
 }
 
 .populer-carousel .swiper-pagination-bullet {
@@ -41,6 +41,6 @@ body {
   background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #5f5109;
+  background-color: #f3cb06;
   border: 2px solid rgb(255, 255, 255);
 }
