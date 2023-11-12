@@ -15,7 +15,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
           <BsChevronLeft />
         </div>
       </div>
-      <div className="absolute text-6xl font-extralight z-[2]  bg-gradient-to-l pointer-events-none from-black to-red w-[15%] h-[90%] top-10 right-0">
+      <div className="absolute text-6xl z-[2] grad bg-gradient-to-l pointer-events-none from-black to-transparent w-[30%] h-[90%] top-10 right-[4.5%]">
         <div className="absolute top-[45%] right-0">
           <BsChevronRight />
         </div>
