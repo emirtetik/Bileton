@@ -3,9 +3,10 @@ import NotFound from "../pages/notFound";
 import MainLayout from "../layouts/main";
 import Home from "../pages/home";
 import Category from "../pages/category";
-import EventsBycategory from "../components/category/eventsByCategory";
 import EventDetail from "../components/eventDetail";
 import EventsByLocation from "../components/location/index";
+import Calendar from "../pages/calendar";
+import Events from "../pages/events";
 
 const routes = createBrowserRouter([
   {
@@ -17,12 +18,16 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/events",
+        element: <Events />,
+      },
+      {
         path: "/category",
         element: <Category />,
       },
       {
-        path: "category/:name",
-        element: <EventsBycategory />,
+        path: "/calendar",
+        element: <Calendar />,
       },
       {
         path: "location/:name",

@@ -11,7 +11,13 @@ export  interface searchProps {
   category: string;
 }
 
-
+export interface searchModalProps{
+  venue:string
+  city:string
+  eventDate:string
+  category: string
+  name: string
+}
 
   export interface event {
     _id: string;

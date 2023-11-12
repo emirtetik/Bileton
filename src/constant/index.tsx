@@ -6,8 +6,8 @@ export const mainMenu = [
     title: "Ana Sayfa",
   },
   {
-    path: "/category",
-    title: "Orginazatörler",
+    path: "/events",
+    title: "Etkinlikler",
   },
   {
     path: "/category",

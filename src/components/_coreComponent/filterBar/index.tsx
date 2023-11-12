@@ -88,8 +88,7 @@ const uniqueCategory = (props.events
         onClick={handleSearch}
         variant="contained"
         color="primary"
-        size="small"
-      >
+        size="small" className={""}      >
         <BiSearchAlt className="w-6 h-6 " />
       </MuiButton>
     </div>
