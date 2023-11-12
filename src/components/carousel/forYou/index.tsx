@@ -1,6 +1,7 @@
 import CustomCarousel from "../../_coreComponent/customCarousel";
 import { Navigation } from "swiper/modules";
 import { SwiperSlide } from "swiper/react";
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import { cardList } from "../../../constant";
@@ -8,8 +9,16 @@ import { cardList } from "../../../constant";
 const ForYou = () => {
   return (
     <div className="font-raleway relative my-6">
-      <div className="absolute z-[2] bg-gradient-to-r  from-black to-red w-[22%] h-[90%] top-10"></div>
-      <div className="absolute z-[2] bg-gradient-to-l  from-black to-red w-[12%] h-[90%] top-10 right-0"></div>
+      <div className="absolute text-6xl z-[2] bg-gradient-to-r pointer-events-none from-black to-red w-[15%] h-[90%] top-10">
+        <div className="absolute top-[45%] left-0">
+          <BsChevronLeft />
+        </div>
+      </div>
+      <div className="absolute text-6xl font-extralight z-[2]  bg-gradient-to-l pointer-events-none from-black to-red w-[15%] h-[90%] top-10 right-0">
+        <div className="absolute top-[45%] right-0">
+          <BsChevronRight />
+        </div>
+      </div>
       <div className="flex items-center justify-between w-full py-4">
         <h1 className="font-medium text-subtitle ">Sizin İçin Seçtiklerimiz</h1>
         <div>
