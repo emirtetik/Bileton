@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { mainMenu } from "../../../constant";
 import classNames from "classnames";
 import Logo from "../logo";
@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { RiMenuUnfoldLine, RiMenuFoldLine } from "react-icons/ri";
 import SearchModal from "../../modals/searchModal";
 import Scene from "./scene";
-import CalendarModal from "../../modals/calendar";
 
 interface SideBarProps {
   setIsMenuOpen: (value: boolean) => void;
@@ -20,7 +19,6 @@ const Menu: React.FC<SideBarProps> = ({
   isMenuOpen,
 }: SideBarProps) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const toogleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -65,14 +63,10 @@ const Menu: React.FC<SideBarProps> = ({
             onClose={() => setIsSearchOpen(false)}
           />
           {/* LOCATİON  => */} <Scene />
-          <button onClick={() => setIsCalendarOpen(true)}>
-            <BiCalendar className="w-6 h-6 text-white" />
-          </button>
+           <Link to="/calendar"> <BiCalendar className="w-6 h-6 text-white" /></Link>
           <div className="w-px h-10 bg-white " />
-          <CalendarModal
-            isModalOpen={isCalendarOpen}
-            onClose={() => setIsCalendarOpen(false)}
-          />
+          
+
           <MuiButton
             size="small"
             variant="contained"
@@ -104,7 +98,7 @@ const Menu: React.FC<SideBarProps> = ({
             </NavLink>
           ))}
         </div>
-        <div className="flex items-center gap-3 sm:gap-5 sm:px-10 px-1">
+        <div className="flex items-center gap-3 px-1 sm:gap-5 sm:px-10">
           <button onClick={() => setIsSearchOpen(true)}>
             <BiSearchAlt className="w-6 h-6 text-white " />
           </button>
@@ -113,14 +107,9 @@ const Menu: React.FC<SideBarProps> = ({
             onClose={() => setIsSearchOpen(false)}
           />
           {/* LOCATİON  => */} <Scene />
-          <button onClick={() => setIsCalendarOpen(true)}>
-            <BiCalendar className="w-6 h-6 text-white" />
-          </button>
+          <Link to="/calendar"> <BiCalendar className="w-6 h-6 text-white" /></Link>
           <div className="w-px h-10 bg-white " />
-          <CalendarModal
-            isModalOpen={isCalendarOpen}
-            onClose={() => setIsCalendarOpen(false)}
-          />
+        
           <MuiButton
             size="small"
             variant="contained"

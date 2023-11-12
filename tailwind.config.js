@@ -6,7 +6,7 @@ export default {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       backgroundImage: (theme) => ({
         "background-image-1": "url('/src/assets/images/bg1.jpg')",
-        "background-image-4": "url('/src/assets/images/bg4.jpg')",
+        "background-image-4": "url('/src/assets/images/bg-events.png')",
         "background-image-7": "url('/src/assets/images/bg4.jpg')",
       }),
       fontFamily: {
@@ -23,11 +23,7 @@ export default {
         light:
           "0px 4px 4px rgba(196, 204, 204, 0.25), 0px 4px 4px rgba(196, 204, 204, 0.22)",
       },
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1280px",
-      },
+      
       colors: {
         dark: "rgba(0, 0, 0, 0.9)",
         primary: "darkblue", 
