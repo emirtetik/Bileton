@@ -1,10 +1,12 @@
 import { BiSearchAlt } from "react-icons/bi";
 import { CustomModal } from "../../_coreComponent/customModal";
-import { EventService } from "../../../services/EventService";
-import useSWR from "swr";
+// import { EventService } from "../../../services/EventService";
+// import useSWR from "swr";
 import { useState } from "react";
-import { event } from "../../../types";
+// import { event } from "../../../types";
 import { Link } from "react-router-dom";
+import { cardList as data } from "../../../constant";
+import { IoLocationOutline } from "react-icons/io5";
 
 function slugify(str: string) {
   return String(str)
@@ -22,14 +24,14 @@ type SearchProps = {
   onClose: () => void;
 };
 
-const fetcher = () => EventService.getAll();
+// const fetcher = () => EventService.getAll();
 
 const SearchModal = (props: SearchProps) => {
-  const { data, error } = useSWR("search", fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
+  // const { data, error } = useSWR("search", fetcher, {
+  //   revalidateIfStale: false,
+  //   revalidateOnFocus: false,
+  //   revalidateOnReconnect: false,
+  // });
   const [inputValue, setInputValue] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +39,12 @@ const SearchModal = (props: SearchProps) => {
     setListOpen(true);
   };
 
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>Loading...</div>;
-  const filtered = data.filter((item: event) => {
-    return item.name && item.name.toLowerCase().includes(inputValue.toLowerCase());
+  // if (error) return <div>failed to load</div>;
+  // if (!data) return <div>Loading...</div>;
+  const filtered = data.filter((item) => {
+    return (
+      item.title && item.title.toLowerCase().includes(inputValue.toLowerCase())
+    );
   });
 
   return (
@@ -49,33 +53,53 @@ const SearchModal = (props: SearchProps) => {
       onClose={props.onClose}
       className="bg-white "
     >
-      <div className="flex flex-col justify-center max-w-5xl mx-auto mt-10">
+      <div className="flex flex-col justify-center max-w-5xl mx-10 mt-10">
         <h1 className="mb-4 font-extrabold text-left text-black font-raleway text-title">
           Arama
         </h1>
-        <div className="relative w-11/12">
-          <input
-            className="w-full p-2 pl-10 pr-2 font-bold text-black border-b border-black outline-none text-text font-raleway"
-            type="text"
-            placeholder="Mekan, tür, etkinlik veya anahtar kelime"
-            onChange={onInputChange}
-            value={inputValue}
-          />
-          <BiSearchAlt className="absolute w-6 h-6 text-black transform -translate-y-1/2 left-2 top-1/2 " />
+        <div className="relative  w-11/12">
+          <div className="relative flex flex-row">
+            <BiSearchAlt className="absolute top-2 w-6 h-6 text-black " />
+            <input
+              className="w-full p-2 pl-10 pr-2 font-bold text-black border-b border-black outline-none text-text font-raleway"
+              type="text"
+              placeholder="Mekan, tür, etkinlik veya anahtar kelime"
+              onChange={onInputChange}
+              value={inputValue}
+            />
+          </div>
+
           <div className="relative ">
             {listOpen && (
-              <div className="absolute w-56 mx-6 p-2 mt-2 z-10 \ overflow-auto font-medium text-black rounded-md text-text font-raleway h-48 bg-fifth">
-                {filtered?.map((item: event, i: number) => (
+              <div className="w-[95%] mx-6 p-2 mt-2 z-10  overflow-auto font-medium text-black rounded-md text-text font-raleway ">
+                {filtered?.map((item, i: number) => (
                   <div
                     key={i}
-                    className="px-2 rounded-sm hover:bg-secondary"
+                    className="px-2 rounded-sm hover:bg-gray-200 cursor-pointer"
                     onClick={() => {
                       setListOpen(false);
                       setInputValue("");
                     }}
                   >
-                    <Link to={`/event/${slugify(item.name)}`} className="block">
-                      {item.name}
+                    <Link
+                      to={`/event/${slugify(item.title)}`}
+                      className="block"
+                    >
+                      <div className="flex flex-row gap-4 p-3">
+                        <img
+                          className="h-[150px] w-[150px] rounded-xl"
+                          src={item.img}
+                          alt=""
+                        />
+                        <div className="py-1">
+                          <h1 className="font-bold text-black">{item.title}</h1>
+                          <h1 className="text-sm text-gray-500">{item.time}</h1>
+                        </div>
+                        <div className="text-sm ml-20 py-4 flex flex-row gap-2">
+                          <IoLocationOutline />
+                          <h1>{item.venue} </h1>
+                        </div>
+                      </div>
                     </Link>
                   </div>
                 ))}

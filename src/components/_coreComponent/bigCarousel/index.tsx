@@ -45,7 +45,7 @@ const BigCarousel = () => {
             <img
               src={card.img}
               alt={card.title}
-              className="w-11/12 mx-auto md:h-[28] lg:h-[33rem] sm:h-[26rem] h-[25rem] rounded-2xl shadow-dark"
+              className="w-11/12 mx-auto md:h-[28] lg:h-[33rem] sm:h-[26rem] h-[25rem] rounded-xl shadow-dark"
             />
           </SwiperSlide>
         ))}

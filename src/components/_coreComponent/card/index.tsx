@@ -10,7 +10,7 @@ interface CardProps {
   className?: string | undefined;
   id?: string;
   route?: string;
-  size?: "small" | "medium" | "circle";
+  size?: "small" | "medium" | "circle" | "big";
   time?: string;
   venue?: string;
   date?: string;
@@ -30,25 +30,24 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const imgClass = classNames({
     "h-[12rem] w-[12rem] rounded-lg": size === "small",
-    "h-[18rem] w-[18rem] rounded-lg": size === "medium",
+    "h-[15.5rem] w-[15.5rem] rounded-lg": size === "medium",
+    "h-[25rem] w-[25rem] rounded-lg": size === "big",
     "h-[11rem] w-[11rem] rounded-full": size === "circle",
   });
   return (
     <Link to={`/${route}/${id}`}>
-      <div className={``}>
-        {image && <img className={imgClass} src={image} alt={title} />}
-        <div className={`mt-1  font-raleway ${className}`}>
-          <div className="font-bold text-white text-md">{title}</div>
-          {city && (
-            <p className="flex text-xs text-gray-500">
-              <CiLocationOn />
-              {city}
-            </p>
-          )}
-          <p className="text-sm text-gray-500">{date}</p>
-          <p className="text-sm text-gray-500">{time}</p>
-          <p className="text-sm text-gray-500">{venue}</p>
-        </div>
+      {image && <img className={imgClass} src={image} alt={title} />}
+      <div className={`mt-1  font-raleway ${className}`}>
+        <div className="font-bold text-white text-md">{title}</div>
+        {city && (
+          <p className="flex text-xs text-gray-500">
+            <CiLocationOn />
+            {city}
+          </p>
+        )}
+        <p className="text-sm text-gray-500">{date}</p>
+        <p className="text-sm text-gray-500">{time}</p>
+        <p className="text-sm text-gray-500">{venue}</p>
       </div>
     </Link>
   );
