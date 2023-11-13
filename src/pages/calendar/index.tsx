@@ -14,6 +14,7 @@ const Calendar = () => {
   const matchCalendar = useMatch("/calendar");
   const activeClassEvents = matchEvents ? "text-yellow-500" : "";
   const activeClassCategory = matchCategory ? "text-yellow-500" : "";
+
   const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
   const [selectedDate, setSelectedDate] = useState(new Date());
   const onChange = (date: Date) => {
@@ -45,6 +46,7 @@ const Calendar = () => {
             className={`text-white flex items-center text-lg ${activeClassCalendar}`}
           >
             <BiCalendar className={`w-4 h-3 ${activeClassCalendar}`} />
+
             Takvim
           </NavLink>
         </div>
@@ -53,9 +55,8 @@ const Calendar = () => {
           <div className="w-full p-4 md:w-2/3">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 gap-x-10">
               {cardList.map((card, index: number) => (
-                <AosDiv aosType="zoom-in" aosDuration={500}>
+                <AosDiv aosType="zoom-in" aosDuration={500} key={index} >
                   <Card
-                    key={index}
                     image={card.img}
                     title={card.title}
                     date={card.date}
@@ -68,7 +69,8 @@ const Calendar = () => {
               ))}
             </div>
           </div>
-          <div className="relative w-full p-4 text-right md:w-1/3">
+          <div className="relative w-1/5 p-4 text-right">
+
             <DatePicker
               selected={selectedDate}
               onChange={onChange}
@@ -85,3 +87,24 @@ const Calendar = () => {
 };
 
 export default Calendar;
+
+// =======
+//         <div className="flex flex-col-reverse md:flex-row">
+//           <div className="w-4/5 p-4 ">
+//             <div className="flex flex-row flex-wrap justify-between ">
+//               {cardList.map((card, index: number) => (
+//                 <div className="mb-20 " key={index}>
+//                   <Card
+//                     title={card.title}
+//                     image={card.img}
+//                     date={card.date}
+//                     time={card.time}
+//                     venue={card.venue}
+//                     size="big"
+//                   />
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//           <div className="relative w-1/5 p-4 text-right ">
+// >>>>>>> cb8c07d970488b66f68a9e9f3bb256131bcc102b

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
-
+import {LiaCitySolid} from "react-icons/lia"
 interface CardProps {
   title?: string;
   city?: string;
@@ -10,11 +10,12 @@ interface CardProps {
   alt?: string;
   className?: string | undefined;
   route?: string;
-  size?: "small" | "medium" | "circle" | "large" ;
+  size?: "small" | "medium" | "circle" | "large";
   time?: string;
   venue?: string;
   date?: string;
   description?: string;
+  onClick?:React.MouseEventHandler<HTMLDivElement> | undefined
 }
 
 const Card: React.FC<CardProps> = ({
@@ -29,6 +30,7 @@ const Card: React.FC<CardProps> = ({
   time,
   date,
   description,
+  onClick,
 }) => {
   const imgClass = classNames({
     "h-[12rem] w-[12rem] rounded-lg": size === "small",
@@ -39,20 +41,25 @@ const Card: React.FC<CardProps> = ({
   });
   return (
     <Link to={route}>
-      <div className={`${className}`}>
+      <div className={`${className}`} onClick={onClick}>
         {image && <img className={imgClass} src={image} alt={alt} />}
-        <div className={`mt-1  font-raleway`}>
-          <div className="font-bold text-white text-md">{title}</div>
+        <div className={`mt-1 flex flex-col gap-1  font-raleway`}>
+          <h1 className="font-bold text-md">{title}</h1>
           <p className="text-sm text-gray-500">{description}</p>
           {city && (
-            <p className="flex text-xs text-gray-500">
-              <CiLocationOn />
+            <p className="flex items-center text-xs text-gray-500">
+              <LiaCitySolid />
               {city}
             </p>
           )}
           <p className="text-sm text-gray-500">{date}</p>
           <p className="text-sm text-gray-500">{time}</p>
-          <p className="text-sm text-gray-500">{venue}</p>
+          {venue && (
+            <p className="flex items-center text-sm text-gray-500">
+              <CiLocationOn />
+              {venue}
+            </p>
+          )}
         </div>
       </div>
     </Link>

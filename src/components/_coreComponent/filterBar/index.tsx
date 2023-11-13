@@ -5,11 +5,9 @@ import { BiSearchAlt } from "react-icons/bi";
 import { event, searchProps } from "../../../types";
 import { useState } from "react";
 
-
 function onlyUnique(value: string, index: number, array: string[]): boolean {
   return array.indexOf(value) === index;
 }
-
 
 const FilterBar = (props: {
   search: searchProps;
@@ -22,12 +20,12 @@ const FilterBar = (props: {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
 
-  const uniqueLocation = (props.events
-    ?.map((event: event) => event.location) as string[])
-    .filter(onlyUnique);
-const uniqueCategory = (props.events
-    ?.map((event: event) => event.category) as string[])
-    .filter(onlyUnique);
+  const uniqueLocation = (
+    props.events?.map((event: event) => event.location) as string[]
+  ).filter(onlyUnique);
+  const uniqueCategory = (
+    props.events?.map((event: event) => event.category) as string[]
+  ).filter(onlyUnique);
   const handleSearch = () => {
     props.onSearch();
     setSelectedCategory("");
@@ -88,7 +86,9 @@ const uniqueCategory = (props.events
         onClick={handleSearch}
         variant="contained"
         color="primary"
-        size="small" className={""}      >
+        size="small"
+        className={""}
+      >
         <BiSearchAlt className="w-6 h-6 " />
       </MuiButton>
     </div>

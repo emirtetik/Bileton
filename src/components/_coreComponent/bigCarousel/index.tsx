@@ -25,8 +25,8 @@ const BigCarousel = (props: { events?: event[]; title?: string }) => {
   //   const cards = data.slice(-5);
 
   return (
-    <div className="relative my-6 text-gray-300 font-raleway">
-      <div className="flex items-center justify-between w-full py-4">
+    <div className="relative w-full px-4 my-6 text-gray-300 font-raleway">
+      <div className="flex items-center justify-between py-4 ">
         <h1 className="px-20 font-bold text-subtitle">{props.title}</h1>
       </div>
       <CustomCarousel

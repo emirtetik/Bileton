@@ -26,6 +26,16 @@ body {
 .darkText {
   @apply font-bold;
 }
+.swiper {
+  @apply z-auto;
+}
+.allAbove {
+  color: white !important;
+}
+.z1 {
+  position: absolute;
+  z-index: 3 !important;
+}
 
 .card {
   @apply overflow-hidden bg-white rounded-lg shadow-lg;

@@ -6,7 +6,7 @@ const Header = () => {
 
   return (
     <div
-      className={`flex w-full z-10`}
+      className={`flex w-full z-50`}
     >
       <Menu setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
     </div>
