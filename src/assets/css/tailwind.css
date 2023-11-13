@@ -32,10 +32,7 @@ body {
 .swiper {
   @apply z-auto;
 }
-.allAbove {
-  color: white !important;
-  z-index: 999 !important;
-}
+
 .z1 {
   position: absolute;
   z-index: 3 !important;
