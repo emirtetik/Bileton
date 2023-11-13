@@ -35,21 +35,23 @@ const Events = () => {
         </div>
         {/* LİSTE */}
 
-        <div className=" flex flex-row flex-wrap justify-between">
+        <div className=" flex flex-row flex-wrap justify-between mb-12">
           {cardList.map((card, index: number) => (
-            <AosDiv aosType="zoom-in" aosDuration={500}>
-              <Card
-                key={index}
-                title={card.title}
-                image={card.img}
-                date={card.date}
-                time={card.time}
-                venue={card.venue}
-                size="big"
-                className="text-left"
-                //  route={}
-              />
-            </AosDiv>
+            <div className="mb-20">
+              <AosDiv aosType="zoom-in" aosDuration={500}>
+                <Card
+                  key={index}
+                  title={card.title}
+                  image={card.img}
+                  date={card.date}
+                  time={card.time}
+                  venue={card.venue}
+                  size="big"
+                  className="text-left"
+                  //  route={}
+                />
+              </AosDiv>
+            </div>
           ))}
         </div>
       </div>
