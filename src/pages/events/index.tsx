@@ -1,4 +1,4 @@
-import { BiCalendar } from "react-icons/bi";
+import { BiCalendar, BiCategoryAlt } from "react-icons/bi";
 import "react-datepicker/dist/react-datepicker.css";
 import { cardList } from "../../constant";
 import { NavLink, useMatch } from "react-router-dom";
@@ -8,8 +8,11 @@ import AosDiv from "../../components/_coreComponent/aosEffect";
 
 const Events = () => {
   const matchEvents = useMatch("/events");
+  const matchCategory = useMatch("/category");
   const matchCalendar = useMatch("/calendar");
   const activeClassEvents = matchEvents ? "text-yellow-500" : "";
+  const activeClassCategory = matchCategory ? "text-yellow-500" : "";
+
   const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
   return (
     <div className="bg-no-repeat bg-contain bg-background-image-4">
@@ -23,19 +26,23 @@ const Events = () => {
             className={`text-white flex items-center text-lg ${activeClassEvents}`}
           >
             <CiCircleList className={`w-4 h-4 ${activeClassEvents}`} />
-            Liste
-          </NavLink>
-          <NavLink
-            to={"/calendar"}
-            className={`text-white flex items-center text-lg ${activeClassCalendar}`}
+              Liste
+            </NavLink>
+            <NavLink
+            to={"/category"}
+            className={`text-white flex items-center text-lg ${activeClassCategory}`}
           >
+            <BiCategoryAlt className={`w-4 h-3 ${activeClassCategory}`} />
+            Kategori
+          </NavLink>
+            <NavLink to={"/calendar"} className={`text-white flex items-center text-lg ${activeClassCalendar}`}>
             <BiCalendar className={`w-4 h-4 ${activeClassCalendar}`} />
             Takvim
           </NavLink>
         </div>
         {/* LİSTE */}
 
-        <div className=" flex flex-row flex-wrap justify-between mb-12">
+        <div className="flex flex-row flex-wrap justify-between mb-12 ">
           {cardList.map((card, index: number) => (
             <div className="mb-20">
               <AosDiv aosType="zoom-in" aosDuration={500}>
@@ -46,7 +53,7 @@ const Events = () => {
                   date={card.date}
                   time={card.time}
                   venue={card.venue}
-                  size="big"
+                  size="medium"
                   className="text-left"
                   //  route={}
                 />

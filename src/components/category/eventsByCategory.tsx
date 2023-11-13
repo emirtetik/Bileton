@@ -1,8 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
 import useSWR from "swr";
 import { event } from "../../types";
 import { EventService } from "../../services/EventService";
+import Card from "../_coreComponent/card";
 
 const fetcher = () => EventService.getAll();
 function slugify(str: string) {
@@ -28,36 +29,20 @@ const EventsBycategory = () => {
   //   slugify(card.title).includes(slugify(name) || "")
   // );
   return (
-    <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-8 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
-      <h1 className="text-center font-bold text-6xl text-primary ">{name}</h1>
+    <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-28 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
+      <h1 className="text-6xl font-bold text-center text-primary ">{name}</h1>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
         {cards.map((card: event) => (
-          <Link to={`/event/${card.name}-${card._id}`} key={card._id}>
-            <div className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-white">
-              <div className="relative z-10 flex items-center justify-center "></div>
-              <img
-                src={
-                  "https://i.pinimg.com/originals/7e/99/9b/7e999ba5942bf7e1816ed609824bad78.jpg"
-                }
-                alt="events"
-                className="rounded-t-md w-full max-h-[150px] object-cover"
-              />
-              <div className="flex items-center gap-2 p-4">
-                <div className="p-4 font-medium rounded-md ">
-                  {/* <div className="text-purple-700 darkText ">
-                  {card.date.split(" ")[1]}
-                </div>
-                <div className="text-center darkText ">
-                  {card.date.split(" ")[0]}
-                </div> */}
-                </div>
-                <div>
-                  <h2 className="text-xl font-bold text-left ">{card.name}</h2>
-                  <p className="text-left text-gray-600">{card.description}</p>
-                </div>
-              </div>
-            </div>
-          </Link>
+          <Card 
+           key={card._id}
+           title={card.name}
+           description={card.description}
+           date={card.eventDate}
+           route={`/event/${card.name}-${card._id}`}
+           size="small"
+          />
+          // <Link to={`/event/${card.name}-${card._id}`} key={card._id}>
+          // </Link>
         ))}
       </div>
     </div>

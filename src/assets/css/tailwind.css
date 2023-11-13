@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply box-border p-0 m-0 overflow-x-hidden font-raleway antialiased text-white bg-black;
+  @apply box-border p-0 m-0 overflow-x-hidden antialiased text-white bg-black font-raleway;
 }
 
 .populer-carousel .swiper-pagination-bullet {
@@ -13,10 +13,7 @@ body {
 .populer-carousel .swiper-button-prev {
   @apply text-white;
 }
-.allevent-carousel .swiper-button-next,
-.allevent-carousel .swiper-button-prev {
-  @apply text-white;
-}
+
 @layer components {
   .swiper-slide {
     @apply shadow-dark;
@@ -34,7 +31,6 @@ body {
 }
 .allAbove {
   color: white !important;
-  z-index: 999 !important;
 }
 .z1 {
   position: absolute;

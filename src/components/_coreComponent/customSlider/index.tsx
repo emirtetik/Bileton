@@ -9,8 +9,6 @@ import Card from "../card";
 import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
 
-// import EventCard from "../eventCard";
-
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
     <div className="font-raleway relative  w-[100%] my-6 text-gray-300">
@@ -19,9 +17,10 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
 
       <div className="flex items-center justify-between w-full px-8 py-4">
         <h1 className="font-medium text-subtitle ">{props.title}</h1>
-        <div className="flex flex-row  items-center px-6 gap-1 text-lg justify-center">
+
+        <div className="flex flex-row items-center justify-center gap-1 px-6 text-lg">
           <button className="text-sm">See All</button>
-          <div className=" text-xl text-gray-400">
+          <div className="text-xl text-gray-400 ">
             <BsChevronRight />
           </div>
         </div>
@@ -46,8 +45,9 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
             spaceBetween: 10,
           },
         }}
-        className="relative allevent-carousel "
+        className="relative"
       >
+
         {cardList.map((card, index: number) => (
           <SwiperSlide key={index}>
             <AosDiv aosType="fade-left" aosDuration={900}>

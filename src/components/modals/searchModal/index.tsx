@@ -4,9 +4,8 @@ import { CustomModal } from "../../_coreComponent/customModal";
 // import useSWR from "swr";
 import { useState } from "react";
 // import { event } from "../../../types";
-import { Link } from "react-router-dom";
 import { cardList as data } from "../../../constant";
-import { IoLocationOutline } from "react-icons/io5";
+import Card from "../../_coreComponent/card";
 
 function slugify(str: string) {
   return String(str)
@@ -27,6 +26,7 @@ type SearchProps = {
 // const fetcher = () => EventService.getAll();
 
 const SearchModal = (props: SearchProps) => {
+
   // const { data, error } = useSWR("search", fetcher, {
   //   revalidateIfStale: false,
   //   revalidateOnFocus: false,
@@ -53,15 +53,15 @@ const SearchModal = (props: SearchProps) => {
       onClose={props.onClose}
       className="bg-white "
     >
-      <div className="flex flex-col justify-center max-w-5xl mx-10 mt-10">
-        <h1 className="mb-4 font-extrabold text-left text-black font-raleway text-title">
+      <div className="flex flex-col justify-center max-w-3xl mx-auto mt-20 ">
+        <h1 className="font-extrabold text-left text-black font-raleway text-title">
           Arama
         </h1>
-        <div className="relative  w-11/12">
-          <div className="relative flex flex-row">
-            <BiSearchAlt className="absolute top-2 w-6 h-6 text-black " />
+        <div className="">
+          <div className="relative flex flex-row ">
+            <BiSearchAlt className="absolute w-6 h-6 text-black top-2 " />
             <input
-              className="w-full p-2 pl-10 pr-2 font-bold text-black border-b border-black outline-none text-text font-raleway"
+              className="w-full p-2 pl-10 pr-2 font-bold text-black border-b border-gray-400 outline-none hover:border-black hover:border-b-2 text-text font-raleway"
               type="text"
               placeholder="Mekan, tür, etkinlik veya anahtar kelime"
               onChange={onInputChange}
@@ -69,39 +69,24 @@ const SearchModal = (props: SearchProps) => {
             />
           </div>
 
-          <div className="relative ">
+          <div className="relative mt-20 ">
             {listOpen && (
-              <div className="w-[95%] mx-6 p-2 mt-2 z-10  overflow-auto font-medium text-black rounded-md text-text font-raleway ">
+              <div className="z-10 flex flex-col w-full overflow-auto font-medium text-black rounded-lg gap-y-6 text-text font-raleway ">
                 {filtered?.map((item, i: number) => (
-                  <div
+                    <Card  
                     key={i}
-                    className="px-2 rounded-sm hover:bg-gray-200 cursor-pointer"
+                    title={item.title} 
+                    time={item.time} 
+                    venue={item.venue} 
+                    image={item.img}
+                    size="small"
+                    className="flex gap-6 cursor-pointer hover:bg-gray-200"
+                    route={`/event/${slugify(item.title)}`}
                     onClick={() => {
                       setListOpen(false);
                       setInputValue("");
                     }}
-                  >
-                    <Link
-                      to={`/event/${slugify(item.title)}`}
-                      className="block"
-                    >
-                      <div className="flex flex-row gap-4 p-3">
-                        <img
-                          className="h-[150px] w-[150px] rounded-xl"
-                          src={item.img}
-                          alt=""
-                        />
-                        <div className="py-1">
-                          <h1 className="font-bold text-black">{item.title}</h1>
-                          <h1 className="text-sm text-gray-500">{item.time}</h1>
-                        </div>
-                        <div className="text-sm ml-20 py-4 flex flex-row gap-2">
-                          <IoLocationOutline />
-                          <h1>{item.venue} </h1>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
+                  />
                 ))}
               </div>
             )}
@@ -113,3 +98,32 @@ const SearchModal = (props: SearchProps) => {
 };
 
 export default SearchModal;
+{/* <div
+key={i}
+className="rounded-sm cursor-pointer hover:bg-gray-200"
+onClick={() => {
+  setListOpen(false);
+  setInputValue("");
+}}
+>
+<Link
+  to={`/event/${slugify(item.title)}`}
+  className="block"
+>
+  <div className="flex flex-row gap-4 p-3">
+    <img
+      className="h-[150px] w-[150px] rounded-xl"
+      src={item.img}
+      alt=""
+    />
+    <div className="py-1">
+      <h1 className="font-bold text-black">{item.title}</h1>
+      <h1 className="text-sm text-gray-500">{item.time}</h1>
+    </div>
+    <div className="flex flex-row gap-2 py-4 ml-20 text-sm">
+      <IoLocationOutline />
+      <h1>{item.venue} </h1>
+    </div>
+  </div>
+</Link>
+</div> */}

@@ -36,7 +36,7 @@ const Artist = () => {
               title={card.venue}
               image={card.img}
               size="circle"
-              className="text-center "
+              className="flex flex-col items-center justify-center text-center"
             />
            </AosDiv>
           ))}

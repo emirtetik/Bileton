@@ -18,9 +18,9 @@ const DetailSection = ({ event }: { event: event }) => {
       <div className="flex flex-col w-full gap-20 md:w-4/6">
         <div className="flex flex-col w-3/4 gap-6">
           <h2 className="font-bold darkText text-subtitle ">Photos</h2>
-          <div className="flex-1 px-2 sm:px-0 gap-6">
-            <div className="grid grid-cols-1 gap-4  sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {event.photos.map((_photo: string, i: number) => (
+          <div className="flex-1 gap-6 px-2 sm:px-0">
+            <div className="grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {event.photos.map((photo: string, i: number) => (
                 <div key={i} className="relative rounded-md cursor-pointer">
                   <img
                     className="object-cover object-center rounded-md w-[150px] h-[150px]"
@@ -72,7 +72,7 @@ const DetailSection = ({ event }: { event: event }) => {
         <div className="flex flex-col gap-6">
           <h2>Tags</h2>
           <div className="flex gap-2">
-            <MuiButton variant="contained" size="small" children="Jazz" />
+            <MuiButton variant="contained" size="small" children="Jazz"  />
             <MuiButton variant="contained" size="small" children="Rock" />
             <MuiButton variant="contained" size="small" children="Pop" />
           </div>
