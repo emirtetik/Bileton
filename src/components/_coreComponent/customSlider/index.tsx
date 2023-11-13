@@ -5,11 +5,9 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import { event } from "../../../types";
-import { cardList} from "../../../constant"
+import { cardList } from "../../../constant";
 import Card from "../card";
 import AosDiv from "../aosEffect";
-
-// import EventCard from "../eventCard";
 
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
@@ -26,9 +24,9 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
       </div>
       <div className="flex items-center justify-between w-full py-4">
         <h1 className="font-medium text-subtitle ">{props.title}</h1>
-        <div className="flex flex-row  items-center pr-2 gap-1 text-lg justify-center">
-          <button className="text-sm">See All</button>
-          <div className=" text-xl text-gray-400">
+        <div className="flex flex-row items-center justify-center gap-1 pr-2 text-lg">
+          <button className="text-sm">Tümü</button>
+          <div className="text-xl text-gray-400 ">
             <BsChevronRight />
           </div>
         </div>
@@ -55,21 +53,21 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
             spaceBetween: 10,
           },
         }}
-        className="relative allevent-carousel "
+        className="relative"
       >
-        <div className="w-full">
+        <div className="">
           {cardList.map((card, index: number) => (
-            <SwiperSlide key={index} >
-                <AosDiv aosType="fade-left" aosDuration={900} >
-              <Card 
-                title={card.title}
-                size="medium"
-                image={card.img}
-                time={card.time}
-                venue={card.venue}
-                // route={}
-               />
-            </AosDiv>
+            <SwiperSlide key={index}>
+              <AosDiv aosType="fade-left" aosDuration={900}>
+                <Card
+                  title={card.title}
+                  size="medium"
+                  image={card.img}
+                  time={card.time}
+                  venue={card.venue}
+                  // route={}
+                />
+              </AosDiv>
             </SwiperSlide>
           ))}
         </div>

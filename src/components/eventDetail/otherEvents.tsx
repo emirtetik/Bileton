@@ -1,7 +1,7 @@
-import EventCard from "../_coreComponent/eventCard";
 import useSWR from "swr";
 import { EventService } from "../../services/EventService";
 import { event } from "../../types";
+import Card from "../_coreComponent/card";
 
 const fetcher = () => EventService.getAll();
 
@@ -18,7 +18,13 @@ const OtherEvents = () => {
       </h1>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
         {cards.map((card: event, i: number) => (
-          <EventCard card={card} key={i} />
+          <Card 
+          key={i}  
+          title={card.name}  
+           date={card.eventDate}
+           route={`/event/${card.name}-${card._id}`}
+           size="small"
+           />
         ))}
       </div>
     </div>

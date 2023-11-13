@@ -1,4 +1,4 @@
-import { BiCalendar } from "react-icons/bi";
+import { BiCalendar, BiCategoryAlt } from "react-icons/bi";
 import "react-datepicker/dist/react-datepicker.css";
 import { cardList } from "../../constant";
 import { NavLink, useMatch } from "react-router-dom";
@@ -9,10 +9,12 @@ import AosDiv from "../../components/_coreComponent/aosEffect";
 
 
 const Events = () => {
-    const matchEvents = useMatch("/events");
-    const matchCalendar = useMatch("/calendar");
-const activeClassEvents = matchEvents  ? "text-yellow-500" : "";
-const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
+  const matchEvents = useMatch("/events");
+  const matchCategory = useMatch("/category");
+  const matchCalendar = useMatch("/calendar");
+  const activeClassEvents = matchEvents ? "text-yellow-500" : "";
+  const activeClassCategory = matchCategory ? "text-yellow-500" : "";
+  const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
   return (
     <div className="bg-no-repeat bg-contain bg-background-image-4">
         <div className="px-0 sm:px-20 pt-28">
@@ -24,6 +26,13 @@ const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
             <CiCircleList className={`w-4 h-4 ${activeClassEvents}`} />
               Liste
             </NavLink>
+            <NavLink
+            to={"/category"}
+            className={`text-white flex items-center text-lg ${activeClassCategory}`}
+          >
+            <BiCategoryAlt className={`w-4 h-3 ${activeClassCategory}`} />
+            Kategori
+          </NavLink>
             <NavLink to={"/calendar"} className={`text-white flex items-center text-lg ${activeClassCalendar}`}>
             <BiCalendar className={`w-4 h-4 ${activeClassCalendar}`} />
               Takvim

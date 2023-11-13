@@ -9,9 +9,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import { cardList } from "../../../constant";
-
+import Card from "../card";
+import AosDiv from "../aosEffect";
+import { event } from "../../../types";
 // const fetcher = () => EventService.getAll();
-const BigCarousel = () => {
+const BigCarousel = (props: { events?: event[]; title?: string }) => {
   //   const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
 
   //   if (isLoading) {
@@ -23,34 +25,37 @@ const BigCarousel = () => {
   //   const cards = data.slice(-5);
 
   return (
-    <CustomCarousel
-      modules={[Pagination, Navigation, EffectCoverflow]}
-      effect={"coverflow"}
-      grabCursor={true}
-      slidesPerView={"auto"}
-      coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      }}
-      navigation={true}
-      pagination={true}
-      className="populer-carousel"
-    >
-      <div className="w-full ">
-        {cardList.map((card, index: number) => (
-          <SwiperSlide key={index}>
-            <img
-              src={card.img}
-              alt={card.title}
-              className="w-11/12 mx-auto md:h-[28] lg:h-[33rem] sm:h-[26rem] h-[25rem] rounded-2xl shadow-dark"
-            />
-          </SwiperSlide>
-        ))}
+    <div className="relative my-6 text-gray-300 font-raleway">
+      <div className="flex items-center justify-between w-full py-4">
+        <h1 className="px-20 font-bold text-subtitle">{props.title}</h1>
       </div>
-    </CustomCarousel>
+      <CustomCarousel
+        modules={[Pagination, Navigation, EffectCoverflow]}
+        effect={"coverflow"}
+        grabCursor={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        navigation={true}
+        pagination={true}
+        className="populer-carousel"
+      >
+        <div className="w-full ">
+          {cardList.map((card, index: number) => (
+            <SwiperSlide key={index}>
+              <AosDiv aosType="fade-up" aosDuration={800}>
+                <Card image={card.img} alt={card.title} size="large" />
+              </AosDiv>
+            </SwiperSlide>
+          ))}
+        </div>
+      </CustomCarousel>
+    </div>
   );
 };
 

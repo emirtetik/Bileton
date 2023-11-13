@@ -4,7 +4,7 @@ import Button, { ButtonProps } from "@mui/material/Button";
 interface MuiButtonProps extends Omit<ButtonProps, "size" | "variant"> {
   size: "small" | "medium" | "large";
   variant: "text" | "outlined" | "contained";
-  className:string
+  className?:string
 }
 
 const variants = {

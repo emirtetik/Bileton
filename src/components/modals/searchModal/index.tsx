@@ -4,7 +4,7 @@ import { EventService } from "../../../services/EventService";
 import useSWR from "swr";
 import { useState } from "react";
 import { event } from "../../../types";
-import { Link } from "react-router-dom";
+import Card from "../../_coreComponent/card";
 
 function slugify(str: string) {
   return String(str)
@@ -30,6 +30,8 @@ const SearchModal = (props: SearchProps) => {
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
+  console.log(data);
+  
   const [inputValue, setInputValue] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,18 +68,15 @@ const SearchModal = (props: SearchProps) => {
             {listOpen && (
               <div className="absolute w-56 mx-6 p-2 mt-2 z-10 \ overflow-auto font-medium text-black rounded-md text-text font-raleway h-48 bg-fifth">
                 {filtered?.map((item: event, i: number) => (
-                  <div
+                  <Card
                     key={i}
-                    className="px-2 rounded-sm hover:bg-secondary"
-                    onClick={() => {
-                      setListOpen(false);
-                      setInputValue("");
-                    }}
-                  >
-                    <Link to={`/event/${slugify(item.name)}`} className="block">
-                      {item.name}
-                    </Link>
-                  </div>
+                    title={item.name}
+                    image={item.image}
+                    alt={item.name}
+                    description={item.description}
+                    size="small"
+                    route={`/event/${slugify(item.name)}`}
+                  />
                 ))}
               </div>
             )}
