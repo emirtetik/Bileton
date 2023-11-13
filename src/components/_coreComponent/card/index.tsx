@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const imgClass = classNames({
     "h-[12rem] w-[12rem] rounded-lg": size === "small",
-    "h-[18rem] w-[18rem] rounded-lg": size === "medium",
+    "h-[15.5rem] w-[15.5rem] rounded-lg": size === "medium",
     "h-[11rem] w-[11rem] rounded-full": size === "circle",
   });
   return (

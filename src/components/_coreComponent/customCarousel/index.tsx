@@ -2,14 +2,18 @@ import { FC } from "react";
 import { Swiper } from "swiper/react";
 import React from "react";
 import "swiper/css";
-import { CoverflowEffectOptions, PaginationOptions, SwiperModule } from "swiper/types";
+import {
+  CoverflowEffectOptions,
+  PaginationOptions,
+  SwiperModule,
+} from "swiper/types";
 
 interface CustomCarouselProps {
   children: React.ReactNode;
-  effect?: string | undefined
-  slidesPerView?: number | "auto" | undefined
+  effect?: string | undefined;
+  slidesPerView?: number | "auto" | undefined;
   spaceBetween?: number;
-  grabCursor?:boolean | undefined;
+  grabCursor?: boolean | undefined;
   coverflowEffect?: CoverflowEffectOptions | undefined;
   breakpoints?: {
     [key: string]: {
@@ -39,7 +43,7 @@ const CustomCarousel: FC<CustomCarouselProps> = ({
   pagination,
   effect,
   grabCursor,
-  coverflowEffect
+  coverflowEffect,
 }) => {
   return (
     <Swiper
@@ -47,13 +51,15 @@ const CustomCarousel: FC<CustomCarouselProps> = ({
       coverflowEffect={coverflowEffect}
       effect={effect}
       grabCursor={grabCursor}
+      fadeEffect={{ crossFade: true }}
+      slidesPerView={"auto"}
+      loop={true}
       navigation={navigation}
       pagination={pagination}
       spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
       autoplay={{
         delay: autoplay?.delay,
-        disableOnInteraction: autoplay?.disableOnInteraction, 
+        disableOnInteraction: autoplay?.disableOnInteraction,
       }}
       breakpoints={breakpoints}
       className={className}

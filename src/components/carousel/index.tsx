@@ -4,11 +4,17 @@ import BigCarousel from "../_coreComponent/bigCarousel";
 
 const Carousel = () => {
   return (
-    <div className="space-y-6">
+    <div className="w-screen">
       <BigCarousel />
       <CustomSlider events={cardList} title="this Week" />
       <CustomSlider events={cardList} title="Only Bileton" />
+
+      <div className=" bg-yellow-400 w-full h-1 my-4"></div>
+      <BigCarousel />
+      <div className=" bg-yellow-400 w-full h-1 my-4"></div>
+
       <CustomSlider events={cardList} title="Hot Tickets" />
+
       <CustomSlider events={cardList} title="Selected For You" />
     </div>
   );
