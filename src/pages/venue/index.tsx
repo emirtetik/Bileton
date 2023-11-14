@@ -29,7 +29,7 @@ const Venue = () => {
             <option value="a-z">A-Z</option>
           </select>
         </div>
-        <div className="flex flex-row flex-wrap justify-between">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-10">
           {sortedCardList.map((card, index: number) => (
             <AosDiv aosType="zoom-in" aosDuration={500}>
               <Card
@@ -38,7 +38,7 @@ const Venue = () => {
                 city={card.city}
                 image={card.img}
                 size="small"
-                className="text-left flex justify-center items-center flex-col"
+                className="flex flex-col items-center justify-center text-left"
               />
             </AosDiv>
           ))}

@@ -29,7 +29,7 @@ const Menu: React.FC<SideBarProps> = ({
 
   return (
     <nav
-      className={`flex justify-between transition-all duration-500  fixed w-full py-4 bg-black  border-b-2 border-yellow-500 ease-in-out `}
+      className={`flex justify-between transition-all duration-500  fixed w-full py-4 bg-black  border-b-2 border-yellow-500 ease-in-out z-50`}
     >
       <Logo />
       {/* PC MENU */}
