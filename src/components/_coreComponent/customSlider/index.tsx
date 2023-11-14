@@ -16,11 +16,11 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
       <div className="absolute text-6xl z1 grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10"></div>
       <div className="absolute text-6xl z1 grad bg-gradient-to-l pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10 right-[0]"></div>
 
-      <div className="flex items-center justify-between w-full px-8 py-4">
+      <div className="flex items-center justify-between w-full px-8 py-4 ">
         <h1 className="font-medium text-subtitle ">{props.title}</h1>
 
         <div className="flex flex-row items-center justify-center gap-1 px-6 text-lg">
-          <Link to="/events" className="text-sm">Tümü</Link>
+          <Link to="/events" className="text-sm hover:text-yellow-500">Tümü</Link>
           <div className="text-xl text-gray-400 ">
             <BsChevronRight />
           </div>
@@ -58,7 +58,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
                 image={card.img}
                 time={card.time}
                 venue={card.venue}
-                route={`/`}
+                route={`/event/${card.title}}`}
               />
             </AosDiv>
           </SwiperSlide>
