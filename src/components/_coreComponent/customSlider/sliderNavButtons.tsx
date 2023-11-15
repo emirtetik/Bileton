@@ -5,7 +5,7 @@ const SliderButtons = () => {
   const swiper = useSwiper();
 
   return (
-    <div className=" absolute allAbove w-full top-[40%] z-50 flex flex-row justify-around items-center text-white ">
+    <div className=" absolute allAbove w-full top-[40%] z-20 flex flex-row justify-around items-center text-white ">
       <div
         onClick={() => swiper.slidePrev()}
         className="left-[3%] cursor-pointer allAbove absolute text-7xl "

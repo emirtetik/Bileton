@@ -4,8 +4,8 @@ import Footer from "../../components/sidebar/footer";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen w-full ">
-      <div className="flex ">
+    <div className=" flex flex-col min-h-screen w-full ">
+      <div className=" flex ">
         <Header />
       </div>
       <div className="w-full  ">
