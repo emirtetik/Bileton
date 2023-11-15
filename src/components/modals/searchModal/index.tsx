@@ -80,7 +80,7 @@ const SearchModal = (props: SearchProps) => {
                     venue={item.venue} 
                     image={item.img}
                     size="small"
-                    className="flex gap-6 cursor-pointer hover:bg-gray-200"
+                    className="flex gap-6 cursor-pointer hover:bg-gray-200 transition-color duration-300"
                     route={`/event/${slugify(item.title)}`}
                     onClick={() => {
                       setListOpen(false);

@@ -8,6 +8,7 @@ import { cardList } from "../../../constant";
 import Card from "../card";
 import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
+import { Link } from "react-router-dom";
 
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
@@ -19,7 +20,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         <h1 className="font-medium text-subtitle ">{props.title}</h1>
 
         <div className="flex flex-row items-center justify-center gap-1 px-6 text-lg">
-          <button className="text-sm">See All</button>
+          <Link to="/events" className="text-sm">Tümü</Link>
           <div className="text-xl text-gray-400 ">
             <BsChevronRight />
           </div>
@@ -57,7 +58,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
                 image={card.img}
                 time={card.time}
                 venue={card.venue}
-                // route={}
+                route={`/`}
               />
             </AosDiv>
           </SwiperSlide>

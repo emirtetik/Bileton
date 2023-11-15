@@ -42,9 +42,8 @@ const Events = () => {
         </div>
         {/* LİSTE */}
 
-        <div className="flex flex-row flex-wrap justify-between mb-12 ">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10">
           {cardList.map((card, index: number) => (
-            <div className="mb-20">
               <AosDiv aosType="zoom-in" aosDuration={500}>
                 <Card
                   key={index}
@@ -58,7 +57,6 @@ const Events = () => {
                   //  route={}
                 />
               </AosDiv>
-            </div>
           ))}
         </div>
       </div>
