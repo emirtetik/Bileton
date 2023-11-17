@@ -4,7 +4,10 @@ import { MdOutlinePlace } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useState } from "react";
 const TicketBuy = () => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantitiyof1stPhase, setQuantityof1stPhase] = useState(0);
+  const [quantityofEarlyBird, setQuantityofEarlyBird] = useState(0);
+  const [quantityofEarlyBackstage, setQuantityofEarlyBackstage] = useState(0);
+  const [quantityofEarlyVIP, setQuantityofEarlyVIP] = useState(0);
 
   const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
   return (
@@ -15,23 +18,65 @@ const TicketBuy = () => {
       <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2"></div>
       <div className="flex flex-row gap-4">
         <div className="flex flex-col flex-wrap items-center gap-4 w-3/4">
-          {list.map((item, index) => (
-            <div
-              key={index}
-              className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4"
-            >
-              <p>{item}</p>
-              <div className="flex flow-row gap-2 items-center justify-center">
-                <button onClick={() => setQuantity((prev) => prev - 1)}>
-                  <FaMinus />
-                </button>
-                <p className="w-6 text-center">{quantity}</p>
-                <button onClick={() => setQuantity((prev) => prev + 1)}>
-                  <FaPlus />
-                </button>
-              </div>
+          <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
+            <p>{list[0]}</p>
+            <div className="flex flow-row gap-2 items-center justify-center">
+              <button onClick={() => setQuantityof1stPhase((prev) => prev - 1)}>
+                <FaMinus />
+              </button>
+              <p className="w-6 text-center">{quantitiyof1stPhase}</p>
+              <button onClick={() => setQuantityof1stPhase((prev) => prev + 1)}>
+                <FaPlus />
+              </button>
             </div>
-          ))}
+          </div>
+
+          <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
+            <p>{list[1]}</p>
+            <div className="flex flow-row gap-2 items-center justify-center">
+              <button
+                onClick={() => setQuantityofEarlyBird((prev) => prev - 1)}
+              >
+                <FaMinus />
+              </button>
+              <p className="w-6 text-center">{quantityofEarlyBird}</p>
+              <button
+                onClick={() => setQuantityofEarlyBird((prev) => prev + 1)}
+              >
+                <FaPlus />
+              </button>
+            </div>
+          </div>
+
+          <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
+            <p>{list[2]}</p>
+            <div className="flex flow-row gap-2 items-center justify-center">
+              <button
+                onClick={() => setQuantityofEarlyBackstage((prev) => prev - 1)}
+              >
+                <FaMinus />
+              </button>
+              <p className="w-6 text-center">{quantityofEarlyBackstage}</p>
+              <button
+                onClick={() => setQuantityofEarlyBackstage((prev) => prev + 1)}
+              >
+                <FaPlus />
+              </button>
+            </div>
+          </div>
+
+          <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
+            <p>{list[3]}</p>
+            <div className="flex flow-row gap-2 items-center justify-center">
+              <button onClick={() => setQuantityofEarlyVIP((prev) => prev - 1)}>
+                <FaMinus />
+              </button>
+              <p className="w-6 text-center">{quantityofEarlyVIP}</p>
+              <button onClick={() => setQuantityofEarlyVIP((prev) => prev + 1)}>
+                <FaPlus />
+              </button>
+            </div>
+          </div>
         </div>
         <div className="w-1/4 flex flex-col  items-start ">
           <div className="w-full bg-slate-600 h-full p-6">
