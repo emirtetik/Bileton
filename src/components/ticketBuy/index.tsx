@@ -1,19 +1,35 @@
 import { cardList } from "../../constant";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlinePlace } from "react-icons/md";
+import { FaPlus, FaMinus } from "react-icons/fa6";
+import { useState } from "react";
 const TicketBuy = () => {
-  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [quantity, setQuantity] = useState(0);
+
+  const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
   return (
     <div className="px-0 sm:px-20 pt-28">
       <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
         Ticket Buy
       </h1>
       <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2"></div>
-      <div className="flex flex-row">
-        <div className="flex flex-row flex-wrap gap-4 w-3/4">
+      <div className="flex flex-row gap-4">
+        <div className="flex flex-col flex-wrap items-center gap-4 w-3/4">
           {list.map((item, index) => (
-            <div key={index} className=" w-[150px] h-[150px] bg-white">
+            <div
+              key={index}
+              className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4"
+            >
               <p>{item}</p>
+              <div className="flex flow-row gap-2 items-center justify-center">
+                <button onClick={() => setQuantity((prev) => prev - 1)}>
+                  <FaMinus />
+                </button>
+                <p className="w-6 text-center">{quantity}</p>
+                <button onClick={() => setQuantity((prev) => prev + 1)}>
+                  <FaPlus />
+                </button>
+              </div>
             </div>
           ))}
         </div>
