@@ -8,6 +8,11 @@ const TicketBuy = () => {
   const [quantityofEarlyBird, setQuantityofEarlyBird] = useState(0);
   const [quantityofEarlyBackstage, setQuantityofEarlyBackstage] = useState(0);
   const [quantityofEarlyVIP, setQuantityofEarlyVIP] = useState(0);
+  const total =
+    quantitiyof1stPhase * 700 +
+    quantityofEarlyBird * 700 +
+    quantityofEarlyBackstage * 700 +
+    quantityofEarlyVIP * 700;
 
   const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
   return (
@@ -20,6 +25,7 @@ const TicketBuy = () => {
         <div className="flex flex-col flex-wrap items-center gap-4 w-3/4">
           <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
             <p>{list[0]}</p>
+            <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
               <button onClick={() => setQuantityof1stPhase((prev) => prev - 1)}>
                 <FaMinus />
@@ -33,6 +39,7 @@ const TicketBuy = () => {
 
           <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
             <p>{list[1]}</p>
+            <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
               <button
                 onClick={() => setQuantityofEarlyBird((prev) => prev - 1)}
@@ -50,6 +57,7 @@ const TicketBuy = () => {
 
           <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
             <p>{list[2]}</p>
+            <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
               <button
                 onClick={() => setQuantityofEarlyBackstage((prev) => prev - 1)}
@@ -67,6 +75,7 @@ const TicketBuy = () => {
 
           <div className=" w-[70%] bg-gray-800 flex flex-row justify-between  p-4">
             <p>{list[3]}</p>
+            <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
               <button onClick={() => setQuantityofEarlyVIP((prev) => prev - 1)}>
                 <FaMinus />
@@ -100,7 +109,7 @@ const TicketBuy = () => {
           <div className="flex flex-col bg-slate-900 w-full  p-8 gap-6 justify-between">
             <div className="flex flex-row gap-4 justify-between ">
               <div>Total :</div>
-              <div>Price</div>
+              <div>{total}$</div>
             </div>
             <div className="text-center bg-yellow-400 p-2 text-black">
               Purchase
