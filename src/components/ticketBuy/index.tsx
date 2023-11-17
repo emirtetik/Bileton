@@ -18,7 +18,7 @@ const TicketBuy = () => {
   return (
     <div className="px-0 sm:px-20 pt-28">
       <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
-        Ticket Buy
+        {cardList[0].title}
       </h1>
       <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2"></div>
       <div className="flex flex-row gap-4">
