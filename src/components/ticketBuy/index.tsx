@@ -8,6 +8,11 @@ const TicketBuy = () => {
   const [quantityofEarlyBird, setQuantityofEarlyBird] = useState(0);
   const [quantityofEarlyBackstage, setQuantityofEarlyBackstage] = useState(0);
   const [quantityofEarlyVIP, setQuantityofEarlyVIP] = useState(0);
+  const totalTickets =
+    quantitiyof1stPhase +
+    quantityofEarlyBird +
+    quantityofEarlyBackstage +
+    quantityofEarlyVIP;
   const total =
     quantitiyof1stPhase * 700 +
     quantityofEarlyBird * 700 +
@@ -108,8 +113,12 @@ const TicketBuy = () => {
           </div>
           <div className="flex flex-col bg-slate-900 w-full  p-8 gap-6 justify-between">
             <div className="flex flex-row gap-4 justify-between ">
-              <div>Total :</div>
+              <div>Total Price:</div>
               <div>{total}$</div>
+            </div>
+            <div className="flex flex-row gap-4 justify-between ">
+              <div>Total Tickets:</div>
+              <div>{totalTickets}</div>
             </div>
             <div className="text-center bg-yellow-400 p-2 text-black">
               Purchase
