@@ -9,6 +9,8 @@ import Calendar from "../pages/calendar";
 import Events from "../pages/events";
 import Venue from "../pages/venue";
 import Artist from "../pages/artist";
+import EventsBycategory from "../components/category/eventsByCategory";
+import TicketBuy from "../components/ticketBuy";
 
 const routes = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ const routes = createBrowserRouter([
         element: <Artist />,
       },
       {
+        path: "/ticket",
+        element: <TicketBuy />,
+      },
+      {
         path: "/category",
         element: <Category />,
       },
@@ -42,6 +48,10 @@ const routes = createBrowserRouter([
       {
         path: "location/:name",
         element: <EventsByLocation />,
+      },
+      {
+        path: "category/:name",
+        element: <EventsBycategory />,
       },
       {
         path: "event/:name",

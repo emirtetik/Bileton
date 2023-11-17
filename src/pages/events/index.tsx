@@ -26,16 +26,19 @@ const Events = () => {
             className={`text-white flex items-center text-lg ${activeClassEvents}`}
           >
             <CiCircleList className={`w-4 h-4 ${activeClassEvents}`} />
-              Liste
-            </NavLink>
-            <NavLink
+            Liste
+          </NavLink>
+          <NavLink
             to={"/category"}
             className={`text-white flex items-center text-lg ${activeClassCategory}`}
           >
             <BiCategoryAlt className={`w-4 h-3 ${activeClassCategory}`} />
             Kategori
           </NavLink>
-            <NavLink to={"/calendar"} className={`text-white flex items-center text-lg ${activeClassCalendar}`}>
+          <NavLink
+            to={"/calendar"}
+            className={`text-white flex items-center text-lg ${activeClassCalendar}`}
+          >
             <BiCalendar className={`w-4 h-4 ${activeClassCalendar}`} />
             Takvim
           </NavLink>
@@ -44,19 +47,19 @@ const Events = () => {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10">
           {cardList.map((card, index: number) => (
-              <AosDiv aosType="zoom-in" aosDuration={500}>
-                <Card
-                  key={index}
-                  title={card.title}
-                  image={card.img}
-                  date={card.date}
-                  time={card.time}
-                  venue={card.venue}
-                  size="medium"
-                  className="text-left"
-                  //  route={}
-                />
-              </AosDiv>
+            <AosDiv aosType="zoom-in" aosDuration={500}>
+              <Card
+                key={index}
+                title={card.title}
+                image={card.img}
+                date={card.date}
+                time={card.time}
+                venue={card.venue}
+                size="medium"
+                className="text-left"
+                //  route={}
+              />
+            </AosDiv>
           ))}
         </div>
       </div>

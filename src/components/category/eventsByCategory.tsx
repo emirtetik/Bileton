@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import useSWR from "swr";
 import { event } from "../../types";
@@ -19,7 +19,7 @@ function slugify(str: string) {
 const EventsBycategory = () => {
   const { data, isLoading, error } = useSWR("categories2", fetcher);
   const { name = "" } = useParams();
- 
+
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   const cards = data.filter((event: event) =>
@@ -29,17 +29,20 @@ const EventsBycategory = () => {
   //   slugify(card.title).includes(slugify(name) || "")
   // );
   return (
-    <div className="flex flex-col gap-12 px-4 pt-8 mx-4 mt-28 md:p-4 lg:p-12 md:m-32 md:mt-12 font-raleway">
-      <h1 className="text-6xl font-bold text-center text-primary ">{name}</h1>
+    <div className="px-0 sm:px-20 pt-28">
+      <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway ">
+        {name[0].toUpperCase() + name.slice(1)}
+      </h1>
+      <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2"></div>
       <div className="flex flex-wrap justify-center gap-4 md:gap-8 ">
         {cards.map((card: event) => (
-          <Card 
-           key={card._id}
-           title={card.name}
-           description={card.description}
-           date={card.eventDate}
-           route={`/event/${card.name}-${card._id}`}
-           size="small"
+          <Card
+            key={card._id}
+            title={card.name}
+            description={card.description}
+            date={card.eventDate}
+            route={`/event/${card.name}-${card._id}`}
+            size="small"
           />
           // <Link to={`/event/${card.name}-${card._id}`} key={card._id}>
           // </Link>
