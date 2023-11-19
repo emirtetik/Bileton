@@ -20,6 +20,38 @@ const TicketBuy = () => {
     quantityofEarlyVIP * 700;
 
   const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
+
+  const handleQuantityof1stPhase = (what: string) => {
+    if (what === "plus") {
+      setQuantityof1stPhase((prev) => prev + 1);
+    } else {
+      setQuantityof1stPhase((prev) => prev - 1);
+    }
+  };
+  const handleQuantityofEarlyBird = (what: string) => {
+    if (what === "plus") {
+      setQuantityofEarlyBird((prev) => prev + 1);
+    } else {
+      setQuantityofEarlyBird((prev) => prev - 1);
+    }
+  };
+
+  const handleQuantityofEarlyBackstage = (what: string) => {
+    if (what === "plus") {
+      setQuantityofEarlyBackstage((prev) => prev + 1);
+    } else {
+      setQuantityofEarlyBackstage((prev) => prev - 1);
+    }
+  };
+
+  const handleQuantityofEarlyVIP = (what: string) => {
+    if (what === "plus") {
+      setQuantityofEarlyVIP((prev) => prev + 1);
+    } else {
+      setQuantityofEarlyVIP((prev) => prev - 1);
+    }
+  };
+
   return (
     <div className="px-0 sm:px-20 pt-28">
       <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
@@ -32,11 +64,11 @@ const TicketBuy = () => {
             <p>{list[0]}</p>
             <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
-              <button onClick={() => setQuantityof1stPhase((prev) => prev - 1)}>
+              <button onClick={() => handleQuantityof1stPhase("plus")}>
                 <FaMinus />
               </button>
               <p className="w-6 text-center">{quantitiyof1stPhase}</p>
-              <button onClick={() => setQuantityof1stPhase((prev) => prev + 1)}>
+              <button onClick={() => handleQuantityof1stPhase("minus")}>
                 <FaPlus />
               </button>
             </div>
@@ -46,15 +78,11 @@ const TicketBuy = () => {
             <p>{list[1]}</p>
             <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
-              <button
-                onClick={() => setQuantityofEarlyBird((prev) => prev - 1)}
-              >
+              <button onClick={() => handleQuantityofEarlyBird("plus")}>
                 <FaMinus />
               </button>
               <p className="w-6 text-center">{quantityofEarlyBird}</p>
-              <button
-                onClick={() => setQuantityofEarlyBird((prev) => prev + 1)}
-              >
+              <button onClick={() => handleQuantityofEarlyBird("minus")}>
                 <FaPlus />
               </button>
             </div>
@@ -64,15 +92,11 @@ const TicketBuy = () => {
             <p>{list[2]}</p>
             <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
-              <button
-                onClick={() => setQuantityofEarlyBackstage((prev) => prev - 1)}
-              >
+              <button onClick={() => handleQuantityofEarlyBackstage("plus")}>
                 <FaMinus />
               </button>
               <p className="w-6 text-center">{quantityofEarlyBackstage}</p>
-              <button
-                onClick={() => setQuantityofEarlyBackstage((prev) => prev + 1)}
-              >
+              <button onClick={() => handleQuantityofEarlyBackstage("minus")}>
                 <FaPlus />
               </button>
             </div>
@@ -82,11 +106,11 @@ const TicketBuy = () => {
             <p>{list[3]}</p>
             <p>700$</p>
             <div className="flex flow-row gap-2 items-center justify-center">
-              <button onClick={() => setQuantityofEarlyVIP((prev) => prev - 1)}>
+              <button onClick={() => handleQuantityofEarlyVIP("plus")}>
                 <FaMinus />
               </button>
               <p className="w-6 text-center">{quantityofEarlyVIP}</p>
-              <button onClick={() => setQuantityofEarlyVIP((prev) => prev + 1)}>
+              <button onClick={() => handleQuantityofEarlyVIP("minus")}>
                 <FaPlus />
               </button>
             </div>
