@@ -20,7 +20,7 @@ const Events = () => {
   const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
  
    const {data,isLoading,error} = useSWR("events", fetcher)
-   console.log("data",data);
+   
    
    if (isLoading) {
     return <div>Loading...</div>;
@@ -37,8 +37,8 @@ const Events = () => {
         url="http://localhost:5173/events"
       />
       <div className="px-0 sm:px-20 pt-28">
-        <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
-          Etkinlikler
+        <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway items-center">
+          Etkinlikler ({data.length})
         </h1>
         <div className="flex items-center justify-end gap-4 px-10 mb-6 border-b border-white sm:py-2">
           <NavLink
@@ -73,7 +73,7 @@ const Events = () => {
                 title={card.name}
                 image={card.image}
                 date={card.eventDate}
-                time={card.startDate}
+                time={`${card.startTime}-${card.endTime}`}
                 venue={card.venue}
                 size="medium"
                 className="text-left"
