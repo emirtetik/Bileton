@@ -1,11 +1,11 @@
-// import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-// const DetailLayout = () => {
-//   return (
-//     <div>
-//       <Outlet />
-//     </div>
-//   );
-// };
+const DetailLayout = () => {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+};
 
-// export default DetailLayout;
+export default DetailLayout;

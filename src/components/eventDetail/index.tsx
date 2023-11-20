@@ -5,6 +5,7 @@ const OtherEvents = lazy(() => import("./otherEvents"));
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import { EventService } from "../../services/EventService";
+import SEO from "../_coreComponent/seo";
 
 const EventDetail = () => {
   const { name = "" } = useParams();
@@ -17,7 +18,12 @@ const EventDetail = () => {
   data.photos = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="h-screen ">
+       <SEO
+        title={data.name}
+        description={data.description}
+        url={`http://localhost:5173/event/${data.name}`}
+      />
+      <div className="h-screen  mt-28">
         <SummaryCard event={data} />
         <DetailSection event={data} />
         <div className="bg-white ">

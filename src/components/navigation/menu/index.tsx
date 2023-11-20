@@ -7,7 +7,7 @@ import MuiButton from "../../_coreComponent/mui/button";
 import { useEffect, useState } from "react";
 import { RiMenuUnfoldLine, RiMenuFoldLine } from "react-icons/ri";
 import SearchModal from "../../modals/searchModal";
-import Scene from "./scene";
+import Location from "./location";
 
 interface SideBarProps {
   setIsMenuOpen: (value: boolean) => void;
@@ -62,18 +62,21 @@ const Menu: React.FC<SideBarProps> = ({
             isModalOpen={isSearchOpen}
             onClose={() => setIsSearchOpen(false)}
           />
-          {/* LOCATİON  => */} <Scene />
+          {/* LOCATİON  => */} <Location />
            <Link to="/calendar"> <BiCalendar className="w-6 h-6 text-white" /></Link>
           <div className="w-px h-10 bg-white " />
           
 
-          <MuiButton
+          <Link to={"https://bileton-admin.vercel.app/"} target="_blank">
+        
+        <MuiButton
             size="small"
             variant="contained"
             className="text-black lowercase "
           >
             Admin
           </MuiButton>
+        </Link>
         </div>
       </header>
       {/* MOBİLE MENU */}
@@ -106,17 +109,19 @@ const Menu: React.FC<SideBarProps> = ({
             isModalOpen={isSearchOpen}
             onClose={() => setIsSearchOpen(false)}
           />
-          {/* LOCATİON  => */} <Scene />
+          {/* LOCATİON  => */} <Location />
           <Link to="/calendar"> <BiCalendar className="w-6 h-6 text-white" /></Link>
           <div className="w-px h-10 bg-white " />
+        <Link to={"https://bileton-admin.vercel.app/"} target="_blank">
         
-          <MuiButton
+        <MuiButton
             size="small"
             variant="contained"
             className="text-black lowercase "
           >
             Admin
           </MuiButton>
+        </Link>
         </div>
       </header>
       {/* AÇMA KAPAMA */}
