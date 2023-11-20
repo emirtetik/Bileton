@@ -20,15 +20,14 @@ export interface searchModalProps{
 }
 
   export interface event {
-    photos: any;
+    photos: string;
     _id: string;
     image: string;
     name: string;
     description: string;
     eventDate: string;
-    startDate: string;
-    eventHours: string;
-    endDate: string;
+    startTime: string;
+    endTime: string;
     venue: string;
     city: string;
     location: string | [number,number];

@@ -3,10 +3,20 @@ import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import {LiaCitySolid} from "react-icons/lia"
+
+interface ImageProps {
+  contentType: string;
+  data: {
+    data: number[];
+    type: string;
+  };
+  filename: string;
+}
+
 interface CardProps {
   title?: string;
   city?: string;
-  image?: string;
+  image?: ImageProps | undefined | string;
   alt?: string;
   className?: string | undefined;
   route?: string;
@@ -39,11 +49,23 @@ const Card: React.FC<CardProps> = ({
       size === "large",
     "h-[11rem] w-[11rem] rounded-full": size === "circle",
   });
+
+  let imgSrc;
+  if (typeof image === 'string') {
+    imgSrc = image;
+  } else if (image && image.data && image.data.data) {
+    let binary = '';
+    const bytes = new Uint8Array(image.data.data);
+    bytes.forEach((byte) => binary += String.fromCharCode(byte));
+    imgSrc = `data:image/jpeg;base64,${btoa(binary)}`;
+  }
+  
+
   return (
     <Link to={route}>
       <div className={`${className}`} onClick={onClick}>
-        {image && <img className={imgClass} src={image} alt={alt} />}
-        <div className={`mt-1 flex flex-col gap-1  font-raleway`}>
+      {image && <img className={imgClass} src={imgSrc} alt={alt} />}
+        <div className={`mt-1 flex flex-col   font-raleway`}>
           <h1 className="font-bold text-md">{title}</h1>
           <p className="text-sm text-gray-500">{description}</p>
           {city && (
