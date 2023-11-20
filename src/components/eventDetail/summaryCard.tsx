@@ -22,7 +22,7 @@ const SummaryCard = ({ event }: { event: event }) => {
               {event?.name}
             </h1>
             <h3 className="pb-8 text-subtitle text-fifth">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+              {event?.description}
             </h3>
             <p className="text-title ">
               <Link className="text-primary" to={`/location/${event.location}`}>

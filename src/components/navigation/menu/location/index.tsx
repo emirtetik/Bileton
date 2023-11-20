@@ -9,7 +9,7 @@ function onlyUnique(value: string, index: number, array: string[]): boolean {
   return array.indexOf(value) === index;
 }
 
-const Scene = () => {
+const Location = () => {
   const { data, isLoading, error } = useSWR("events", fetcher);
   const uniqueLocation = data
     ?.map((event: event) => event.location)
@@ -35,4 +35,4 @@ const Scene = () => {
   );
 };
 
-export default Scene;
+export default Location;

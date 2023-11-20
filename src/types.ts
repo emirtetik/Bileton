@@ -20,6 +20,7 @@ export interface searchModalProps{
 }
 
   export interface event {
+    photos: any;
     _id: string;
     image: string;
     name: string;
