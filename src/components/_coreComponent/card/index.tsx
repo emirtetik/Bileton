@@ -28,6 +28,17 @@ interface CardProps {
   onClick?:React.MouseEventHandler<HTMLDivElement> | undefined
 }
 
+function slugify(str: string) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
+
 const Card: React.FC<CardProps> = ({
   title,
   city,
@@ -60,9 +71,12 @@ const Card: React.FC<CardProps> = ({
     imgSrc = `data:image/jpeg;base64,${btoa(binary)}`;
   }
   
+  const name = slugify(title || "");
+  const linkRoute = route.replace(":name", name);
+
 
   return (
-    <Link to={route}>
+    <Link to={linkRoute}>
       <div className={`${className}`} onClick={onClick}>
       {image && <img className={imgClass} src={imgSrc} alt={alt} />}
         <div className={`mt-1 flex flex-col   font-raleway`}>

@@ -77,7 +77,7 @@ const Events = () => {
                 venue={card.venue}
                 size="medium"
                 className="text-left"
-                route={`/event/${card.name}-${card._id}`}
+                route={`/event/:name/${card._id}`}
               />
             </AosDiv>
           ))}

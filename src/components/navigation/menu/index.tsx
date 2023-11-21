@@ -65,10 +65,7 @@ const Menu: React.FC<SideBarProps> = ({
           {/* LOCATİON  => */} <Location />
            <Link to="/calendar"> <BiCalendar className="w-6 h-6 text-white" /></Link>
           <div className="w-px h-10 bg-white " />
-          
-
           <Link to={"https://bileton-admin.vercel.app/"} target="_blank">
-        
         <MuiButton
             size="small"
             variant="contained"

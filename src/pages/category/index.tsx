@@ -3,6 +3,7 @@ import AosDiv from "../../components/_coreComponent/aosEffect";
 import Categories from "../../components/category/categories";
 import { CiCircleList } from "react-icons/ci";
 import { BiCalendar, BiCategoryAlt } from "react-icons/bi";
+import SEO from "../../components/_coreComponent/seo";
 
 
 const Category = () => {
@@ -14,6 +15,11 @@ const Category = () => {
   const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
   return (
     <div className="bg-no-repeat bg-contain bg-background-image-4">
+        <SEO
+        title="Kategori"
+        description="En son etkinliklerimizi keşfedin."
+        url="http://localhost:5173/category"
+      />
         <div className="px-0 sm:px-20 pt-28">
           <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
             Kategori

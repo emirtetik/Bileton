@@ -19,10 +19,11 @@ const EventDetail = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
        <SEO
-        title={data.name}
-        description={data.description}
-        url={`http://localhost:5173/event/${data.name}`}
-      />
+  title={data.name}
+  description={data.description}
+  url={`http://localhost:5173/event/${data.name.replace(/\s/g, "-")}/${data._id}`}
+/>
+
       <div className="h-screen  mt-28">
         <SummaryCard event={data} />
         <DetailSection event={data} />
