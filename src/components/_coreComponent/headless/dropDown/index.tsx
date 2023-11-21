@@ -55,13 +55,13 @@ const DropDown: FC<DropDownProps> = ({
             {icon ? icon : title}
             </Menu.Button>
             <div
-              className={`absolute ${shadow} ${className}  text-black z-20  mt-2 hover:border-1 ${background}`}
+              className={`absolute overflow-auto w-[150px] ${shadow} ${className}   z-20  mt-2  ${background}`}
             >
-              <Menu.Items>
-                {list.map((item, i) => (
+              <Menu.Items className="border border-yellow-500">
+                {list && list.map((item, i) => (
                   <Menu.Item key={i} >
                     {({ active }) => (
-                      <div className="p-1 pl-3 text-black border border-yellow-500">
+                      <div className="p-1 pt-3 pl-3 text-white ">
                         {linkActive ? (
                           <Link to={`/${type}/${slugify(item.name)}`}>
                             <button
@@ -69,7 +69,7 @@ const DropDown: FC<DropDownProps> = ({
                                 onclick && onclick(item.name);
                               }}
                               className={classNames({
-                                "text-black font-bold": active,
+                                "text-yellow-300 font-bold": active,
                               })}
                             >
                               {item.name}

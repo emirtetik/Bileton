@@ -1,37 +1,24 @@
 import { BiSearchAlt } from "react-icons/bi";
 import { CustomModal } from "../../_coreComponent/customModal";
-// import { EventService } from "../../../services/EventService";
-// import useSWR from "swr";
+import { EventService } from "../../../services/EventService";
+import useSWR from "swr";
 import { useState } from "react";
-// import { event } from "../../../types";
-import { cardList as data } from "../../../constant";
+import { event } from "../../../types";
 import Card from "../../_coreComponent/card";
-
-function slugify(str: string) {
-  return String(str)
-    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
-    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
-    .trim() // trim leading or trailing whitespace
-    .toLowerCase() // convert to lowercase
-    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
-    .replace(/\s+/g, "-") // replace spaces with hyphens
-    .replace(/-+/g, "-"); // remove consecutive hyphens
-}
 
 type SearchProps = {
   isModalOpen: boolean;
   onClose: () => void;
 };
 
-// const fetcher = () => EventService.getAll();
+const fetcher = () => EventService.getAll();
 
 const SearchModal = (props: SearchProps) => {
-
-  // const { data, error } = useSWR("search", fetcher, {
-  //   revalidateIfStale: false,
-  //   revalidateOnFocus: false,
-  //   revalidateOnReconnect: false,
-  // });
+  const { data, error } = useSWR("search", fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
   const [inputValue, setInputValue] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,11 +26,11 @@ const SearchModal = (props: SearchProps) => {
     setListOpen(true);
   };
 
-  // if (error) return <div>failed to load</div>;
-  // if (!data) return <div>Loading...</div>;
-  const filtered = data.filter((item) => {
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>Loading...</div>;
+  const filtered = data.filter((item: event) => {
     return (
-      item.title && item.title.toLowerCase().includes(inputValue.toLowerCase())
+      item.name && item.name.toLowerCase().includes(inputValue.toLowerCase())
     );
   });
 
@@ -72,16 +59,16 @@ const SearchModal = (props: SearchProps) => {
           <div className="relative mt-20 ">
             {listOpen && (
               <div className="z-10 flex flex-col w-full overflow-auto font-medium text-black rounded-lg gap-y-6 text-text font-raleway ">
-                {filtered?.map((item, i: number) => (
-                    <Card  
+                {filtered?.map((item: event, i: number) => (
+                  <Card
                     key={i}
-                    title={item.title} 
-                    time={item.time} 
-                    venue={item.venue} 
-                    image={item.img}
+                    title={item.name}
+                    time={`${item.startTime}-${item.endTime}`}
+                    venue={item.venue}
+                    image={item.image}
                     size="small"
-                    className="flex gap-6 cursor-pointer hover:bg-gray-200 transition-color duration-300"
-                    route={`/event/${slugify(item.title)}`}
+                    className="flex gap-6 duration-300 cursor-pointer hover:bg-gray-200 transition-color"
+                    route={`/event/:name`}
                     onClick={() => {
                       setListOpen(false);
                       setInputValue("");
@@ -98,32 +85,4 @@ const SearchModal = (props: SearchProps) => {
 };
 
 export default SearchModal;
-{/* <div
-key={i}
-className="rounded-sm cursor-pointer hover:bg-gray-200"
-onClick={() => {
-  setListOpen(false);
-  setInputValue("");
-}}
->
-<Link
-  to={`/event/${slugify(item.title)}`}
-  className="block"
->
-  <div className="flex flex-row gap-4 p-3">
-    <img
-      className="h-[150px] w-[150px] rounded-xl"
-      src={item.img}
-      alt=""
-    />
-    <div className="py-1">
-      <h1 className="font-bold text-black">{item.title}</h1>
-      <h1 className="text-sm text-gray-500">{item.time}</h1>
-    </div>
-    <div className="flex flex-row gap-2 py-4 ml-20 text-sm">
-      <IoLocationOutline />
-      <h1>{item.venue} </h1>
-    </div>
-  </div>
-</Link>
-</div> */}
+ 

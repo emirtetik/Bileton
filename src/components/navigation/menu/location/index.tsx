@@ -12,7 +12,7 @@ function onlyUnique(value: string, index: number, array: string[]): boolean {
 const Location = () => {
   const { data, isLoading, error } = useSWR("events", fetcher);
   const uniqueLocation = data
-    ?.map((event: event) => event.location)
+    ?.map((event: event) => event.city)
     .filter(onlyUnique);
 
   if (error) return <div>failed to load</div>;
@@ -25,7 +25,7 @@ const Location = () => {
         shadow="shadow-dark"
         width="w-full"
         background="bg-black "
-        className="font-normal text-white font-raleway"
+        className="font-normal text-white font-raleway max-h-[250px] "
         icon={
           <CiLocationOn className="w-6 h-6 text-white" />
         }
