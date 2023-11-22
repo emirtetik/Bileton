@@ -4,13 +4,14 @@ import { BsChevronRight } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import { event } from "../../../types";
-import { cardList } from "../../../constant";
 import Card from "../card";
 import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
 import { Link } from "react-router-dom";
 
 const CustomSlider = (props: { events: event[]; title: string }) => {
+
+ 
   return (
     <div className="font-raleway relative  w-[100%] my-6 text-gray-300">
       <div className="absolute text-6xl z1 grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10"></div>
@@ -49,16 +50,17 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         className="relative"
       >
 
-        {cardList.map((card, index: number) => (
+        {props.events.map((card:event, index: number) => (
           <SwiperSlide key={index}>
             <AosDiv aosType="fade-left" aosDuration={900}>
               <Card
-                title={card.title}
+                title={card.name}
                 size="medium"
-                image={card.img}
-                time={card.time}
+                image={card.image}
+                time={`${card.startTime}-${card.endTime}`}
                 venue={card.venue}
-                route={`/event/${card.title}}`}
+
+                route={`/event/:name`}
               />
             </AosDiv>
           </SwiperSlide>

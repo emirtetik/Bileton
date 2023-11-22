@@ -1,27 +1,37 @@
 import CustomSlider from "./../_coreComponent/customSlider";
-import { cardList } from "../../constant";
 import BigCarousel from "../_coreComponent/bigCarousel";
+import { useCarousel } from "../../services/useCarousel";
 
 const Carousel = () => {
+  const { categoryTheatre, isLoading, error } = useCarousel();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="w-screen ">
       <BigCarousel />
-      <CustomSlider events={cardList} title="Bu Hafta" />
-      <CustomSlider events={cardList} title="Sadece Bileton'da" />
+     <CustomSlider events={categoryTheatre} title="Tiyatro" />
+     {/* <CustomSlider events={WeekCarousel} title="Bu Hafta" /> */}
+
+      {/*  <CustomSlider events={cardList} title="Sadece Bileton'da" />
       <div className="w-full border-t-4 border-b-4 border-yellow-500">
       <BigCarousel title="Müzik"/>
       </div>
-      <CustomSlider events={cardList} title="Pop" />
-      <CustomSlider events={cardList} title="Rap" />
-      <CustomSlider events={cardList} title="Rock" />
-      <CustomSlider events={cardList} title="Caz" />
-      <CustomSlider events={cardList} title="Klasik" />
+      <CustomSlider events={} title="Rap" />
+      <CustomSlider events={} title="Rock" />
+      <CustomSlider events={} title="Caz" />
+      <CustomSlider events={} title="Klasik" />
       <div className="w-full border-t-4 border-b-4 border-yellow-500 ">
         <BigCarousel  title="Sahne"/>
       </div>
-      <CustomSlider events={cardList} title="Tiyatro" />
-      <CustomSlider events={cardList} title="Gösteri" />
-      <CustomSlider events={cardList} title="Stand-Up" />
+      <CustomSlider events={} title="Gösteri" />
+      <CustomSlider events={} title="Stand-Up" /> */}
     </div>
   );
 };
