@@ -22,8 +22,8 @@ const Categories = () => {
          key={i}
          title={category.name}
          size="medium"
-         image="https://cazkolik.com/storage/gorseller/20120608_021301.jpg"
-         route={`/category/${category.name}`}
+         image="https://www.thebluegrey.com/wp-content/uploads/2021/09/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.rsquare.w700.jpg"
+         route={`/category/:name`}
         />
       ))}
     </div>
