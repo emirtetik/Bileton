@@ -1,28 +1,26 @@
 import { SwiperSlide } from "swiper/react";
-// import { EventService } from "../../../services/EventService";
-// import useSWR from "swr";
-// import { event } from "../../../types";
+import { EventService } from "../../../services/EventService";
+import useSWR from "swr";
+import { event } from "../../../types";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import CustomCarousel from "../../_coreComponent/customCarousel";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-import { cardList } from "../../../constant";
 import Card from "../card";
 import AosDiv from "../aosEffect";
-import { event } from "../../../types";
-// const fetcher = () => EventService.getAll();
+const fetcher = () => EventService.getAll();
 const BigCarousel = (props: { events?: event[]; title?: string }) => {
-  //   const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
+    const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
 
-  //   if (isLoading) {
-  //     return <div>..Loading</div>;
-  //   }
-  //   if (error) {
-  //     return <div>...failed</div>;
-  //   }
-  //   const cards = data.slice(-5);
+    if (isLoading) {
+      return <div>..Loading</div>;
+    }
+    if (error) {
+      return <div>...failed</div>;
+    }
+    const cards = data.slice(-5);
 
   return (
     <div className="relative w-full px-4 my-6 text-gray-300 font-raleway">
@@ -46,10 +44,10 @@ const BigCarousel = (props: { events?: event[]; title?: string }) => {
         className="populer-carousel"
       >
         <div className="w-full ">
-          {cardList.map((card, index: number) => (
+          {cards.map((card:event, index: number) => (
             <SwiperSlide key={index}>
               <AosDiv aosType="fade-up" aosDuration={800}>
-                <Card image={card.img} alt={card.title} size="large" />
+                <Card image={card.image} alt={card.name} size="large" />
               </AosDiv>
             </SwiperSlide>
           ))}

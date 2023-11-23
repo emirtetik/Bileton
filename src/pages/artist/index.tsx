@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Card from "../../components/_coreComponent/card";
-import { cardList } from "../../constant";
 import AosDiv from "../../components/_coreComponent/aosEffect";
 import { EventService } from "../../services/EventService";
 import useSWR from "swr";
@@ -11,7 +10,6 @@ const fetcher = () => EventService.getAll()
 const Artist = () => {
     const [sortType, setSortType] = useState("a-z");
     const {data,isLoading,error} = useSWR("artist", fetcher)
-    console.log("artis",data)
     if (isLoading) {
       return <div>Loading...</div>;
     }
@@ -35,7 +33,7 @@ const Artist = () => {
       />
       <div className="px-0 sm:px-20 pt-28">
         <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
-          Artistler ({cardList.length})
+          Artistler ({data.length})
         </h1>
         <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2">
         <select
