@@ -20,15 +20,15 @@ const DetailSection = ({ event }: { event: event }) => {
           <h2 className="font-bold darkText text-subtitle ">Photos</h2>
           <div className="flex-1 gap-6 px-2 sm:px-0">
             <div className="grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {event.photos.map((photo: string, i: number) => (
-                <div key={i} className="relative rounded-md cursor-pointer">
-                  <img
-                    className="object-cover object-center rounded-md w-[150px] h-[150px]"
-                    src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
-                    alt="cuisine"
-                  />
-                </div>
-              ))}
+            {Array.isArray(event.photos) ? event.photos.map((_photo: event, i: number) => (
+  <div key={i} className="relative rounded-md cursor-pointer">
+    <img
+      className="object-cover object-center rounded-md w-[150px] h-[150px]"
+      src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+      alt="cuisine"
+    />
+  </div>
+)) : null}
             </div>
           </div>
         </div>
