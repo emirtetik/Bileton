@@ -2,21 +2,12 @@ import classNames from "classnames";
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import {LiaCitySolid} from "react-icons/lia"
-
-interface ImageProps {
-  contentType: string;
-  data: {
-    data: number[];
-    type: string;
-  };
-  filename: string;
-}
+import { LiaCitySolid } from "react-icons/lia";
 
 interface CardProps {
   title?: string;
   city?: string;
-  image?: ImageProps | undefined | string;
+  image?: string;
   alt?: string;
   className?: string | undefined;
   route?: string;
@@ -25,7 +16,7 @@ interface CardProps {
   venue?: string;
   date?: string;
   description?: string;
-  onClick?:React.MouseEventHandler<HTMLDivElement> | undefined
+  onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }
 
 function slugify(str: string) {
@@ -61,24 +52,12 @@ const Card: React.FC<CardProps> = ({
     "h-[11rem] w-[11rem] rounded-full": size === "circle",
   });
 
-  let imgSrc;
-  if (typeof image === 'string') {
-    imgSrc = image;
-  } else if (image && image.data && image.data.data) {
-    let binary = '';
-    const bytes = new Uint8Array(image.data.data);
-    bytes.forEach((byte) => binary += String.fromCharCode(byte));
-    imgSrc = `data:image/jpeg;base64,${btoa(binary)}`;
-  }
-  
-  const name = slugify(title || "");
-  const linkRoute = route.replace(":name", name);
-
+  const routeLink = slugify(route || "");
 
   return (
-    <Link to={linkRoute}>
+    <Link to={routeLink}>
       <div className={`${className}`} onClick={onClick}>
-      {image && <img className={imgClass} src={imgSrc} alt={alt} />}
+        {image && <img className={imgClass} src={image} alt={alt} />}
         <div className={`mt-1 flex flex-col   font-raleway`}>
           <h1 className="font-bold text-md">{title}</h1>
           <p className="text-sm text-gray-500">{description}</p>
