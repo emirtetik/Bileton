@@ -1,9 +1,12 @@
 import CustomSlider from "./../_coreComponent/customSlider";
 // import BigCarousel from "../_coreComponent/bigCarousel";
-import { useCarousel } from "../../services/useCarousel";
+import useSWR from "swr";
+import { EventService } from "../../services/EventService";
+
+const fetcher = () => EventService.getAll();
 
 const Carousel = () => {
-  const { categoryTheatre,categoryBulusma,categoryMuzik, isLoading, error } = useCarousel();
+  const { data, isLoading, error } = useSWR("carousel", fetcher);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -16,11 +19,11 @@ const Carousel = () => {
   return (
     <div className="w-screen ">
       {/* <BigCarousel /> */}
-     <CustomSlider events={categoryTheatre} title="Tiyatro" />
-     <CustomSlider events={categoryBulusma} title="Bulusma" />
-      <CustomSlider events={categoryMuzik} title="Müzik" />
+      <CustomSlider events={data} title="Tiyatro" />
+      <CustomSlider events={data} title="Bulusma" />
+      <CustomSlider events={data} title="Müzik" />
 
-     {/* <CustomSlider events={WeekCarousel} title="Bu Hafta" /> */}
+      {/* <CustomSlider events={WeekCarousel} title="Bu Hafta" /> */}
       {/*  <CustomSlider events={cardList} title="Sadece Bileton'da" />
       <div className="w-full border-t-4 border-b-4 border-yellow-500">
       <BigCarousel title="Müzik"/>

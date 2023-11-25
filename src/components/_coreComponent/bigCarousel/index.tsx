@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import Card from "../card";
-// import AosDiv from "../aosEffect";
+import AosDiv from "../aosEffect";
 const fetcher = () => EventService.getAll();
 const BigCarousel = (props: { events?: event[]; title?: string }) => {
     const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
@@ -46,9 +46,9 @@ const BigCarousel = (props: { events?: event[]; title?: string }) => {
         <div className="w-full ">
           {cards.map((card:event, index: number) => (
             <SwiperSlide >
-              {/* <AosDiv aosType="fade-up" aosDuration={800} > */}
-                <Card image={card.image} alt={card.name} size="large" key={index}/>
-              {/* </AosDiv> */}
+              <AosDiv aosType="fade-up" aosDuration={800} ={index}>
+                <Card image={card.image} alt={card.name} size="large" />
+              </AosDiv>
             </SwiperSlide>
           ))}
         </div>

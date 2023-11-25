@@ -5,13 +5,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { event } from "../../../types";
 import Card from "../card";
-// import AosDiv from "../aosEffect";
+import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
 import { Link } from "react-router-dom";
 
 const CustomSlider = (props: { events: event[]; title: string }) => {
-
- 
   return (
     <div className="font-raleway relative  w-[100%] my-6 text-gray-300">
       <div className="absolute text-6xl z1 grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10"></div>
@@ -21,7 +19,9 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         <h1 className="font-medium text-subtitle ">{props.title}</h1>
 
         <div className="flex flex-row items-center justify-center gap-1 px-6 text-lg">
-          <Link to="/events" className="text-sm hover:text-yellow-500">Tümü</Link>
+          <Link to="/events" className="text-sm hover:text-yellow-500">
+            Tümü
+          </Link>
           <div className="text-xl text-gray-400 ">
             <BsChevronRight />
           </div>
@@ -51,19 +51,17 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
       >
 
         {props.events.map((card:event, index: number) => (
-          <SwiperSlide >
-            {/* <AosDiv aosType="fade-left" aosDuration={900} > */}
+          <SwiperSlide key={index} >
+            <AosDiv aosType="fade-left" aosDuration={900}  >
               <Card
-              key={index}
                 title={card.name}
                 size="medium"
                 image={card.image}
                 time={`${card.startTime}-${card.endTime}`}
                 venue={card.venue}
-
-                route={`/event/:name`}
+                route={`/event/${card.name.replace(/\s/g, "-")}-${card._id}`}
               />
-            {/* </AosDiv> */}
+            </AosDiv>
           </SwiperSlide>
         ))}
         <SliderButtons />
