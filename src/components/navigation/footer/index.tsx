@@ -2,17 +2,16 @@ import { Icons } from "../../../constant";
 import { FooterInfo } from "../../../constant";
 import { footerShop } from "../../../constant";
 import { Link } from "react-router-dom";
-import AosDiv from "../../_coreComponent/aosEffect";
 const Footer = () => {
   return (
     <div className="mt-10 font-raleway">
       <div className="w-full ">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-t modeBorder">
           <div className="h-80 overflow-hidden">
-            <AosDiv
+            <div
               className=" flex flex-col justify-between h-80 border-r modeBorder"
-              aosType="fade-up"
-              aosDuration={700}
+              
+     
             >
               <div className="flex  justify-left items-center p-8">
                 <h1 className="text-3xl font-light">Şikayet</h1>
@@ -20,13 +19,13 @@ const Footer = () => {
               <div className="mb-4 ml-5 flex flex-col">
            {/* FORM */}
               </div>
-            </AosDiv>
+            </div>
           </div>
           <div className="h-80 overflow-hidden">
-            <AosDiv
+            <div
               className="h-80 border-r border-t  sm:border-t-0 modeBorder"
-              aosType="fade-up"
-              aosDuration={1400}
+              
+            
             >
               <div className="flex justify-left  items-center p-8">
                 <h1 className="text-3xl font-light">Etkinlik</h1>
@@ -40,14 +39,14 @@ const Footer = () => {
                   </Link>
                 ))}
               </div>
-            </AosDiv>
+            </div>
           </div>
 
           <div className="h-80 overflow-hidden">
-            <AosDiv
+            <div
               className=" h-80 border-r border-t sm:border-t-0 modeBorder"
-              aosType="fade-up"
-              aosDuration={2100}
+              
+          
             >
               <div className="flex justify-left items-center p-8">
                 <h1 className="text-3xl font-light">Bilgi</h1>
@@ -61,13 +60,13 @@ const Footer = () => {
                   </Link>
                 ))}
               </div>
-            </AosDiv>
+            </div>
           </div>
           <div className="h-80 overflow-hidden">
-            <AosDiv
+            <div
               className=" h-80 border-r border-t sm:border-t-0 modeBorder"
-              aosType="fade-up"
-              aosDuration={2800}
+              
+            
             >
               <div className="flex flex-col ">
                 <div className="flex  justify-left  pt-8 pl-8">
@@ -94,7 +93,7 @@ const Footer = () => {
                   <p>&copy; {new Date().getFullYear()}. All Rights Reserved.</p>
                 </div>
               </div>
-            </AosDiv>
+            </div>
           </div>
         </div>
       </div>

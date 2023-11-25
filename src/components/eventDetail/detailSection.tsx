@@ -17,10 +17,10 @@ const DetailSection = ({ event }: { event: event }) => {
     <div className="flex flex-col gap-6 px-4 pt-8 mx-4 mt-8 md:flex-row md:px-12 md:mx-24 md:mt-24 font-raleway">
       <div className="flex flex-col w-full gap-20 md:w-4/6">
         <div className="flex flex-col w-3/4 gap-6">
-          <h2 className="font-bold darkText text-subtitle ">Photos</h2>
+          <h2 className="font-bold darkText text-subtitle ">Resimler</h2>
           <div className="flex-1 gap-6 px-2 sm:px-0">
             <div className="grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {Array.isArray(event.photos) ? event.photos.map((_photo: event, i: number) => (
+            {/* {Array.isArray(event.photos) ? event.photos.map((_photo: event, i: number) => (
   <div key={i} className="relative rounded-md cursor-pointer">
     <img
       className="object-cover object-center rounded-md w-[150px] h-[150px]"
@@ -28,22 +28,22 @@ const DetailSection = ({ event }: { event: event }) => {
       alt="cuisine"
     />
   </div>
-)) : null}
+)) : null} */}
             </div>
           </div>
         </div>
         <div className="flex flex-col w-3/4 gap-6">
-          <h2 className="font-bold darkText text-subtitle ">Description</h2>
+          <h2 className="font-bold darkText text-subtitle ">Açıklama</h2>
           <h3 className=" text-text">{event.description}</h3>
         </div>
         <div className="flex flex-col gap-6">
-          <h2 className="text-subtitle ">Hours</h2>
+          <h2 className="text-subtitle ">Saat</h2>
           <div>
             <h3>
-              Monday: <span className="font-bold "> 9:00 AM – 5:00 PM</span>
+              Monday: <span className="font-bold ">{event.startTime} </span>
             </h3>
             <h3>
-              Tuesday: <span className="font-bold "> 9:00 AM – 5:00 PM</span>
+              Tuesday: <span className="font-bold ">{event.endTime}</span>
             </h3>
           </div>
         </div>
@@ -78,7 +78,7 @@ const DetailSection = ({ event }: { event: event }) => {
           </div>
         </div>
         <div className="flex flex-col gap-6">
-          <h2>Share with friends</h2>
+          <h2>Arkadaşlarınla Paylaş</h2>
           <div className="flex gap-2">
             <FaFacebookF className="w-8 h-8 p-1.5 bg-blue-500 rounded-full" />
             <FaTwitter className="w-8 h-8 p-1.5 bg-blue-300 rounded-full" />

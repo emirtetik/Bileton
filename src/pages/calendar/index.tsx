@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { NavLink, useMatch } from "react-router-dom";
 import { CiCircleList } from "react-icons/ci";
 import Card from "../../components/_coreComponent/card";
-import AosDiv from "../../components/_coreComponent/aosEffect";
+// import AosDiv from "../../components/_coreComponent/aosEffect";
 import { EventService } from "../../services/EventService";
 import useSWR from "swr";
 import { event } from "../../types";
@@ -81,8 +81,9 @@ const Calendar = () => {
           <div className="w-full p-4 md:w-2/3">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 gap-x-10">
             {data && data.filter((card:event) => isSameDate(new Date(card.eventDate), selectedDate)).map((card:event, index: number) => (
-                <AosDiv aosType="zoom-in" aosDuration={500} key={index} >
+                // <AosDiv aosType="zoom-in" aosDuration={500} >
                   <Card
+                   key={index}
                     image={card.image}
                     title={card.name}
                     date={card.eventDate}
@@ -91,7 +92,7 @@ const Calendar = () => {
                     size="medium"
                     route={`/event/:name-${card._id}`}
                   />
-                </AosDiv>
+                // </AosDiv>
               ))}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "../../components/_coreComponent/card";
-import AosDiv from "../../components/_coreComponent/aosEffect";
+// import AosDiv from "../../components/_coreComponent/aosEffect";
 import { EventService } from "../../services/EventService";
 import { event } from "../../types";
 import useSWR from "swr";
@@ -49,16 +49,16 @@ const Venue = () => {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-10">
           {data.map((card:event, index: number) => (
-            <AosDiv aosType="zoom-in" aosDuration={500}>
+            // <AosDiv aosType="zoom-in" aosDuration={500}>
               <Card
-                key={index}
+              key={index}
                 title={card.venue}
                 city={card.city}
                 image={card.image}
                 size="small"
                 className="flex flex-col justify-center text-left"
               />
-            </AosDiv>
+            // </AosDiv>
           ))}
         </div>
       </div>

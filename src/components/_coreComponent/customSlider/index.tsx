@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { event } from "../../../types";
 import Card from "../card";
-import AosDiv from "../aosEffect";
+// import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
 import { Link } from "react-router-dom";
 
@@ -51,9 +51,10 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
       >
 
         {props.events.map((card:event, index: number) => (
-          <SwiperSlide key={index}>
-            <AosDiv aosType="fade-left" aosDuration={900}>
+          <SwiperSlide >
+            {/* <AosDiv aosType="fade-left" aosDuration={900} > */}
               <Card
+              key={index}
                 title={card.name}
                 size="medium"
                 image={card.image}
@@ -62,7 +63,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
 
                 route={`/event/:name`}
               />
-            </AosDiv>
+            {/* </AosDiv> */}
           </SwiperSlide>
         ))}
         <SliderButtons />

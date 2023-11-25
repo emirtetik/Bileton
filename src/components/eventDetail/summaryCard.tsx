@@ -12,7 +12,7 @@ const SummaryCard = ({ event }: { event: event }) => {
           className="absolute flex items-center text-subtitle text-primary gap-2 left-4 md:left-16 top-10"
           to={"/"}
         >
-          <BsArrowLeft className="w-6 h-6" /> Back
+          <BsArrowLeft className="w-6 h-6" /> Geri
         </Link>
       </div>
       <div className="flex flex-col items-center justify-around mt-20 md:flex-row sm:mt-0 md:mt-16">
@@ -26,7 +26,7 @@ const SummaryCard = ({ event }: { event: event }) => {
             </h3>
             <p className="text-title ">
               <Link className="text-primary" to={`/location/${event.location}`}>
-                {event.location}
+                {event?.location}
               </Link>
             </p>
             <div className="flex gap-2 pt-4 font-bold  text-white">
