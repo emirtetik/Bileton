@@ -30,7 +30,7 @@ const EventDetail = () => {
       />
 
       <div className="h-screen  mt-28">
-        <SummaryCard event={data} />
+        <SummaryCard event={data} name={name} />
         <DetailSection event={data} />
         <div className="bg-white ">
           <OtherEvents />

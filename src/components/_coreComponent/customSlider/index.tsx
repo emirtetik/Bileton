@@ -58,7 +58,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
                 image={card.image}
                 time={`${card.startTime}-${card.endTime}`}
                 venue={card.venue}
-                route={`/event/${card.name.replace(/\s/g, "-")}-${card._id}`}
+                route={`${card.name}-${card._id}`}
               />
             </AosDiv>
           </SwiperSlide>

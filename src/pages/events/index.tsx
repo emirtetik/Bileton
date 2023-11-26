@@ -9,7 +9,7 @@ import useSWR from "swr";
 import { event } from "../../types";
 import SEO from "../../components/_coreComponent/seo";
 
-const fetcher = () => EventService.getAll()
+const fetcher = () => EventService.getAll();
 
 const Events = () => {
   const matchEvents = useMatch("/events");
@@ -18,11 +18,10 @@ const Events = () => {
   const activeClassEvents = matchEvents ? "text-yellow-500" : "";
   const activeClassCategory = matchCategory ? "text-yellow-500" : "";
   const activeClassCalendar = matchCalendar ? "text-yellow-500" : "";
- 
-   const {data,isLoading,error} = useSWR("events", fetcher)
-   
-   
-   if (isLoading) {
+
+  const { data, isLoading, error } = useSWR("events", fetcher);
+
+  if (isLoading) {
     return <div>Loading...</div>;
   }
   if (error) {
@@ -31,7 +30,7 @@ const Events = () => {
 
   return (
     <div className="bg-no-repeat bg-contain bg-background-image-4">
-       <SEO
+      <SEO
         title="Etkinlikler"
         description="En son etkinliklerimizi keşfedin."
         url="http://localhost:5173/events"
@@ -66,7 +65,7 @@ const Events = () => {
         {/* LİSTE */}
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10">
-          {data?.map((card:event, index: number) => (
+          {data?.map((card: event, index: number) => (
             <AosDiv aosType="zoom-in" aosDuration={500}>
               <Card
                 key={index}
@@ -77,7 +76,7 @@ const Events = () => {
                 venue={card.venue}
                 size="medium"
                 className="text-left"
-                route={`/event/:name/${card._id}`}
+                route={`${card.name}-${card._id}`}
               />
             </AosDiv>
           ))}

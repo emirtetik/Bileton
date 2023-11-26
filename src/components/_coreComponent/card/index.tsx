@@ -55,7 +55,7 @@ const Card: React.FC<CardProps> = ({
   const routeLink = slugify(route || "");
 
   return (
-    <Link to={routeLink}>
+    <Link to={`../event/${routeLink}`}>
       <div className={`${className}`} onClick={onClick}>
         {image && <img className={imgClass} src={image} alt={alt} />}
         <div className={`mt-1 flex flex-col   font-raleway`}>
