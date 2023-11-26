@@ -30,6 +30,11 @@ const TicketBuy = () => {
 
   const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
 
+  const onPurchaseClick = () => {
+    const response = EventService.sellTicket(id, totalTickets);
+    console.log(response);
+  };
+
   const handleQuantityof1stPhase = (what: string) => {
     if (what === "minus") {
       setQuantityof1stPhase((prev) => prev + 1);
@@ -142,7 +147,7 @@ const TicketBuy = () => {
           <div className="w-full bg-slate-600 h-full p-6">
             <div className="flex gap-6">
               <img src={data.image} className="w-[75px] h-[75px]" alt="" />
-              <p>{data.name}</p>
+              <p>{data.ticketCount}</p>
             </div>
             <div className="flex items-center w-[100%] border-b my-4 border-white "></div>
 
@@ -166,7 +171,10 @@ const TicketBuy = () => {
               <div>Total Tickets:</div>
               <div>{totalTickets}</div>
             </div>
-            <div className="text-center bg-yellow-400 p-2 text-black">
+            <div
+              onClick={() => onPurchaseClick()}
+              className="text-center cursor-pointer bg-yellow-400 p-2 text-black"
+            >
               Purchase
             </div>
           </div>
