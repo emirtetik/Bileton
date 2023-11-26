@@ -55,7 +55,7 @@ const Artist = () => {
               size="circle"
               className="flex flex-col items-center justify-center text-center"
             />
-          //  </AosDiv>
+           </AosDiv>
           ))}
         </div>
       </div>

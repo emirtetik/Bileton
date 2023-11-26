@@ -7,7 +7,7 @@ const fetcher = () => CategoryService.getAll();
 
 const Categories = () => {
   const { data, error, isLoading } = useSWR("categories", fetcher);
-
+   console.log("cate",data)
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -23,7 +23,7 @@ const Categories = () => {
          title={category.name}
          size="medium"
          image="https://www.thebluegrey.com/wp-content/uploads/2021/09/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.rsquare.w700.jpg"
-         route={`/category/:name`}
+         route={`/${category.name}`}
         />
       ))}
     </div>

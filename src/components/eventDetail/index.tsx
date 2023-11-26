@@ -29,8 +29,10 @@ const EventDetail = () => {
           data._id
         }`}
       />
-      <div className="h-screen mt-28">
-        <SummaryCard event={data} />
+
+
+      <div className="h-screen  mt-28">
+        <SummaryCard event={data} name={name} />
         <DetailSection event={data} />
         <div className="bg-white ">
           <OtherEvents />

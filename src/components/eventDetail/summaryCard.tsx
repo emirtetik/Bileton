@@ -4,7 +4,19 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { event } from "../../types";
 
-const SummaryCard = ({ event }: { event: event }) => {
+function slugify(str: string) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
+
+const SummaryCard = (props: { event: event; name: string }) => {
+  const link = slugify(`${props.event.name}-${props.event._id}`);
   return (
     <div className="box-border flex flex-col mx-4 mt-8 text-white bg-center shadow-dark bg-cover md:mx-12 font-raleway h-4/5 rounded-2xl bg-background-image-1">
       <div className="relative ">
@@ -19,14 +31,18 @@ const SummaryCard = ({ event }: { event: event }) => {
         <div className="flex-1 ">
           <div className="mx-4 md:mx-16 ">
             <h1 className="pb-6 font-bold text-title text-fifth">
-              {event?.name}
+              {props.event?.name}
             </h1>
             <h3 className="pb-8 text-subtitle text-fifth">
-              {event?.description}
+              {props.event?.description}
             </h3>
             <p className="text-title ">
-              <Link className="text-primary" to={`/location/${event.location}`}>
-                {event?.location}
+
+              <Link
+                className="text-primary"
+                to={`/location/${props.event.location}`}
+              >
+                {props.event.location}
               </Link>
             </p>
             <div className="flex gap-2 pt-4 font-bold  text-white">
@@ -42,7 +58,12 @@ const SummaryCard = ({ event }: { event: event }) => {
               <p className=" text-text text-fifth ">Saturday August 21, 2021</p>
             </div>
             <div className="flex flex-col items-center gap-3">
-              <MuiButton variant="contained" size="large" fullWidth>
+              <MuiButton
+                variant="contained"
+                route={`../ticket/${link}`}
+                size="large"
+                fullWidth
+              >
                 Book Now
               </MuiButton>
               <MuiButton variant="contained" size="large" fullWidth>
