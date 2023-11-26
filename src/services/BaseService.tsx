@@ -1,7 +1,7 @@
 import { event } from "../types";
 
-const BASE_API_URL = "http://localhost:8080/api/event/";
-// const BASE_API_URL = "https://event-api-tqwv.onrender.com/api/event/";
+// const BASE_API_URL = "http://localhost:8080/api/event/";
+const BASE_API_URL = "https://event-api-tqwv.onrender.com/api/event/";
 
 export const BaseService = {
   get: async (path: string) => {
