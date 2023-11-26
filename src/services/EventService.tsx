@@ -6,9 +6,7 @@ export const EventService = {
   getById: async (id: string) => await BaseService.get("event/" + id),
   sellTicket: async (eventId: string, data: event) => {
     try {
-      return await BaseService.put(`event/${eventId}`, {
-        data,
-      });
+      return await BaseService.put(`event/${eventId}`, data);
     } catch (error) {
       console.error("Error selling ticket:", error);
       throw new Error("Failed to sell ticket");

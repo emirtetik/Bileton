@@ -2,7 +2,7 @@ import MuiButton from "../_coreComponent/mui/button";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Map from "./map";
 import { event } from "../../types";
-
+import { Link } from "react-router-dom";
 const DetailSection = ({ event }: { event: event }) => {
   let eventkonum: [number, number];
 
@@ -18,19 +18,12 @@ const DetailSection = ({ event }: { event: event }) => {
       <div className="flex flex-col w-full gap-20 md:w-4/6">
         <div className="flex flex-col w-3/4 gap-6">
           <h2 className="font-bold darkText text-subtitle ">Resimler</h2>
-          <div className="flex-1 gap-6 px-2 sm:px-0">
-            <div className="grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {/* {Array.isArray(event.photos) ? event.photos.map((_photo: event, i: number) => (
-  <div key={i} className="relative rounded-md cursor-pointer">
+           
     <img
-      className="object-cover object-center rounded-md w-[150px] h-[150px]"
-      src="https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
-      alt="cuisine"
+      className="  rounded-md  h-[150px]"
+      src={event.image}
+      alt={event.name}
     />
-  </div>
-)) : null} */}
-            </div>
-          </div>
         </div>
         <div className="flex flex-col w-3/4 gap-6">
           <h2 className="font-bold darkText text-subtitle ">Açıklama</h2>
@@ -47,27 +40,23 @@ const DetailSection = ({ event }: { event: event }) => {
             </h3>
           </div>
         </div>
-        <div className="flex flex-col gap-6">
-          <h2 className="text-subtitle ">Participants</h2>
-          <div>
-            <h3>Nedim Ramicevic</h3>
-            <h3>John Doe</h3>
-            <h3>John Doe</h3>
-          </div>
-        </div>
+        <Link to={`/ticket/${event._id}`} className="flex items-center justify-center bg-gray-400 rounded-md w-[100px] p-2 text-black hover:text-white hover:text-bold">
+            Satın Al
+        </Link>
+         
       </div>
       <div className="flex flex-col w-full gap-8 mt-8 md:w-2/6 md:mt-0">
         <div className="flex flex-col gap-6">
           <h2>Location</h2>
           <div><Map konum={eventkonum} /></div>
-          <div>
+          {/* <div>
             <h2>Dream World Wide</h2>
             <h3>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
               pariatur impedit reprehenderit dolore suscipit adipisci est ea,
               doloremque animi commodi
             </h3>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col gap-6">
           <h2>Tags</h2>

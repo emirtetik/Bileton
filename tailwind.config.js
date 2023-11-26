@@ -27,7 +27,7 @@ export default {
       
       colors: {
         dark: "rgba(0, 0, 0, 0.9)",
-        primary: "darkblue",
+        primary: "yellow",
         secondary: "blue",
         third: "blue",
         fourth: "black",

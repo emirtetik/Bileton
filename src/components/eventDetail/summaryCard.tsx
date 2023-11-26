@@ -18,10 +18,10 @@ function slugify(str: string) {
 const SummaryCard = (props: { event: event; name: string }) => {
   const link = slugify(`${props.event.name}-${props.event._id}`);
   return (
-    <div className="box-border flex flex-col mx-4 mt-8 text-white bg-center shadow-dark bg-cover md:mx-12 font-raleway h-4/5 rounded-2xl bg-background-image-1">
+    <div className="box-border flex flex-col mx-4 mt-8 text-white bg-center bg-cover shadow-dark md:mx-12 font-raleway h-4/5 rounded-2xl bg-background-image-1">
       <div className="relative ">
         <Link
-          className="absolute flex items-center text-subtitle text-primary gap-2 left-4 md:left-16 top-10"
+          className="absolute flex items-center gap-2 text-white text-subtitle left-4 md:left-16 top-10"
           to={"/"}
         >
           <BsArrowLeft className="w-6 h-6" /> Geri
@@ -45,17 +45,17 @@ const SummaryCard = (props: { event: event; name: string }) => {
                 {props.event.location}
               </Link>
             </p>
-            <div className="flex gap-2 pt-4 font-bold  text-white">
+            <div className="flex gap-2 pt-4 font-bold text-white">
               <CiLocationOn className="w-6 h-6 text-primary" />
               View Map
             </div>
           </div>
         </div>
-        <div className="flex flex-col flex-1 m-4 rounded-lg md:m-20  ">
-          <div className="flex flex-col h-full gap-4 p-8 mx-4 bg-fourth shadow-dark  md:mx-28 rounded-xl">
+        <div className="flex flex-col flex-1 m-4 rounded-lg md:m-20 ">
+          <div className="flex flex-col h-full gap-4 p-8 mx-4 bg-fourth shadow-dark md:mx-28 rounded-xl">
             <div className="flex flex-col gap-2 ">
-              <h2 className="text-secondary text-subtitle">Date & Time</h2>
-              <p className=" text-text text-fifth ">Saturday August 21, 2021</p>
+              <h2 className="text-primary text-subtitle">Date & Time</h2>
+              <p className=" text-text text-fifth">Saturday August 21, 2021</p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <MuiButton

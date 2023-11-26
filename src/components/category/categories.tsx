@@ -7,7 +7,6 @@ const fetcher = () => CategoryService.getAll();
 
 const Categories = () => {
   const { data, error, isLoading } = useSWR("categories", fetcher);
-  console.log("cate", data);
   if (isLoading) {
     return <div>Loading...</div>;
   }

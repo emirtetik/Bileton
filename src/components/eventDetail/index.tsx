@@ -12,7 +12,7 @@ const EventDetail = () => {
   const id = name.split("-")[name.split("-").length - 1];
   const fetcher = () => EventService.getById(id);
   const { data, isLoading, error } = useSWR("eventByName", fetcher);
-  console.log("dara", data);
+  console.log("data", data);
   console.log("error", error);
   console.log("name", name);
   console.log("id", id);
@@ -31,7 +31,7 @@ const EventDetail = () => {
       />
 
 
-      <div className="h-screen  mt-28">
+      <div className=" mt-28">
         <SummaryCard event={data} name={name} />
         <DetailSection event={data} />
         <div className="bg-white ">

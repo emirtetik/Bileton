@@ -10,7 +10,7 @@ import { EventService } from "../../services/EventService";
 import useSWR from "swr";
 import { event } from "../../types";
 import SEO from "../../components/_coreComponent/seo";
-
+import { slugify } from "../../components/_coreComponent/slug";
 
 const fetcher = () => EventService.getAll()
 const Calendar = () => {
@@ -89,7 +89,8 @@ const Calendar = () => {
                     time={`${card.startTime}-${card.endTime}`}
                     venue={card.venue}
                     size="medium"
-                    route={`/event/:name-${card._id}`}
+                    route={`../event/${slugify(`${card.name} ${card._id}`)}`}
+
                   />
               </AosDiv> 
               ))}

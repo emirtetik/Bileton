@@ -3,7 +3,8 @@ import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { LiaCitySolid } from "react-icons/lia";
-
+import { format } from 'date-fns';
+import { tr } from 'date-fns/locale';
 interface CardProps {
   title?: string;
   city?: string;
@@ -40,6 +41,8 @@ const Card: React.FC<CardProps> = ({
       size === "large",
     "h-[11rem] w-[11rem] rounded-full": size === "circle",
   });
+ 
+  const formattedDate = date ? format(new Date(date), 'dd MMMM yyyy', { locale: tr }) : '';
 
   return (
     <Link to={route || ``}>
@@ -54,7 +57,7 @@ const Card: React.FC<CardProps> = ({
               {city}
             </p>
           )}
-          <p className="text-sm text-gray-500">{date}</p>
+          <p className="text-sm text-gray-500">{formattedDate}</p>
           <p className="text-sm text-gray-500">{time}</p>
           {venue && (
             <p className="flex items-center text-sm text-gray-500">
