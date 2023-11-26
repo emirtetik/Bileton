@@ -4,16 +4,15 @@ import Footer from "../../components/navigation/footer";
 
 const MainLayout = () => {
   return (
-    <div className=" flex flex-col min-h-screen w-full ">
-      <div className=" flex ">
-        <Header />
-      </div>
-      <div className="w-full  ">
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <div className="flex-grow">
         <Outlet />
       </div>
       <Footer />
     </div>
   );
 };
+
 
 export default MainLayout;

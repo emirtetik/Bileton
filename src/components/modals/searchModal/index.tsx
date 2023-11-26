@@ -6,6 +6,18 @@ import { useState } from "react";
 import { event } from "../../../types";
 import Card from "../../_coreComponent/card";
 
+
+function slugify(str: string) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
+
 type SearchProps = {
   isModalOpen: boolean;
   onClose: () => void;
@@ -68,7 +80,7 @@ const SearchModal = (props: SearchProps) => {
                     image={item.image}
                     size="small"
                     className="flex gap-6 duration-300 cursor-pointer hover:bg-gray-200 transition-color"
-                    route={`/event/:name`}
+                    route={`../event/${slugify(`${item.name} ${item._id}`)}`}
                     onClick={() => {
                       setListOpen(false);
                       setInputValue("");
