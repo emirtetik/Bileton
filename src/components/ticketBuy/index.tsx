@@ -31,8 +31,16 @@ const TicketBuy = () => {
   const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
 
   const onPurchaseClick = () => {
-    const response = EventService.sellTicket(id, totalTickets);
-    console.log(response);
+    if (totalTickets > data.ticketCount) {
+      alert("Not enough tickets");
+    } else {
+      const newData = {
+        ...data,
+        ticketCount: data.ticketCount - totalTickets,
+      };
+      alert(`successfull purchase of ${totalTickets} tickets`);
+      EventService.sellTicket(data._id, newData);
+    }
   };
 
   const handleQuantityof1stPhase = (what: string) => {
@@ -147,7 +155,11 @@ const TicketBuy = () => {
           <div className="w-full bg-slate-600 h-full p-6">
             <div className="flex gap-6">
               <img src={data.image} className="w-[75px] h-[75px]" alt="" />
-              <p>{data.ticketCount}</p>
+              <p>{data.name}</p>
+              <div className="flex flex-row gap-1 items-end">
+                <p>available tickets:</p>
+                <p>{data.ticketCount}</p>
+              </div>
             </div>
             <div className="flex items-center w-[100%] border-b my-4 border-white "></div>
 
