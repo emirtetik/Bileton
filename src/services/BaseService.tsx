@@ -1,12 +1,16 @@
-const BASE_API_URL = "http://localhost:8080/api/event/";
-// const BASE_API_URL = "https://event-api-tqwv.onrender.com/api/event/";
+// const BASE_API_URL = "http://localhost:8080/api/event/";
+const BASE_API_URL = "https://event-api-tqwv.onrender.com/api/event/";
+import { event } from "../types";
+
 
 export const BaseService = {
   get: async (path: string) => {
     const response = await fetch(BASE_API_URL + path);
+
     return await response.json();
   },
-  put: async (path: string, data: unknown) => {
+
+  put: async (path: string, data: event) => {
     try {
       const response = await fetch(`${BASE_API_URL}${path}`, {
         method: "PUT",
@@ -22,7 +26,7 @@ export const BaseService = {
         throw new Error("Failed to update data");
       }
     } catch (error) {
-      console.error("Error updating data:", error);
+      console.error("Error updating data:", data, error);
       throw new Error("Failed to update data");
     }
   },

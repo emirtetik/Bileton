@@ -1,40 +1,36 @@
 import CustomSlider from "./../_coreComponent/customSlider";
-// import BigCarousel from "../_coreComponent/bigCarousel";
+import BigCarousel from "../_coreComponent/bigCarousel";
 import useSWR from "swr";
 import { EventService } from "../../services/EventService";
+import { event } from "../../types";
 
 const fetcher = () => EventService.getAll();
 
 const Carousel = () => {
-  const { data, isLoading, error } = useSWR("carousel", fetcher);
-
-  if (isLoading) {
+  const { data: events, isLoading: isEventsLoading, error: eventsError} = useSWR("carousel", fetcher);
+  console.log("data", events)
+  if (isEventsLoading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (eventsError) {
+    return <div>Error </div>;
   }
 
   return (
     <div className="w-screen ">
-      {/* <BigCarousel /> */}
-      <CustomSlider events={data} title="Tiyatro" />
-      <CustomSlider events={data} title="Bulusma" />
-      <CustomSlider events={data} title="Müzik" />
-
-      {/* <CustomSlider events={WeekCarousel} title="Bu Hafta" /> */}
-      {/*  <CustomSlider events={cardList} title="Sadece Bileton'da" />
-      <div className="w-full border-t-4 border-b-4 border-yellow-500">
-      <BigCarousel title="Müzik"/>
-      </div>
-     
-      <CustomSlider events={} title="Klasik" />
+      <BigCarousel />
+      <CustomSlider events={events.filter((event:event) => event.category === 'Tiyatro')} title="Tiyatro" />
+      <CustomSlider events={events.filter((event:event) => event.category === 'Stand-Up')} title="Stand-Up" />
       <div className="w-full border-t-4 border-b-4 border-yellow-500 ">
-        <BigCarousel  title="Sahne"/>
+      <BigCarousel title="Volkswagen Arena " filter={(event) => event.venue === 'Volkswagen Arena'} />
       </div>
-      <CustomSlider events={} title="Gösteri" />
-      <CustomSlider events={} title="Stand-Up" /> */}
+      <CustomSlider events={events.filter((event:event) => event.category === 'Müzik')} title="Müzik" />
+      <div className="w-full border-t-4 border-b-4 border-yellow-500 ">
+      <BigCarousel title="Dorock XL" filter={(event) => event.venue === 'Dorock XL'} />
+      </div>
+      <CustomSlider events={events.filter((event:event) => event.category === 'Festival')} title="Festival" />
+      
     </div>
   );
 };

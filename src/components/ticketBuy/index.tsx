@@ -39,8 +39,9 @@ const TicketBuy = () => {
       };
       alert(`successfull purchase of ${totalTickets} tickets`);
       EventService.sellTicket(data._id, newData);
-}
-};
+
+    }
+  };
 
   const handleQuantityof1stPhase = (what: string) => {
     if (what === "minus") {
@@ -154,7 +155,12 @@ const TicketBuy = () => {
           <div className="w-full h-full p-6 bg-slate-600">
             <div className="flex gap-6">
               <img src={data.image} className="w-[75px] h-[75px]" alt="" />
-              <p>Adet : ({data.ticketCount})</p>
+
+              <p>{data.name}</p>
+              <div className="flex flex-row items-end gap-1">
+                <p>available tickets:</p>
+                <p>{data.ticketCount}</p>
+              </div>
             </div>
             <div className="flex items-center w-[100%] border-b my-4 border-white "></div>
 

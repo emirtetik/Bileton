@@ -11,7 +11,7 @@ import "swiper/css/effect-coverflow";
 import Card from "../card";
 import AosDiv from "../aosEffect";
 const fetcher = () => EventService.getAll();
-const BigCarousel = (props: { events?: event[]; title?: string }) => {
+const BigCarousel = (props: { events?: event[]; title?: string, filter?: (event: event) => boolean }) => {
     const { data, error, isLoading } = useSWR("PopularEvent", fetcher);
 
     if (isLoading) {
@@ -20,7 +20,12 @@ const BigCarousel = (props: { events?: event[]; title?: string }) => {
     if (error) {
       return <div>...failed</div>;
     }
-    const cards = data.slice(-5);
+    let cards = data;
+    if (props.filter) {
+      cards = cards.filter(props.filter);
+    }
+    cards = cards.slice(-7);
+
 
   return (
     <div className="relative w-full px-4 my-6 text-gray-300 font-raleway">
