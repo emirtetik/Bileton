@@ -46,7 +46,7 @@ const BigCarousel = (props: { events?: event[]; title?: string }) => {
         <div className="w-full ">
           {cards.map((card:event, index: number) => (
             <SwiperSlide key={index}>
-              <AosDiv aosType="fade-up" aosDuration={800}>
+              <AosDiv aosType="fade-up" aosDuration={800} >
                 <Card image={card.image} alt={card.name} size="large" />
               </AosDiv>
             </SwiperSlide>

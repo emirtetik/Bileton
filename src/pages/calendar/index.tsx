@@ -81,7 +81,7 @@ const Calendar = () => {
           <div className="w-full p-4 md:w-2/3">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 gap-x-10">
             {data && data.filter((card:event) => isSameDate(new Date(card.eventDate), selectedDate)).map((card:event, index: number) => (
-                <AosDiv aosType="zoom-in" aosDuration={500} key={index} >
+                <AosDiv aosType="zoom-in" aosDuration={500}   key={index} >
                   <Card
                     image={card.image}
                     title={card.name}
@@ -91,7 +91,7 @@ const Calendar = () => {
                     size="medium"
                     route={`/event/:name-${card._id}`}
                   />
-                </AosDiv>
+              </AosDiv> 
               ))}
             </div>
           </div>

@@ -1,5 +1,4 @@
 import { NavLink,useMatch } from "react-router-dom";
-import AosDiv from "../../components/_coreComponent/aosEffect";
 import Categories from "../../components/category/categories";
 import { CiCircleList } from "react-icons/ci";
 import { BiCalendar, BiCategoryAlt } from "react-icons/bi";
@@ -45,9 +44,7 @@ const Category = () => {
           {/* kategori */}
 
           <div className="w-full">
-              <AosDiv aosType="zoom-in" aosDuration={500}>
                <Categories/>
-              </AosDiv>
           </div>
         </div>
       </div>

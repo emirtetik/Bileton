@@ -42,7 +42,6 @@ const EventsByLocation = () => {
           <Link to={`/event/${card.name}-${card._id}`} key={card._id}>
             <div className="text-black w-full sm:w-[250px] h-[250px] rounded-md shadow-lg hover:shadow-2xl bg-white">
             <Card
-             image={card.image}
              title={card.name}
              description={card.description}
              date={card.eventDate}

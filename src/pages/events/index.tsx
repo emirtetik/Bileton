@@ -36,7 +36,7 @@ const Events = () => {
         url="http://localhost:5173/events"
       />
       <div className="px-0 sm:px-20 pt-28">
-        <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway items-center">
+        <h1 className="items-center mb-4 text-2xl font-extrabold text-white font-raleway">
           Etkinlikler ({data.length})
         </h1>
         <div className="flex items-center justify-end gap-4 px-10 mb-6 border-b border-white sm:py-2">
@@ -65,10 +65,11 @@ const Events = () => {
         {/* LİSTE */}
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10">
-          {data?.map((card: event, index: number) => (
-            <AosDiv aosType="zoom-in" aosDuration={500}>
+          {data?.map((card:event, index: number) => (
+            <AosDiv aosType="zoom-in" aosDuration={500}    key={index}>
+
               <Card
-                key={index}
+            
                 title={card.name}
                 image={card.image}
                 date={card.eventDate}

@@ -49,9 +49,10 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         }}
         className="relative"
       >
-        {props.events.map((card: event, index: number) => (
-          <SwiperSlide key={index}>
-            <AosDiv aosType="fade-left" aosDuration={900}>
+
+        {props.events.map((card:event, index: number) => (
+          <SwiperSlide key={index} >
+            <AosDiv aosType="fade-left" aosDuration={900}  >
               <Card
                 title={card.name}
                 size="medium"

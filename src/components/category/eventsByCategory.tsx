@@ -9,12 +9,13 @@ const fetcher = () => EventService.getAll();
 const EventsBycategory = () => {
   const { data, isLoading, error } = useSWR("categories2", fetcher);
   const { name = "" } = useParams();
-
+  const lowerCaseName = name.toLowerCase();
+  
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
   const cards = data.filter((event: event) =>
-    (event.category).includes((name) || "")
-  );
+  event.category.toLowerCase() === lowerCaseName
+);
   
   return (
     <div className="max-w-6xl px-0 mx-auto sm:px-20 pt-28">

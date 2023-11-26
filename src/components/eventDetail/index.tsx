@@ -18,9 +18,10 @@ const EventDetail = () => {
   console.log("id", id);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
-  data.photos = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  // data.photos = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   return (
     <Suspense fallback={<div>Loading...</div>}>
+
       <SEO
         title={data.name}
         description={data.description}
@@ -28,6 +29,7 @@ const EventDetail = () => {
           data._id
         }`}
       />
+
 
       <div className="h-screen  mt-28">
         <SummaryCard event={data} name={name} />
