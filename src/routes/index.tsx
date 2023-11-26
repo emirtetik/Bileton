@@ -34,7 +34,7 @@ const routes = createBrowserRouter([
         element: <Artist />,
       },
       {
-        path: "/ticket",
+        path: "/ticket/:name",
         element: <TicketBuy />,
       },
       {

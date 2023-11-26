@@ -4,17 +4,15 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useState } from "react";
 import { EventService } from "../../services/EventService";
 import useSWR from "swr";
+import { useParams } from "react-router-dom";
 
-const fetcher = () => EventService.getAll()
 const TicketBuy = () => {
- const {data,isLoading,error} = useSWR("ticket",fetcher)
-   
- if(isLoading){
-  <div>loading</div>
- }
- if(error){
-  <div>errorrr</div>
- }
+  const { name = "" } = useParams();
+  const id = name.split("-")[name.split("-").length - 1];
+  const fetcher = () => EventService.getById(id);
+
+  const { data, isLoading, error } = useSWR("ticketFetch", fetcher);
+
   const [quantitiyof1stPhase, setQuantityof1stPhase] = useState(0);
   const [quantityofEarlyBird, setQuantityofEarlyBird] = useState(0);
   const [quantityofEarlyBackstage, setQuantityofEarlyBackstage] = useState(0);
@@ -33,40 +31,53 @@ const TicketBuy = () => {
   const list = ["1st Phase", "Early Bird", "Early Bacstage", "Early VIP"];
 
   const handleQuantityof1stPhase = (what: string) => {
-    if (what === "plus") {
+    if (what === "minus") {
       setQuantityof1stPhase((prev) => prev + 1);
     } else {
-      setQuantityof1stPhase((prev) => prev - 1);
+      if (quantitiyof1stPhase > 0) {
+        setQuantityof1stPhase((prev) => prev - 1);
+      }
     }
   };
   const handleQuantityofEarlyBird = (what: string) => {
-    if (what === "plus") {
+    if (what === "minus") {
       setQuantityofEarlyBird((prev) => prev + 1);
     } else {
-      setQuantityofEarlyBird((prev) => prev - 1);
+      if (quantityofEarlyBird > 0) {
+        setQuantityofEarlyBird((prev) => prev - 1);
+      }
     }
   };
 
   const handleQuantityofEarlyBackstage = (what: string) => {
-    if (what === "plus") {
+    if (what === "minus") {
       setQuantityofEarlyBackstage((prev) => prev + 1);
     } else {
-      setQuantityofEarlyBackstage((prev) => prev - 1);
+      if (quantityofEarlyBackstage > 0) {
+        setQuantityofEarlyBackstage((prev) => prev - 1);
+      }
     }
   };
 
   const handleQuantityofEarlyVIP = (what: string) => {
-    if (what === "plus") {
+    if (what === "minus") {
       setQuantityofEarlyVIP((prev) => prev + 1);
     } else {
-      setQuantityofEarlyVIP((prev) => prev - 1);
+      if (quantityofEarlyVIP > 0) {
+        setQuantityofEarlyVIP((prev) => prev - 1);
+      }
     }
   };
-
+  if (isLoading) {
+    return <div>loading</div>;
+  }
+  if (error) {
+    return <div>errorrr</div>;
+  }
   return (
     <div className="px-0 sm:px-20 pt-28">
       <h1 className="mb-4 text-2xl font-extrabold text-white font-raleway">
-        {data[0].title}
+        {data.title}
       </h1>
       <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2"></div>
       <div className="flex flex-row gap-4">
@@ -130,19 +141,19 @@ const TicketBuy = () => {
         <div className="w-1/4 flex flex-col  items-start ">
           <div className="w-full bg-slate-600 h-full p-6">
             <div className="flex gap-6">
-              <img src={data[0].image} className="w-[75px] h-[75px]" alt="" />
-              <p>Selamlar</p>
+              <img src={data.image} className="w-[75px] h-[75px]" alt="" />
+              <p>{data.name}</p>
             </div>
             <div className="flex items-center w-[100%] border-b my-4 border-white "></div>
 
             <div className="flex flex-col">
               <div className="flex flex-row gap-4 justify-start items-start ">
                 <FaRegCalendarAlt />
-                {data[0].eventDate}
+                {data.eventDate}
               </div>
               <div className="flex flex-row gap-4 justify-start items-start ">
                 <MdOutlinePlace />
-                {data[0].venue}
+                {data.venue}
               </div>
             </div>
           </div>
