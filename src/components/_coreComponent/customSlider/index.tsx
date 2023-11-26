@@ -9,6 +9,17 @@ import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
 import { Link } from "react-router-dom";
 
+function slugify(str: string) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
+
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
     <div className="font-raleway relative  w-[100%] my-6 text-gray-300">
@@ -49,17 +60,16 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         }}
         className="relative"
       >
-
-        {props.events.map((card:event, index: number) => (
-          <SwiperSlide key={index} >
-            <AosDiv aosType="fade-left" aosDuration={900}  >
+        {props.events.map((card: event, index: number) => (
+          <SwiperSlide key={index}>
+            <AosDiv aosType="fade-left" aosDuration={900}>
               <Card
                 title={card.name}
                 size="medium"
                 image={card.image}
                 time={`${card.startTime}-${card.endTime}`}
                 venue={card.venue}
-                route={`${card.name}-${card._id}`}
+                route={`event/${slugify(`${card.name} ${card._id}`)}`}
               />
             </AosDiv>
           </SwiperSlide>

@@ -9,6 +9,17 @@ import useSWR from "swr";
 import { event } from "../../types";
 import SEO from "../../components/_coreComponent/seo";
 
+function slugify(str: string) {
+  return String(str)
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
+}
+
 const fetcher = () => EventService.getAll();
 
 const Events = () => {
@@ -65,11 +76,9 @@ const Events = () => {
         {/* LİSTE */}
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10">
-          {data?.map((card:event, index: number) => (
-            <AosDiv aosType="zoom-in" aosDuration={500}    key={index}>
-
+          {data?.map((card: event, index: number) => (
+            <AosDiv aosType="zoom-in" aosDuration={500} key={index}>
               <Card
-            
                 title={card.name}
                 image={card.image}
                 date={card.eventDate}
@@ -77,7 +86,7 @@ const Events = () => {
                 venue={card.venue}
                 size="medium"
                 className="text-left"
-                route={`${card.name}-${card._id}`}
+                route={`../event/${slugify(`${card.name} ${card._id}`)}`}
               />
             </AosDiv>
           ))}

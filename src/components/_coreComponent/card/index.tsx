@@ -10,7 +10,7 @@ interface CardProps {
   image?: string;
   alt?: string;
   className?: string | undefined;
-  route?: string;
+  route?: string | undefined;
   size?: "small" | "medium" | "circle" | "large";
   time?: string;
   venue?: string;
@@ -19,24 +19,13 @@ interface CardProps {
   onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
 }
 
-function slugify(str: string) {
-  return String(str)
-    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
-    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
-    .trim() // trim leading or trailing whitespace
-    .toLowerCase() // convert to lowercase
-    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
-    .replace(/\s+/g, "-") // replace spaces with hyphens
-    .replace(/-+/g, "-"); // remove consecutive hyphens
-}
-
 const Card: React.FC<CardProps> = ({
   title,
   city,
   image,
   alt,
   className,
-  route = "",
+  route,
   size,
   venue,
   time,
@@ -52,10 +41,8 @@ const Card: React.FC<CardProps> = ({
     "h-[11rem] w-[11rem] rounded-full": size === "circle",
   });
 
-  const routeLink = slugify(route || "");
-
   return (
-    <Link to={`../event/${routeLink}`}>
+    <Link to={route || ``}>
       <div className={`${className}`} onClick={onClick}>
         {image && <img className={imgClass} src={image} alt={alt} />}
         <div className={`mt-1 flex flex-col   font-raleway`}>
