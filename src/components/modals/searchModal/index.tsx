@@ -6,7 +6,6 @@ import { useState } from "react";
 import { event } from "../../../types";
 import Card from "../../_coreComponent/card";
 
-
 function slugify(str: string) {
   return String(str)
     .normalize("NFKD") // split accented characters into their base characters and diacritical marks
@@ -52,7 +51,7 @@ const SearchModal = (props: SearchProps) => {
       onClose={props.onClose}
       className="bg-white "
     >
-      <div className="flex flex-col justify-center max-w-3xl mx-auto mt-20 ">
+      <div className="flex flex-col justify-center max-w-3xl mx-auto mt-20 z-40 ">
         <h1 className="font-extrabold text-left text-black font-raleway text-title">
           Arama
         </h1>
@@ -82,8 +81,8 @@ const SearchModal = (props: SearchProps) => {
                     className="flex gap-6 duration-300 cursor-pointer hover:bg-gray-200 transition-color"
                     route={`../event/${slugify(`${item.name} ${item._id}`)}`}
                     onClick={() => {
-                      setListOpen(false);
-                      setInputValue("");
+                      props.onClose();
+                      window.location.reload();
                     }}
                   />
                 ))}
@@ -97,4 +96,3 @@ const SearchModal = (props: SearchProps) => {
 };
 
 export default SearchModal;
- 
