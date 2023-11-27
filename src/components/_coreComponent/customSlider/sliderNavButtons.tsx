@@ -8,13 +8,13 @@ const SliderButtons = () => {
     <div className=" absolute allAbove w-full top-[40%] z-20 flex flex-row justify-around items-center text-white ">
       <div
         onClick={() => swiper.slidePrev()}
-        className="left-[3%] cursor-pointer allAbove absolute text-7xl "
+        className="left-[0%] cursor-pointer allAbove absolute text-7xl "
       >
         <BsChevronLeft />
       </div>
       <div
         onClick={() => swiper.slideNext()}
-        className="allAbove cursor-pointer absolute right-[3%] text-7xl"
+        className="allAbove cursor-pointer absolute right-[0%] text-7xl"
       >
         <BsChevronRight />
       </div>

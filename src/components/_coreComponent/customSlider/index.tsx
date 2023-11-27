@@ -10,11 +10,9 @@ import SliderButtons from "./sliderNavButtons";
 import { Link } from "react-router-dom";
 import { slugify } from "../slug";
 
-
-
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
-    <div className="font-raleway relative  w-[100%] my-6 text-gray-300">
+    <div className="font-raleway relative  w-[100%] my-6 px-12  text-gray-300">
       <div className="absolute text-6xl z1 grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10"></div>
       <div className="absolute text-6xl z1 grad bg-gradient-to-l pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10 right-[0]"></div>
 
@@ -47,7 +45,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
           },
           1024: {
             slidesPerView: 5,
-            spaceBetween: 10,
+            spaceBetween: 5,
           },
         }}
         className="relative"
