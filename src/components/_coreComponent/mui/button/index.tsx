@@ -28,6 +28,7 @@ const variants = {
     backgroundColor: "#C4CCCC",
     color: "black",
     border: "1px solid #454545",
+    
   },
 };
 

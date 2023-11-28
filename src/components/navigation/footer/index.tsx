@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AosDiv from "../../_coreComponent/aosEffect";
 const Footer = () => {
   return (
-    <div className="mt-10 font-raleway">
+    <div className=" font-raleway">
       <div className="w-full ">
         <div className="grid grid-cols-1 border-t sm:grid-cols-2 md:grid-cols-4 modeBorder">
           <div className="overflow-hidden h-80">
@@ -18,8 +18,21 @@ const Footer = () => {
               <div className="flex items-center p-8 justify-left">
                 <h1 className="text-3xl font-light">Şikayet</h1>
               </div>
-              <div className="flex flex-col mb-4 ml-5">
-           {/* FORM */}
+              <div className="flex flex-col mb-4 mx-5">
+              <input
+    type="email"
+    placeholder="E-posta adresiniz"
+    className=" border-b-2  py-2 px-3 mb-2 outline-none bg-black focus:border-yellow-500"
+    // value={email}
+    // onChange={(e) => setEmail(e.target.value)}
+  />
+  <textarea
+    placeholder="Şikayetiniz"
+    rows={4}
+    className=" border-b-2  py-2 px-3 mb-2 outline-none bg-black focus:border-yellow-500"
+    // value={complaint}
+    // onChange={(e) => setComplaint(e.target.value)}
+  ></textarea>
               </div>
             </AosDiv>
           </div>
