@@ -12,7 +12,7 @@ const OtherEvents = () => {
   const cards = data.slice(0, 12);
 
   return (
-    <div className="flex bg-black flex-col gap-6 lg:p-24 px-24 font-raleway">
+    <div className="flex bg-gray-800 flex-col gap-6 lg:p-24 px-24 font-raleway">
       <h1 className="mt-10 font-bold text-yellow-500 text-title">
         Diğer Etkinlikler
       </h1>

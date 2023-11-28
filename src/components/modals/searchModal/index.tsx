@@ -5,17 +5,8 @@ import useSWR from "swr";
 import { useState } from "react";
 import { event } from "../../../types";
 import Card from "../../_coreComponent/card";
+import { slugify } from "../../_coreComponent/slug";
 
-function slugify(str: string) {
-  return String(str)
-    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
-    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
-    .trim() // trim leading or trailing whitespace
-    .toLowerCase() // convert to lowercase
-    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
-    .replace(/\s+/g, "-") // replace spaces with hyphens
-    .replace(/-+/g, "-"); // remove consecutive hyphens
-}
 
 type SearchProps = {
   isModalOpen: boolean;
@@ -51,7 +42,7 @@ const SearchModal = (props: SearchProps) => {
       onClose={props.onClose}
       className="bg-white "
     >
-      <div className="flex flex-col justify-center max-w-3xl mx-auto mt-20 z-40 ">
+      <div className="z-40 flex flex-col justify-center max-w-3xl mx-auto mt-20 ">
         <h1 className="font-extrabold text-left text-black font-raleway text-title">
           Arama
         </h1>
