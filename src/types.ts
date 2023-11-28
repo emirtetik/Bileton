@@ -41,3 +41,14 @@ export interface searchModalProps{
     id: string;
     description: string;
   }
+
+  export interface venue {
+    name: string;
+    _id: string;
+    city: string;
+  }
+
+  export interface artist {
+    name: string;
+    _id: string;
+  }
