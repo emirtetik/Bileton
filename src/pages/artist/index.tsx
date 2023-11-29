@@ -41,6 +41,7 @@ const Artist = () => {
           {data?.map((card: event, index: number) => (
             <AosDiv aosType="zoom-in" aosDuration={500} key={index}>
               <Card
+                route={`../artist/${card.name}`}
                 title={card.name}
                 size="circle"
                 className="flex flex-col  items-center justify-center text-center"

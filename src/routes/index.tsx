@@ -11,6 +11,8 @@ import Venue from "../pages/venue";
 import Artist from "../pages/artist";
 import EventsBycategory from "../components/category/eventsByCategory";
 import TicketBuy from "../components/ticketBuy";
+import EventsByArtist from "../components/artist/eventsByArtist";
+import EventsByVenue from "../components/venue";
 
 const routes = createBrowserRouter([
   {
@@ -52,6 +54,14 @@ const routes = createBrowserRouter([
       {
         path: "category/:name",
         element: <EventsBycategory />,
+      },
+      {
+        path: "artist/:name",
+        element: <EventsByArtist />,
+      },
+      {
+        path: "venue/:name",
+        element: <EventsByVenue />,
       },
       {
         path: "event/:name",

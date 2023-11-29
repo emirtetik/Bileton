@@ -9,7 +9,7 @@ import SEO from "../../components/_coreComponent/seo";
 const fetcher = () => VenueService.getAll();
 const Venue = () => {
   const [sortType, setSortType] = useState("a-z");
-  const { data, isLoading, error } = useSWR("events", fetcher);
+  const { data, isLoading, error } = useSWR("venues1", fetcher);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -42,11 +42,11 @@ const Venue = () => {
           {data.map((card: event, index: number) => (
             <AosDiv aosType="zoom-in" aosDuration={500} key={index}>
               <Card
-                title={card.venue}
+                route={`../venue/${card.name}`}
+                title={card.name}
                 city={card.city}
-                image={card.image}
                 size="small"
-                className="flex flex-col justify-center text-left"
+                className="flex flex-col justify-center text-left cursor-pointer"
               />
             </AosDiv>
           ))}

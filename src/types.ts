@@ -26,6 +26,7 @@ export interface searchModalProps{
     name: string;
     description: string;
     eventDate: string;
+    artist: string;
     startTime: string;
     endTime: string;
     venue: string;
