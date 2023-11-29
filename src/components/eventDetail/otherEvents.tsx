@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { EventService } from "../../services/EventService";
 import { event } from "../../types";
 import Card from "../_coreComponent/card";
+import { slugify } from "../_coreComponent/slug";
 
 const fetcher = () => EventService.getAll();
 
@@ -12,7 +13,7 @@ const OtherEvents = () => {
   const cards = data.slice(0, 12);
 
   return (
-    <div className="flex bg-gray-800 flex-col gap-6 lg:p-24 px-24 font-raleway">
+    <div className="flex flex-col gap-6 px-24 bg-gray-800 lg:p-24 font-raleway">
       <h1 className="mt-10 font-bold text-yellow-500 text-title">
         Diğer Etkinlikler
       </h1>
@@ -23,7 +24,7 @@ const OtherEvents = () => {
             title={card.name}
             image={card.image}
             date={card.eventDate}
-            route={`/event/${card.name}-${card._id}`}
+            route={`../event/${slugify(`${card.name} ${card._id}`)}`}
             size="small"
           />
         ))}

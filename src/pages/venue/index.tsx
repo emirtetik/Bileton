@@ -19,7 +19,7 @@ const Venue = () => {
   }
 
   return (
-    <div className="bg-no-repeat bg-contain bg-background-image-4">
+    <div className="mb-12 bg-no-repeat bg-contain bg-background-image-4">
       <SEO
         title="Mekanlar"
         description="En son mekanlarımızı keşfedin."
@@ -45,6 +45,7 @@ const Venue = () => {
                 route={`../venue/${card.name}`}
                 title={card.name}
                 city={card.city}
+                image="https://1.bp.blogspot.com/-7eKF5gdF-z8/VeL9dvwqeuI/AAAAAAAAHeU/fbxFHjwTyiM/s1600/ziggodome_header.jpg"
                 size="small"
                 className="flex flex-col justify-center text-left cursor-pointer"
               />

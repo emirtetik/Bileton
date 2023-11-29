@@ -31,7 +31,7 @@ const Events = () => {
   }
 
   return (
-    <div className="bg-no-repeat bg-contain bg-background-image-4">
+    <div className="mb-10 bg-no-repeat bg-contain bg-background-image-4">
       <SEO
         title="Etkinlikler"
         description="En son etkinliklerimizi keşfedin."

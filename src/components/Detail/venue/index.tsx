@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
-import { event } from "../../types";
-import Card from "../_coreComponent/card";
-import { slugify } from "../_coreComponent/slug";
-import { EventService } from "../../services/EventService";
-
+import { event } from "../../../types";
+import { EventService } from "../../../services/EventService";
+import Card from "../../_coreComponent/card";
+import { slugify } from "../../_coreComponent/slug";
 const fetcher = () => EventService.getAll();
 
 const EventsByVenue = () => {

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { CSSProperties } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { LiaCitySolid } from "react-icons/lia";
@@ -18,6 +18,7 @@ interface CardProps {
   date?: string;
   description?: string;
   onClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
+  style?: CSSProperties | undefined;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -33,6 +34,7 @@ const Card: React.FC<CardProps> = ({
   date,
   description,
   onClick,
+  style,
 }) => {
   const imgClass = classNames({
     "h-[12rem] w-[12rem] rounded-lg": size === "small",
@@ -48,8 +50,8 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <Link to={route || ``}>
-      <div className={`${className}`} onClick={onClick}>
-        {image && <img className={imgClass} src={image} alt={alt} />}
+      <div className={`${className}`} onClick={onClick}  >
+        {image && <img className={imgClass} src={image} alt={alt} style={style}/>}
         <div className={`mt-1 flex flex-col   font-raleway`}>
           <h1 className="font-bold text-md">{title}</h1>
           <p className="text-sm text-gray-500">{description}</p>

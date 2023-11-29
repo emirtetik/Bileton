@@ -2,9 +2,9 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlinePlace } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { useState } from "react";
-import { EventService } from "../../services/EventService";
 import useSWR from "swr";
 import { useParams } from "react-router-dom";
+import { EventService } from "../../../services/EventService";
 
 const TicketBuy = () => {
   const { name = "" } = useParams();

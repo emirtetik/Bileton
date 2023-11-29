@@ -13,8 +13,8 @@ import { slugify } from "../slug";
 const CustomSlider = (props: { events: event[]; title: string }) => {
   return (
     <div className="font-raleway relative  w-[100%] my-6 px-4  text-gray-300">
-      <div className="absolute text-6xl z1 grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10"></div>
-      <div className="absolute text-6xl z1 grad bg-gradient-to-l pointer-events-none from-black to-transparent w-[40%] h-[90%] top-10 right-[0]"></div>
+      <div className="absolute text-6xl z1 grad bg-gradient-to-r pointer-events-none from-black to-transparent w-[20%] h-[90%] top-10"></div>
+      <div className="absolute text-6xl z1 grad bg-gradient-to-l pointer-events-none from-black to-transparent w-[50%] h-[90%] top-10 right-[0]"></div>
 
       <div className="flex items-center justify-between w-full px-8 py-4 ">
         <h1 className="font-medium text-subtitle ">{props.title}</h1>
@@ -28,6 +28,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
           </div>
         </div>
       </div>
+      <div className="pl-16">
       <CustomCarousel
         spaceBetween={20}
         breakpoints={{
@@ -66,6 +67,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         ))}
         <SliderButtons />
       </CustomCarousel>
+      </div>
     </div>
   );
 };
