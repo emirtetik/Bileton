@@ -8,8 +8,6 @@ const fetcher = () => EventService.getAll();
 
 const Carousel = () => {
   const { data: events, error, isLoading } = useSWR("carousel", fetcher);
-  console.log("data", events);
-
   if (isLoading) {
     return <div>Loading</div>;
   }
@@ -19,7 +17,7 @@ const Carousel = () => {
 
   return (
     <div className="w-screen ">
-      <BigCarousel events={events.slice(7)} title="naber" />
+      <BigCarousel events={events.slice(12, 20)} title="Populer Etkinlikler" />
       <CustomSlider
         events={events.filter((event: event) => event.category === "Tiyatro")}
         title="Tiyatro"
@@ -29,18 +27,30 @@ const Carousel = () => {
         title="Stand-Up"
       />
       <div className="w-full border-t-4 border-b-4 border-yellow-500 ">
-        <BigCarousel events={events.slice(7)} title="naber" />
+        <BigCarousel
+          events={events.filter((event: event) => event.venue === "Dorock XL")}
+          title="Dorock XL"
+        />
       </div>
       <CustomSlider
         events={events.filter((event: event) => event.category === "Müzik")}
         title="Müzik"
       />
       <div className="w-full border-t-4 border-b-4 border-yellow-500 ">
-        <BigCarousel events={events.slice(7)} title="naber" />
+        <CustomSlider
+          events={events.filter((event: event) => event.category === "Festival")}
+          title="Festival"
+        />
+        <BigCarousel
+          events={events.filter(
+            (event: event) => event.venue === "Volkswagen Arena"
+          )}
+          title="Volkswagen Arena"
+        />
       </div>
       <CustomSlider
-        events={events.filter((event: event) => event.category === "Festival")}
-        title="Festival"
+        events={events.filter((event: event) => event.category === "Sinema")}
+        title="Sinema"
       />
     </div>
   );

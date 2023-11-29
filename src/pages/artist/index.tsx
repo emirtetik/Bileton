@@ -18,7 +18,7 @@ const Artist = () => {
   }
 
   return (
-    <div className="bg-no-repeat bg-contain bg-background-image-4">
+    <div className="mb-12 bg-no-repeat bg-contain bg-background-image-4">
       <SEO
         title="Sanatçılar"
         description="En son etkinliklerimizi keşfedin."
@@ -43,8 +43,10 @@ const Artist = () => {
               <Card
                 route={`../artist/${card.name}`}
                 title={card.name}
+                image="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/The-Artist-Logo.svg/1200px-The-Artist-Logo.svg.png"
                 size="circle"
-                className="flex flex-col  items-center justify-center text-center"
+                className="flex flex-col items-center justify-center text-center"
+                style={{ filter: "invert(0.2) hue-rotate(50deg)" }}
               />
             </AosDiv>
           ))}

@@ -4,15 +4,15 @@ import MainLayout from "../layouts/main";
 import Home from "../pages/home";
 import Category from "../pages/category";
 import EventDetail from "../components/eventDetail";
-import EventsByLocation from "../components/location/index";
+import EventsByLocation from "../components/Detail/location/index";
 import Calendar from "../pages/calendar";
 import Events from "../pages/events";
 import Venue from "../pages/venue";
 import Artist from "../pages/artist";
 import EventsBycategory from "../components/category/eventsByCategory";
-import TicketBuy from "../components/ticketBuy";
-import EventsByArtist from "../components/artist/eventsByArtist";
-import EventsByVenue from "../components/venue";
+import TicketBuy from "../components/Detail/ticketBuy";
+import EventsByArtist from "../components/Detail/artist/eventsByArtist";
+import EventsByVenue from "../components/Detail/venue";
 
 const routes = createBrowserRouter([
   {
@@ -36,16 +36,20 @@ const routes = createBrowserRouter([
         element: <Artist />,
       },
       {
-        path: "/ticket/:name",
-        element: <TicketBuy />,
-      },
-      {
         path: "/category",
         element: <Category />,
       },
       {
         path: "/calendar",
         element: <Calendar />,
+      },
+      {
+        path: "event/:name",
+        element: <EventDetail />,
+      },
+      {
+        path: "/ticket/:name",
+        element: <TicketBuy />,
       },
       {
         path: "location/:name",
@@ -62,10 +66,6 @@ const routes = createBrowserRouter([
       {
         path: "venue/:name",
         element: <EventsByVenue />,
-      },
-      {
-        path: "event/:name",
-        element: <EventDetail />,
       },
       {
         path: "*",

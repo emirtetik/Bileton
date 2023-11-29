@@ -34,7 +34,6 @@ export interface searchModalProps{
     location: string | [number,number];
     status: string;
     category: string;
-    artist:string
      
   }
 
