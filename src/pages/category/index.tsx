@@ -1,5 +1,5 @@
 import { NavLink,useMatch } from "react-router-dom";
-import Categories from "../../components/category/categories";
+import Categories from "../../components/category";
 import { CiCircleList } from "react-icons/ci";
 import { BiCalendar, BiCategoryAlt } from "react-icons/bi";
 import SEO from "../../components/_coreComponent/seo";
