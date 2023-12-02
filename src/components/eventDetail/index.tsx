@@ -6,7 +6,13 @@ import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import { EventService } from "../../services/EventService";
 import SEO from "../_coreComponent/seo";
-import { cities } from "../../location";
+
+const cities = [
+  {
+    "name": "Istanbul",
+    "location": [41.0082, 28.9784] as [number,number]
+  },
+]
 const EventDetail = () => {
   const { name = "" } = useParams();
   const id = name.split("-")[name.split("-").length - 1];

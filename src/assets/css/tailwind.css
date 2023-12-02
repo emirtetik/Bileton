@@ -7,7 +7,7 @@ body {
 }
 
 .populer-carousel .swiper-pagination-bullet {
-  @apply w-6 h-2 bg-yellow-500 rounded-none ;
+  @apply w-5 h-1 bg-yellow-500 rounded-none ;
 }
 .populer-carousel .swiper-button-next,
 .populer-carousel .swiper-button-prev {

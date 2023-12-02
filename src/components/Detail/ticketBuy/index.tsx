@@ -37,11 +37,10 @@ const TicketBuy = () => {
         ...data,
         ticketCount: data.ticketCount - totalTickets,
       };
+      console.log("newdata", newData)
       alert(`successfull purchase of ${totalTickets} tickets`);
       EventService.sellTicket(data._id, newData);
-
-    }
-  };
+    }};
 
   const handleQuantityof1stPhase = (what: string) => {
     if (what === "minus") {

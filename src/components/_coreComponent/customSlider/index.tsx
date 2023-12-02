@@ -28,7 +28,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
           </div>
         </div>
       </div>
-      <div className="pl-16">
+      <div className="sm:pl-16 pl-8">
       <CustomCarousel
         spaceBetween={20}
         breakpoints={{
