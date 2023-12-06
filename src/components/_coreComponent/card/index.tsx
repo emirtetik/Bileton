@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { LiaCitySolid } from "react-icons/lia";
 import { format } from "date-fns";
 import { tr } from "date-fns/locale";
+
 interface CardProps {
   title?: string;
   city?: string;
@@ -75,4 +76,6 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export const MemoizedCard = React.memo(Card);
+
+

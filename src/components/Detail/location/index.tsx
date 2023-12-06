@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import { EventService } from "../../../services/EventService";
-import Card from "../../_coreComponent/card";
+import {MemoizedCard} from "../../_coreComponent/card";
 import { slugify } from "../../_coreComponent/slug";
 import { event } from "../../../types";
 
@@ -22,7 +22,7 @@ const EventsByLocation = () => {
       <div className="flex items-center justify-end px-10 mb-6 border-b border-white sm:py-2"></div>
       <div className="flex flex-col justify-center w-full gap-4 md:gap-8 ">
         {cards.map((card: event) => (
-          <Card
+          <MemoizedCard
             key={card._id}
             title={card.name}
             image={card.image}
