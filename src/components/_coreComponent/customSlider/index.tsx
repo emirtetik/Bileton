@@ -4,7 +4,7 @@ import { BsChevronRight } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import { event } from "../../../types";
-import Card from "../card";
+import {MemoizedCard} from "../card";
 import AosDiv from "../aosEffect";
 import SliderButtons from "./sliderNavButtons";
 import { Link } from "react-router-dom";
@@ -28,7 +28,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
           </div>
         </div>
       </div>
-      <div className="sm:pl-16 pl-8">
+      <div className="pl-8 sm:pl-16">
       <CustomCarousel
         spaceBetween={20}
         breakpoints={{
@@ -54,7 +54,7 @@ const CustomSlider = (props: { events: event[]; title: string }) => {
         {props.events.map((card: event, index: number) => (
           <SwiperSlide key={index}>
             <AosDiv aosType="fade-left" aosDuration={900}>
-              <Card
+              <MemoizedCard
                 title={card.name}
                 size="medium"
                 image={card.image}

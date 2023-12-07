@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-import Card from "../card";
+import {MemoizedCard} from "../card";
 import AosDiv from "../aosEffect";
 import { slugify } from "../slug";
 const BigCarousel = (props: { events: event[]; title: string }) => {
@@ -36,7 +36,7 @@ const BigCarousel = (props: { events: event[]; title: string }) => {
           {props.events.map((card: event, index: number) => (
             <SwiperSlide key={index}>
               <AosDiv aosType="fade-up" aosDuration={800}>
-                <Card image={card.image} alt={card.name} size="large" route={`event/${slugify(`${card.name} ${card._id}`)}`} />
+                <MemoizedCard image={card.image} alt={card.name} size="large" route={`event/${slugify(`${card.name} ${card._id}`)}`} />
               </AosDiv>
             </SwiperSlide>
           ))}

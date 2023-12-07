@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { EventService } from "../../services/EventService";
 import { event } from "../../types";
-import Card from "../_coreComponent/card";
+import {MemoizedCard} from "../_coreComponent/card";
 import { slugify } from "../_coreComponent/slug";
 
 const fetcher = () => EventService.getAll();
@@ -19,7 +19,7 @@ const OtherEvents = () => {
       </h1>
       <div className="grid grid-cols-1 gap-4 text-black sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
         {cards.map((card: event, i: number) => (
-          <Card
+          <MemoizedCard
             key={i}
             title={card.name}
             image={card.image}

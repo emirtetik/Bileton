@@ -1,75 +1,132 @@
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import NotFound from "../pages/notFound";
-import MainLayout from "../layouts/main";
-import Home from "../pages/home";
-import Category from "../pages/category";
-import EventDetail from "../components/eventDetail";
-import EventsByLocation from "../components/Detail/location/index";
-import Calendar from "../pages/calendar";
-import Events from "../pages/events";
-import Venue from "../pages/venue";
-import Artist from "../pages/artist";
-import EventsBycategory from "../components/category/eventsByCategory";
-import TicketBuy from "../components/Detail/ticketBuy";
-import EventsByArtist from "../components/Detail/artist/eventsByArtist";
-import EventsByVenue from "../components/Detail/venue";
+const NotFound = React.lazy(()=> import("../pages/notFound")) ;
+const MainLayout = React.lazy(()=> import("../layouts/main")) ;
+const Home = React.lazy(()=> import("../pages/home")) ;
+const Category = React.lazy(()=> import("../pages/category")) ;
+const EventDetail = React.lazy(() => import('../components/eventDetail'));
+const TicketBuy = React.lazy(() => import('../components/Detail/ticketBuy'));
+const EventsByLocation = React.lazy(() => import("../components/Detail/location"))
+const Calendar = React.lazy(() =>import("../pages/calendar"));
+const Events = React.lazy(() => import("../pages/events"));
+const Venue = React.lazy(() => import("../pages/venue"));
+const Artist = React.lazy(()=> import("../pages/artist")) ;
+const EventsBycategory = React.lazy(()=> import("../components/category/eventsByCategory")) ;
+const EventsByArtist = React.lazy(()=> import("../components/Detail/artist/eventsByArtist")) ;
+const EventsByVenue = React.lazy(()=> import("../components/Detail/venue")) ;
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <MainLayout />
+      </React.Suspense>
+    ),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </React.Suspense>
+        ),
       },
       {
         path: "/events",
-        element: <Events />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} > 
+            <Events />
+          </React.Suspense>
+        ),
       },
       {
         path: "/venue",
-        element: <Venue />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <Venue />
+          </React.Suspense>
+        ),
       },
       {
         path: "/artist",
-        element: <Artist />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Artist />
+          </React.Suspense>
+        ),
       },
       {
         path: "/category",
-        element: <Category />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <Category />
+          </React.Suspense>
+        ),
       },
       {
         path: "/calendar",
-        element: <Calendar />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <Calendar />
+          </React.Suspense>
+        ),
       },
       {
         path: "event/:name",
-        element: <EventDetail />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <EventDetail />
+          </React.Suspense>
+        ),
       },
       {
         path: "/ticket/:name",
-        element: <TicketBuy />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <TicketBuy />
+          </React.Suspense>
+        ),
       },
       {
         path: "location/:name",
-        element: <EventsByLocation />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <EventsByLocation/>
+          </React.Suspense>
+        ),
       },
       {
         path: "category/:name",
-        element: <EventsBycategory />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <EventsBycategory />
+          </React.Suspense>
+        ),
       },
       {
         path: "artist/:name",
-        element: <EventsByArtist />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <EventsByArtist />
+          </React.Suspense>
+        ),
       },
       {
         path: "venue/:name",
-        element: <EventsByVenue />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <EventsByVenue />
+          </React.Suspense>
+        ),
       },
       {
         path: "*",
-        element: <NotFound />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>} >
+            <NotFound />
+          </React.Suspense>
+        ),
       },
     ],
   },

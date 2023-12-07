@@ -4,7 +4,7 @@ import { EventService } from "../../../services/EventService";
 import useSWR from "swr";
 import { useState } from "react";
 import { event } from "../../../types";
-import Card from "../../_coreComponent/card";
+import {MemoizedCard} from "../../_coreComponent/card";
 import { slugify } from "../../_coreComponent/slug";
 
 
@@ -62,7 +62,7 @@ const SearchModal = (props: SearchProps) => {
             {listOpen && (
               <div className="z-10 flex flex-col w-full overflow-auto font-medium text-black rounded-lg gap-y-6 text-text font-raleway ">
                 {filtered?.map((item: event, i: number) => (
-                  <Card
+                  <MemoizedCard
                     key={i}
                     title={item.name}
                     time={`${item.startTime}-${item.endTime}`}

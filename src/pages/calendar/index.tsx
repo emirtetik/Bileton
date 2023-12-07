@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { NavLink, useMatch } from "react-router-dom";
 import { CiCircleList } from "react-icons/ci";
-import Card from "../../components/_coreComponent/card";
+import {MemoizedCard} from "../../components/_coreComponent/card";
 import AosDiv from "../../components/_coreComponent/aosEffect";
 import { EventService } from "../../services/EventService";
 import useSWR from "swr";
@@ -82,7 +82,7 @@ const Calendar = () => {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 gap-x-10">
             {data && data.filter((card:event) => isSameDate(new Date(card.eventDate), selectedDate)).map((card:event, index: number) => (
                 <AosDiv aosType="zoom-in" aosDuration={500}   key={index} >
-                  <Card
+                  <MemoizedCard
                     image={card.image}
                     title={card.name}
                     date={card.eventDate}

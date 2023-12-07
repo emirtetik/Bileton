@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Menu from "./menu";
+import React from "react";
 
-const Header = () => {
+const Header = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -11,6 +12,6 @@ const Header = () => {
       <Menu setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
     </div>
   );
-};
+});
 
 export default Header;
